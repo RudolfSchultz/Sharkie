@@ -1,0 +1,12 @@
+class Character extends MovableObject {
+
+    constructor() {
+        super();
+        this.loadImage("../img/1.Sharkie/1.IDLE/1.png");
+    }
+
+    jump() {
+        console.log("Character is jumping");
+    }
+
+}
