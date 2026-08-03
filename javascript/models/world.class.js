@@ -23,8 +23,13 @@ class World {
         this.ctx.clearRect(0, 0, this.canvas.width, this.canvas.height);
 
         this.addToMap(this.character);
+
         this.enemies.forEach(enemy => {
             this.addToMap(enemy);
+        });
+
+        this.backgroundObjects.forEach(bgo => {
+            this.addToMap(bgo);
         });
 
         let self = this;
