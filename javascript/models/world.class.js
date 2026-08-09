@@ -7,14 +7,14 @@ class World {
         ];
     canvas;
     keyboard;
-    backgroundObjects = [
-        new BackgroundObjects("../img/3. Background/Dark/1.png")
-    ];
+    backgroundObjects = [];
 
     constructor(canvas, keyboard) {
         this.canvas = canvas;
         this.ctx = canvas.getContext("2d");
         this.keyboard = keyboard;
+        this.setWorld();
+        this.createBackgroundObjects();
         this.draw();
         this.runGameLogic();
     }
@@ -22,15 +22,15 @@ class World {
     draw() {
         this.ctx.clearRect(0, 0, this.canvas.width, this.canvas.height);
 
-        this.addToMap(this.character);
+        this.backgroundObjects.forEach(bgo => {
+            this.addToMap(bgo);
+        });
 
         this.enemies.forEach(enemy => {
             this.addToMap(enemy);
         });
 
-        this.backgroundObjects.forEach(bgo => {
-            this.addToMap(bgo);
-        });
+        this.addToMap(this.character);
 
         let self = this;
         requestAnimationFrame(function () {
@@ -38,8 +38,14 @@ class World {
         });
     }
 
-    addToMap(movableObbject){
+    addToMap(movableObbject) {
         this.ctx.drawImage(movableObbject.img, movableObbject.x, movableObbject.y, movableObbject.width, movableObbject.height);
+    }
+
+    createBackgroundObjects() {
+        this.backgroundObjects.push(
+            new BackgroundObjects("../img/3. Background/Dark/1.png", 0, 0, this.canvas.width, this.canvas.height)
+        );
     }
 
     runGameLogic() {
@@ -58,5 +64,14 @@ class World {
 
     moveEnemies() {
         this.enemies.forEach(enemy => enemy.moveLeft());
+    }
+
+    /**
+     * Gives the character a reference to the world so it can access
+     * canvas dimensions and other world data without passing each value manually.
+     */
+    setWorld() {
+        this.character.world = this;
+        this.enemies.forEach(enemy => enemy.world = this);
     }
 }

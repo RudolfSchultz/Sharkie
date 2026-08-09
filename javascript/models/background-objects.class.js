@@ -1,13 +1,11 @@
 class BackgroundObjects extends MovableObject {
-height = world.canvas.height;
-width = world.canvas.width;
-with = 720;
-
-    constructor(imagePath, x, y) {
-        super().loadImage(imagePath);
+    constructor(imagePath, x, y, width, height) {
+        super();
+        this.loadImage(imagePath);
         this.x = x;
-        this.y = y;
-        
+        this.y = y; 
+        this.width = width;
+        this.height = height;
+        console.log (`Background object created at x: ${this.x}, y: ${this.y}, width: ${this.width}, height: ${this.height}`);
     }
-
 }
