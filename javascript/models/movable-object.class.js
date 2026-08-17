@@ -20,30 +20,30 @@ class MovableObject {
         }
     }
 
-        moveLeft() {
-            if (this instanceof Character) {
-                if (this.x > 0) this.x -= this.speed;
-            } else {
-                this.x -= this.speed;
-                if (this.x + this.width < 0) this.respawn();
-            }
-        }
-
-        moveUp() {
-            if (this.y > 0) this.y -= this.speed;
-        }
-
-        moveDown() {
-            if (this.y + this.height < this.world.canvas.height) {
-                this.y += this.speed;
-            }
-        }
-
-        /**
-     * Resets the enemy's position to the right edge with a new random y.
-     */
-        respawn() {
-            this.x = this.world.canvas.width;
-            this.y = Math.random() * 400;
+    moveLeft() {
+        if (this instanceof Character) {
+            if (this.x > 0) this.x -= this.speed;
+        } else {
+            this.x -= this.speed;
+            if (this.x + this.width < 0) this.respawn();
         }
     }
+
+    moveUp() {
+        if (this.y > 0) this.y -= this.speed;
+    }
+
+    moveDown() {
+        if (this.y + this.height < this.world.canvas.height) {
+            this.y += this.speed;
+        }
+    }
+
+    /**
+ * Resets the enemy's position to the right edge with a new random y.
+ */
+    respawn() {
+        this.x = this.world.canvas.width;
+        this.y = Math.random() * 400;
+    }
+}
