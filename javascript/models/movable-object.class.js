@@ -6,8 +6,15 @@ class MovableObject {
     width = 100;
     speed = 2;
     world;
+    imageCache = {};
 
-
+    loadimages(arr) {
+        arr.forEach((path) => {
+            let img = new Image();
+            img.src = path;
+            this.imageCache[path] = path;
+        });
+    }
 
     loadImage(path) {
         this.img = new Image();
