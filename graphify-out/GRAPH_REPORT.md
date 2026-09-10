@@ -9,10 +9,10 @@
 - Token cost: 0 input · 0 output
 
 ## Community Hubs (Navigation)
-- World Game Loop
-- Movable Object Base
-- Character Controller
-- Game Bootstrap
+- World & Game Loop
+- MovableObject Base
+- Character Class
+- Game Bootstrap & Input
 - PufferFish Enemy
 - Background Objects
 - Keyboard Input
