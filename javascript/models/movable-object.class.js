@@ -53,4 +53,19 @@ class MovableObject {
         this.x = this.world.canvas.width;
         this.y = Math.random() * 400;
     }
+
+    animated() {
+        setInterval(() => {
+            let i = this.currentImage % this.currentMovement.length;
+            let path = this.currentMovement[i];
+            this.img = this.imageCache[path];
+            this.currentImage++;
+        }, 100);
+    }
+
+        setCurrentMovement(images) {
+        if (this.currentMovement === images) return;
+        this.currentMovement = images;
+        this.currentImage = 0;
+    }
 }

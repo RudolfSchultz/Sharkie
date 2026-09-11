@@ -25,4 +25,6 @@ function setKeyState(event, state) {
     if (event.key === "ArrowLeft") keyboard.LEFT = state;
     if (event.key === "ArrowUp") keyboard.UP = state;
     if (event.key === "ArrowDown") keyboard.DOWN = state;
+    if (event.key === " ") keyboard.SPACE = state;
+    if (event.key === "a" || event.key === "A") keyboard.A = state;
 }
