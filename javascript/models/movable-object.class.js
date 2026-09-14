@@ -7,6 +7,8 @@ class MovableObject {
     speed = 2;
     world;
     imageCache = {};
+    otherDirection = false;
+    
 
     loadimages(arr) {
         arr.forEach((path) => {
@@ -24,12 +26,15 @@ class MovableObject {
     moveRight() {
         if (this.x + this.width < this.world.canvas.width) {
             this.x += this.speed;
+            this.otherDirection = false;
         }
     }
 
     moveLeft() {
         if (this instanceof Character) {
             if (this.x > 0) this.x -= this.speed;
+            this.otherDirection = true;
+
         } else {
             this.x -= this.speed;
             if (this.x + this.width < 0) this.respawn();

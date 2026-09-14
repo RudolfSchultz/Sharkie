@@ -39,7 +39,17 @@ class World {
     }
 
     addToMap(movableObbject) {
+        if (movableObbject.otherDirection) {
+            this.ctx.save();
+            this.ctx.translate(movableObbject.width, 0);
+            this.ctx.scale(-1, 1);
+            movableObbject.x = movableObbject.x * -1;
+        }
         this.ctx.drawImage(movableObbject.img, movableObbject.x, movableObbject.y, movableObbject.width, movableObbject.height);
+        if (movableObbject.otherDirection) {
+            movableObbject.x = movableObbject.x * -1;
+            this.ctx.restore();
+        }
     }
 
     createBackgroundObjects() {
