@@ -1,1 +1,12 @@
-{"0": "World & Game Loop", "1": "MovableObject Base", "2": "Character Class", "3": "Game Bootstrap & Input", "4": "PufferFish Enemy", "5": "Background Objects", "6": "Keyboard Input"}
+{
+  "0": "World",
+  "1": "MovableObject",
+  "2": "game.js",
+  "3": "Character",
+  "4": "PufferFish",
+  "5": "BackgroundObjects",
+  "6": "CLAUDE.md",
+  "7": "keyboard.class.js",
+  "8": ".respawn",
+  "9": ".animated"
+}

@@ -52,10 +52,15 @@ class MovableObject {
     respawn() {
         this.x = this.world.canvas.width;
         this.y = Math.random() * 400;
+        this.onRespawn();
     }
+
+    onRespawn() { }   // no-op Default
+
 
     animated() {
         setInterval(() => {
+            this.updateState();
             let i = this.currentImage % this.currentMovement.length;
             let path = this.currentMovement[i];
             this.img = this.imageCache[path];
@@ -63,7 +68,13 @@ class MovableObject {
         }, 100);
     }
 
-        setCurrentMovement(images) {
+    updateState() { }   // no-op Default
+
+    randomVariant(variants) {
+        return variants[Math.floor(Math.random() * variants.length)];
+    }
+
+    setCurrentMovement(images) {
         if (this.currentMovement === images) return;
         this.currentMovement = images;
         this.currentImage = 0;

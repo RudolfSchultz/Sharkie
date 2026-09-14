@@ -102,6 +102,7 @@ class Character extends MovableObject {
 
     currentImage = 0;
     currentMovement;
+    world;
 
 
     constructor() {
@@ -122,8 +123,20 @@ class Character extends MovableObject {
         this.loadimages(this.Images_Dead_by_Shock);
     }
 
-    jump() {
-        console.log("Character is jumping");
+    updateState() {
+    this.whichMovement();
+    }
+
+    whichMovement() {
+       if (this.world.keyboard.RIGHT || this.world.keyboard.LEFT || this.world.keyboard.UP || this.world.keyboard.DOWN) {
+            this.setCurrentMovement(this.Images_Swimming);
+        }
+        else if (this.world.keyboard.A) {
+            this.setCurrentMovement(this.Images_Attack_Slap);
+        }
+        else {
+            this.setCurrentMovement(this.Images_Idle);
+        }
     }
 
 }

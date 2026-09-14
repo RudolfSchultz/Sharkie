@@ -1,30 +1,39 @@
-# Graph Report - javascript  (2026-09-10)
+# Graph Report - Sharkie  (2026-09-14)
 
 ## Corpus Check
-- Corpus is ~564 words - fits in a single context window. You may not need a graph.
+- 9 files · ~2,478,652 words
+- Verdict: corpus is large enough that graph structure adds value.
 
 ## Summary
-- 37 nodes · 38 edges · 7 communities (0 shown, 7 thin omitted)
+- 49 nodes · 56 edges · 10 communities (0 shown, 8 thin omitted)
 - Extraction: 100% EXTRACTED · 0% INFERRED · 0% AMBIGUOUS
 - Token cost: 0 input · 0 output
 
+## Graph Freshness
+- Built from commit: `a52f1649`
+- Run `git rev-parse HEAD` and compare to check if the graph is stale.
+- Run `graphify update .` after code changes (no API cost).
+
 ## Community Hubs (Navigation)
-- World & Game Loop
-- MovableObject Base
-- Character Class
-- Game Bootstrap & Input
-- PufferFish Enemy
-- Background Objects
-- Keyboard Input
+- World
+- MovableObject
+- game.js
+- Character
+- PufferFish
+- BackgroundObjects
+- CLAUDE.md
+- keyboard.class.js
 
 ## God Nodes (most connected - your core abstractions)
-1. `World` - 9 edges
-2. `MovableObject` - 8 edges
-3. `Character` - 4 edges
-4. `PufferFish` - 3 edges
+1. `MovableObject` - 13 edges
+2. `World` - 9 edges
+3. `PufferFish` - 6 edges
+4. `Character` - 5 edges
 5. `BackgroundObjects` - 2 edges
 6. `keyboard` - 1 edges
-7. `Keyboard` - 1 edges
+7. `keyMap` - 1 edges
+8. `Keyboard` - 1 edges
+9. `graphify` - 1 edges
 
 ## Surprising Connections (you probably didn't know these)
 - None detected - all connections are within the same source files.
@@ -32,15 +41,17 @@
 ## Import Cycles
 - None detected.
 
-## Communities (7 total, 7 thin omitted)
+## Communities (10 total, 8 thin omitted)
 
 ## Knowledge Gaps
-- **2 isolated node(s):** `keyboard`, `Keyboard`
+- **4 isolated node(s):** `keyboard`, `keyMap`, `Keyboard`, `graphify`
   These have ≤1 connection - possible missing edges or undocumented components. (Counts symbols only; 21 node(s) total have ≤1 connection when file, concept and rationale nodes are included.)
-- **7 thin communities (<3 nodes) omitted from report** — run `graphify query` to explore isolated nodes.
+- **8 thin communities (<3 nodes) omitted from report** — run `graphify query` to explore isolated nodes.
 
 ## Suggested Questions
 _Questions this graph is uniquely positioned to answer:_
 
-- **What connects `keyboard`, `Keyboard` to the rest of the system?**
-  _2 weakly-connected nodes found - possible documentation gaps or missing edges._
+- **Why does `MovableObject` connect `MovableObject` to `.respawn`, `.animated`?**
+  _High betweenness centrality (0.066) - this node is a cross-community bridge._
+- **What connects `keyboard`, `keyMap`, `Keyboard` to the rest of the system?**
+  _4 weakly-connected nodes found - possible documentation gaps or missing edges._
