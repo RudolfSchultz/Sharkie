@@ -115,7 +115,7 @@
       "file_type": "code",
       "norm_label": ".createbackgroundobjects()",
       "source_file": "javascript/models/world.class.js",
-      "source_location": "L45"
+      "source_location": "L55"
     },
     {
       "id": "javascript_models_world_class_world_draw",
@@ -139,7 +139,7 @@
       "file_type": "code",
       "norm_label": ".movecharacter()",
       "source_file": "javascript/models/world.class.js",
-      "source_location": "L58"
+      "source_location": "L68"
     },
     {
       "id": "javascript_models_world_class_world_moveenemies",
@@ -151,7 +151,7 @@
       "file_type": "code",
       "norm_label": ".moveenemies()",
       "source_file": "javascript/models/world.class.js",
-      "source_location": "L65"
+      "source_location": "L75"
     },
     {
       "id": "javascript_models_world_class_world_rungamelogic",
@@ -163,7 +163,7 @@
       "file_type": "code",
       "norm_label": ".rungamelogic()",
       "source_file": "javascript/models/world.class.js",
-      "source_location": "L51"
+      "source_location": "L61"
     },
     {
       "id": "javascript_models_world_class_world_setworld",
@@ -175,7 +175,7 @@
       "file_type": "code",
       "norm_label": ".setworld()",
       "source_file": "javascript/models/world.class.js",
-      "source_location": "L73"
+      "source_location": "L83"
     },
     {
       "id": "javascript_models_movable_object_class_movableobject_loadimage",
@@ -187,7 +187,7 @@
       "file_type": "code",
       "norm_label": ".loadimage()",
       "source_file": "javascript/models/movable-object.class.js",
-      "source_location": "L19"
+      "source_location": "L21"
     },
     {
       "id": "javascript_models_movable_object_class_movableobject_loadimages",
@@ -199,7 +199,7 @@
       "file_type": "code",
       "norm_label": ".loadimages()",
       "source_file": "javascript/models/movable-object.class.js",
-      "source_location": "L11"
+      "source_location": "L13"
     },
     {
       "id": "javascript_models_movable_object_class_movableobject_movedown",
@@ -211,7 +211,7 @@
       "file_type": "code",
       "norm_label": ".movedown()",
       "source_file": "javascript/models/movable-object.class.js",
-      "source_location": "L43"
+      "source_location": "L48"
     },
     {
       "id": "javascript_models_movable_object_class_movableobject_moveright",
@@ -223,7 +223,7 @@
       "file_type": "code",
       "norm_label": ".moveright()",
       "source_file": "javascript/models/movable-object.class.js",
-      "source_location": "L24"
+      "source_location": "L26"
     },
     {
       "id": "javascript_models_movable_object_class_movableobject_moveup",
@@ -235,7 +235,7 @@
       "file_type": "code",
       "norm_label": ".moveup()",
       "source_file": "javascript/models/movable-object.class.js",
-      "source_location": "L39"
+      "source_location": "L44"
     },
     {
       "id": "javascript_models_movable_object_class_movableobject_randomvariant",
@@ -247,7 +247,7 @@
       "file_type": "code",
       "norm_label": ".randomvariant()",
       "source_file": "javascript/models/movable-object.class.js",
-      "source_location": "L73"
+      "source_location": "L78"
     },
     {
       "id": "javascript_models_movable_object_class_movableobject_setcurrentmovement",
@@ -259,7 +259,7 @@
       "file_type": "code",
       "norm_label": ".setcurrentmovement()",
       "source_file": "javascript/models/movable-object.class.js",
-      "source_location": "L77"
+      "source_location": "L82"
     },
     {
       "id": "javascript_game_init",
@@ -415,7 +415,7 @@
       "file_type": "code",
       "norm_label": ".moveleft()",
       "source_file": "javascript/models/movable-object.class.js",
-      "source_location": "L30"
+      "source_location": "L33"
     },
     {
       "id": "javascript_models_movable_object_class_movableobject_onrespawn",
@@ -427,7 +427,7 @@
       "file_type": "code",
       "norm_label": ".onrespawn()",
       "source_file": "javascript/models/movable-object.class.js",
-      "source_location": "L58"
+      "source_location": "L63"
     },
     {
       "id": "javascript_models_movable_object_class_movableobject_respawn",
@@ -439,7 +439,7 @@
       "file_type": "code",
       "norm_label": ".respawn()",
       "source_file": "javascript/models/movable-object.class.js",
-      "source_location": "L52"
+      "source_location": "L57"
     },
     {
       "id": "javascript_models_movable_object_class_movableobject_animated",
@@ -451,7 +451,7 @@
       "file_type": "code",
       "norm_label": ".animated()",
       "source_file": "javascript/models/movable-object.class.js",
-      "source_location": "L61"
+      "source_location": "L66"
     },
     {
       "id": "javascript_models_movable_object_class_movableobject_updatestate",
@@ -463,7 +463,7 @@
       "file_type": "code",
       "norm_label": ".updatestate()",
       "source_file": "javascript/models/movable-object.class.js",
-      "source_location": "L71"
+      "source_location": "L76"
     },
     {
       "id": "javascript_models_world_class",
@@ -623,7 +623,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "javascript/models/movable-object.class.js",
-      "source_location": "L63",
+      "source_location": "L68",
       "weight": 1.0
     },
     {
@@ -635,7 +635,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "javascript/models/movable-object.class.js",
-      "source_location": "L35",
+      "source_location": "L40",
       "weight": 1.0
     },
     {
@@ -647,19 +647,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "javascript/models/movable-object.class.js",
-      "source_location": "L55",
-      "weight": 1.0
-    },
-    {
-      "source": "javascript_models_pufferfish_class_pufferfish_constructor",
-      "target": "javascript_models_pufferfish_class_pufferfish_onrespawn",
-      "relation": "calls",
-      "_origin": "ast",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "context": "call",
-      "source_file": "javascript/models/pufferfish.class.js",
-      "source_location": "L38",
+      "source_location": "L60",
       "weight": 1.0
     },
     {
@@ -672,6 +660,18 @@
       "context": "call",
       "source_file": "javascript/models/pufferfish.class.js",
       "source_location": "L37",
+      "weight": 1.0
+    },
+    {
+      "source": "javascript_models_pufferfish_class_pufferfish_constructor",
+      "target": "javascript_models_pufferfish_class_pufferfish_onrespawn",
+      "relation": "calls",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "call",
+      "source_file": "javascript/models/pufferfish.class.js",
+      "source_location": "L38",
       "weight": 1.0
     },
     {
@@ -755,7 +755,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "javascript/models/world.class.js",
-      "source_location": "L53",
+      "source_location": "L63",
       "weight": 1.0
     },
     {
@@ -767,7 +767,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "javascript/models/world.class.js",
-      "source_location": "L54",
+      "source_location": "L64",
       "weight": 1.0
     },
     {
@@ -954,7 +954,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "javascript/models/movable-object.class.js",
-      "source_location": "L11",
+      "source_location": "L13",
       "weight": 1.0
     },
     {
@@ -965,7 +965,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "javascript/models/movable-object.class.js",
-      "source_location": "L19",
+      "source_location": "L21",
       "weight": 1.0
     },
     {
@@ -976,7 +976,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "javascript/models/movable-object.class.js",
-      "source_location": "L24",
+      "source_location": "L26",
       "weight": 1.0
     },
     {
@@ -987,7 +987,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "javascript/models/movable-object.class.js",
-      "source_location": "L30",
+      "source_location": "L33",
       "weight": 1.0
     },
     {
@@ -998,7 +998,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "javascript/models/movable-object.class.js",
-      "source_location": "L39",
+      "source_location": "L44",
       "weight": 1.0
     },
     {
@@ -1009,7 +1009,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "javascript/models/movable-object.class.js",
-      "source_location": "L43",
+      "source_location": "L48",
       "weight": 1.0
     },
     {
@@ -1020,7 +1020,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "javascript/models/movable-object.class.js",
-      "source_location": "L52",
+      "source_location": "L57",
       "weight": 1.0
     },
     {
@@ -1031,7 +1031,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "javascript/models/movable-object.class.js",
-      "source_location": "L58",
+      "source_location": "L63",
       "weight": 1.0
     },
     {
@@ -1042,7 +1042,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "javascript/models/movable-object.class.js",
-      "source_location": "L61",
+      "source_location": "L66",
       "weight": 1.0
     },
     {
@@ -1053,7 +1053,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "javascript/models/movable-object.class.js",
-      "source_location": "L71",
+      "source_location": "L76",
       "weight": 1.0
     },
     {
@@ -1064,7 +1064,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "javascript/models/movable-object.class.js",
-      "source_location": "L73",
+      "source_location": "L78",
       "weight": 1.0
     },
     {
@@ -1075,7 +1075,29 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "javascript/models/movable-object.class.js",
-      "source_location": "L77",
+      "source_location": "L82",
+      "weight": 1.0
+    },
+    {
+      "source": "javascript_models_pufferfish_class_pufferfish",
+      "target": "javascript_models_pufferfish_class_pufferfish_constructor",
+      "relation": "method",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "javascript/models/pufferfish.class.js",
+      "source_location": "L31",
+      "weight": 1.0
+    },
+    {
+      "source": "javascript_models_pufferfish_class_pufferfish",
+      "target": "javascript_models_pufferfish_class_pufferfish_loadallimages",
+      "relation": "method",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "javascript/models/pufferfish.class.js",
+      "source_location": "L42",
       "weight": 1.0
     },
     {
@@ -1109,28 +1131,6 @@
       "confidence_score": 1.0,
       "source_file": "javascript/models/pufferfish.class.js",
       "source_location": "L56",
-      "weight": 1.0
-    },
-    {
-      "source": "javascript_models_pufferfish_class_pufferfish",
-      "target": "javascript_models_pufferfish_class_pufferfish_constructor",
-      "relation": "method",
-      "_origin": "ast",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "javascript/models/pufferfish.class.js",
-      "source_location": "L31",
-      "weight": 1.0
-    },
-    {
-      "source": "javascript_models_pufferfish_class_pufferfish",
-      "target": "javascript_models_pufferfish_class_pufferfish_loadallimages",
-      "relation": "method",
-      "_origin": "ast",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "javascript/models/pufferfish.class.js",
-      "source_location": "L42",
       "weight": 1.0
     },
     {
@@ -1174,7 +1174,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "javascript/models/world.class.js",
-      "source_location": "L45",
+      "source_location": "L55",
       "weight": 1.0
     },
     {
@@ -1185,7 +1185,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "javascript/models/world.class.js",
-      "source_location": "L51",
+      "source_location": "L61",
       "weight": 1.0
     },
     {
@@ -1196,7 +1196,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "javascript/models/world.class.js",
-      "source_location": "L58",
+      "source_location": "L68",
       "weight": 1.0
     },
     {
@@ -1207,7 +1207,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "javascript/models/world.class.js",
-      "source_location": "L65",
+      "source_location": "L75",
       "weight": 1.0
     },
     {
@@ -1218,10 +1218,10 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "javascript/models/world.class.js",
-      "source_location": "L73",
+      "source_location": "L83",
       "weight": 1.0
     }
   ],
   "hyperedges": [],
-  "built_at_commit": "a52f164902e98406b7dab2eeebb385770397d0f4"
+  "built_at_commit": "97ea7237069097851f68076e93129cbe7560a713"
 }

@@ -52,7 +52,7 @@
       "community_name": "PufferFish",
       "file_type": "code",
       "norm_label": "pufferfish",
-      "source_file": "javascript/models/PufferFish.class.js",
+      "source_file": "javascript/models/pufferfish.class.js",
       "source_location": "L1"
     },
     {
@@ -342,20 +342,8 @@
       "community_name": "PufferFish",
       "file_type": "code",
       "norm_label": ".constructor()",
-      "source_file": "javascript/models/PufferFish.class.js",
-      "source_location": "L31"
-    },
-    {
-      "id": "javascript_models_pufferfish_class_pufferfish_jump",
-      "label": ".jump()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 4,
-      "community_name": "PufferFish",
-      "file_type": "code",
-      "norm_label": ".jump()",
       "source_file": "javascript/models/pufferfish.class.js",
-      "source_location": "L48"
+      "source_location": "L31"
     },
     {
       "id": "javascript_models_pufferfish_class_pufferfish_loadallimages",
@@ -366,7 +354,7 @@
       "community_name": "PufferFish",
       "file_type": "code",
       "norm_label": ".loadallimages()",
-      "source_file": "javascript/models/PufferFish.class.js",
+      "source_file": "javascript/models/pufferfish.class.js",
       "source_location": "L42"
     },
     {
@@ -378,7 +366,7 @@
       "community_name": "PufferFish",
       "file_type": "code",
       "norm_label": ".onrespawn()",
-      "source_file": "javascript/models/PufferFish.class.js",
+      "source_file": "javascript/models/pufferfish.class.js",
       "source_location": "L48"
     },
     {
@@ -390,7 +378,7 @@
       "community_name": "PufferFish",
       "file_type": "code",
       "norm_label": ".updatestate()",
-      "source_file": "javascript/models/PufferFish.class.js",
+      "source_file": "javascript/models/pufferfish.class.js",
       "source_location": "L52"
     },
     {
@@ -402,7 +390,7 @@
       "community_name": "PufferFish",
       "file_type": "code",
       "norm_label": ".whichmovement()",
-      "source_file": "javascript/models/PufferFish.class.js",
+      "source_file": "javascript/models/pufferfish.class.js",
       "source_location": "L56"
     },
     {
@@ -545,13 +533,13 @@
     },
     {
       "id": "javascript_models_pufferfish_class",
-      "label": "PufferFish.class.js",
+      "label": "pufferfish.class.js",
       "_origin": "ast",
       "community": 4,
       "community_name": "PufferFish",
       "file_type": "code",
       "norm_label": "pufferfish.class.js",
-      "source_file": "javascript/models/PufferFish.class.js",
+      "source_file": "javascript/models/pufferfish.class.js",
       "source_location": "L1"
     },
     {
@@ -670,7 +658,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "context": "call",
-      "source_file": "javascript/models/PufferFish.class.js",
+      "source_file": "javascript/models/pufferfish.class.js",
       "source_location": "L38",
       "weight": 1.0
     },
@@ -694,7 +682,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "context": "call",
-      "source_file": "javascript/models/PufferFish.class.js",
+      "source_file": "javascript/models/pufferfish.class.js",
       "source_location": "L53",
       "weight": 1.0
     },
@@ -1097,7 +1085,7 @@
       "_origin": "ast",
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
-      "source_file": "javascript/models/PufferFish.class.js",
+      "source_file": "javascript/models/pufferfish.class.js",
       "source_location": "L48",
       "weight": 1.0
     },
@@ -1108,7 +1096,7 @@
       "_origin": "ast",
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
-      "source_file": "javascript/models/PufferFish.class.js",
+      "source_file": "javascript/models/pufferfish.class.js",
       "source_location": "L52",
       "weight": 1.0
     },
@@ -1119,7 +1107,7 @@
       "_origin": "ast",
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
-      "source_file": "javascript/models/PufferFish.class.js",
+      "source_file": "javascript/models/pufferfish.class.js",
       "source_location": "L56",
       "weight": 1.0
     },
@@ -1143,17 +1131,6 @@
       "confidence_score": 1.0,
       "source_file": "javascript/models/pufferfish.class.js",
       "source_location": "L42",
-      "weight": 1.0
-    },
-    {
-      "source": "javascript_models_pufferfish_class_pufferfish",
-      "target": "javascript_models_pufferfish_class_pufferfish_jump",
-      "relation": "method",
-      "_origin": "ast",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "javascript/models/pufferfish.class.js",
-      "source_location": "L48",
       "weight": 1.0
     },
     {

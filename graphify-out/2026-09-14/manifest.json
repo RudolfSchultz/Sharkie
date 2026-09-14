@@ -36,9 +36,9 @@
     "semantic_hash": ""
   },
   "javascript/models/pufferfish.class.js": {
-    "mtime": 1789379268.162881,
-    "seen": 1789381560.4356382,
-    "ast_hash": "b0fac93ea07c25effa2daca2af0805da",
+    "mtime": 1789396130.755989,
+    "seen": 1789396389.6118896,
+    "ast_hash": "d2e8a2d03834b41c4ed27e6e0dfba61c",
     "semantic_hash": ""
   },
   "javascript/models/world.class.js": {
@@ -1451,49 +1451,49 @@
     "ast_hash": "f1fb94e7516ffa3e8298264884e0dd48",
     "semantic_hash": ""
   },
-  "img/2.Enemy/2 Jelly fish/S\u00faper dangerous/Green 1.png": {
+  "img/2.Enemy/2 Jelly fish/Súper dangerous/Green 1.png": {
     "mtime": 1785580136.3139398,
     "seen": 1789381560.4361377,
     "ast_hash": "ee2218f06283e7c7845e3ee618af0591",
     "semantic_hash": ""
   },
-  "img/2.Enemy/2 Jelly fish/S\u00faper dangerous/Green 2.png": {
+  "img/2.Enemy/2 Jelly fish/Súper dangerous/Green 2.png": {
     "mtime": 1785580136.3309639,
     "seen": 1789381560.4361377,
     "ast_hash": "fac338fecfcb0dc0f7047e3131448d3e",
     "semantic_hash": ""
   },
-  "img/2.Enemy/2 Jelly fish/S\u00faper dangerous/Green 3.png": {
+  "img/2.Enemy/2 Jelly fish/Súper dangerous/Green 3.png": {
     "mtime": 1785580136.3499882,
     "seen": 1789381560.4361377,
     "ast_hash": "1aa4041697f77a6e78d5704533853f4e",
     "semantic_hash": ""
   },
-  "img/2.Enemy/2 Jelly fish/S\u00faper dangerous/Green 4.png": {
+  "img/2.Enemy/2 Jelly fish/Súper dangerous/Green 4.png": {
     "mtime": 1785580136.3680048,
     "seen": 1789381560.4361377,
     "ast_hash": "cce1fd0055f1e00d0f58871e04b1b410",
     "semantic_hash": ""
   },
-  "img/2.Enemy/2 Jelly fish/S\u00faper dangerous/Pink 1.png": {
+  "img/2.Enemy/2 Jelly fish/Súper dangerous/Pink 1.png": {
     "mtime": 1785580136.3844504,
     "seen": 1789381560.4361377,
     "ast_hash": "d99fb4276561ea72792c4451042b1d2a",
     "semantic_hash": ""
   },
-  "img/2.Enemy/2 Jelly fish/S\u00faper dangerous/Pink 2.png": {
+  "img/2.Enemy/2 Jelly fish/Súper dangerous/Pink 2.png": {
     "mtime": 1785580136.4035802,
     "seen": 1789381560.4361377,
     "ast_hash": "116156952ea4dde83247bba6fe4002ed",
     "semantic_hash": ""
   },
-  "img/2.Enemy/2 Jelly fish/S\u00faper dangerous/Pink 3.png": {
+  "img/2.Enemy/2 Jelly fish/Súper dangerous/Pink 3.png": {
     "mtime": 1785580136.42061,
     "seen": 1789381560.4361377,
     "ast_hash": "d759a724f5534aa10e7003dc77ba322e",
     "semantic_hash": ""
   },
-  "img/2.Enemy/2 Jelly fish/S\u00faper dangerous/Pink 4.png": {
+  "img/2.Enemy/2 Jelly fish/Súper dangerous/Pink 4.png": {
     "mtime": 1785580136.4392278,
     "seen": 1789381560.4361377,
     "ast_hash": "f361e26f73ba814e0dfd685bb0924946",
@@ -2183,73 +2183,73 @@
     "ast_hash": "acd765a6d7b51661f146797457edfc31",
     "semantic_hash": ""
   },
-  "img/4. Marcadores/Posi\u00f3n/Animada/1.png": {
+  "img/4. Marcadores/Posión/Animada/1.png": {
     "mtime": 1785580139.643037,
     "seen": 1789381560.4361377,
     "ast_hash": "75b0f82d73f5f090b8e798c35f10736c",
     "semantic_hash": ""
   },
-  "img/4. Marcadores/Posi\u00f3n/Animada/2.png": {
+  "img/4. Marcadores/Posión/Animada/2.png": {
     "mtime": 1785580139.6590595,
     "seen": 1789381560.4361377,
     "ast_hash": "6643c231d97a1ff3be9c6fb97dbaa3d1",
     "semantic_hash": ""
   },
-  "img/4. Marcadores/Posi\u00f3n/Animada/3.png": {
+  "img/4. Marcadores/Posión/Animada/3.png": {
     "mtime": 1785580139.676904,
     "seen": 1789381560.4361377,
     "ast_hash": "227cf2e5e78166e86ab9fc3835cabe68",
     "semantic_hash": ""
   },
-  "img/4. Marcadores/Posi\u00f3n/Animada/4.png": {
+  "img/4. Marcadores/Posión/Animada/4.png": {
     "mtime": 1785580139.6929243,
     "seen": 1789381560.4361377,
     "ast_hash": "27d494b9318b21b8fc4f172dff1a7237",
     "semantic_hash": ""
   },
-  "img/4. Marcadores/Posi\u00f3n/Animada/5.png": {
+  "img/4. Marcadores/Posión/Animada/5.png": {
     "mtime": 1785580139.709449,
     "seen": 1789381560.4361377,
     "ast_hash": "7cb60011cebda2d471d053f53826fee8",
     "semantic_hash": ""
   },
-  "img/4. Marcadores/Posi\u00f3n/Animada/6.png": {
+  "img/4. Marcadores/Posión/Animada/6.png": {
     "mtime": 1785580139.7264674,
     "seen": 1789381560.4361377,
     "ast_hash": "c4c84a31a984e557cc46a15165c60a8a",
     "semantic_hash": ""
   },
-  "img/4. Marcadores/Posi\u00f3n/Animada/7.png": {
+  "img/4. Marcadores/Posión/Animada/7.png": {
     "mtime": 1785580139.7431831,
     "seen": 1789381560.4361377,
     "ast_hash": "227cf2e5e78166e86ab9fc3835cabe68",
     "semantic_hash": ""
   },
-  "img/4. Marcadores/Posi\u00f3n/Animada/8.png": {
+  "img/4. Marcadores/Posión/Animada/8.png": {
     "mtime": 1785580139.7592258,
     "seen": 1789381560.4361377,
     "ast_hash": "00100d188e6fc7c12d24806a6a6b53bc",
     "semantic_hash": ""
   },
-  "img/4. Marcadores/Posi\u00f3n/Dark - Left.png": {
+  "img/4. Marcadores/Posión/Dark - Left.png": {
     "mtime": 1785580139.5749204,
     "seen": 1789381560.4361377,
     "ast_hash": "386fbf093d1e67621934868639c1303e",
     "semantic_hash": ""
   },
-  "img/4. Marcadores/Posi\u00f3n/Dark - Right.png": {
+  "img/4. Marcadores/Posión/Dark - Right.png": {
     "mtime": 1785580139.590447,
     "seen": 1789381560.4361377,
     "ast_hash": "a544f3704cc13ddac4fb10a92cec602d",
     "semantic_hash": ""
   },
-  "img/4. Marcadores/Posi\u00f3n/Light - Left.png": {
+  "img/4. Marcadores/Posión/Light - Left.png": {
     "mtime": 1785580139.6074412,
     "seen": 1789381560.4361377,
     "ast_hash": "5cb658529cfc4d15204d9bfa06aaf77c",
     "semantic_hash": ""
   },
-  "img/4. Marcadores/Posi\u00f3n/Light - Right.png": {
+  "img/4. Marcadores/Posión/Light - Right.png": {
     "mtime": 1785580139.6230185,
     "seen": 1789381560.4361377,
     "ast_hash": "a797b4c69b42bac06cbb7505c2c25953",
@@ -2799,12 +2799,6 @@
     "mtime": 1785580140.6659641,
     "seen": 1789381560.4361377,
     "ast_hash": "a0f9fdbf8165a867eb626c4a4fc1f537",
-    "semantic_hash": ""
-  },
-  "javascript/models/PufferFish.class.js": {
-    "mtime": 1789396130.755989,
-    "seen": 1789396139.2600718,
-    "ast_hash": "d2e8a2d03834b41c4ed27e6e0dfba61c",
     "semantic_hash": ""
   }
 }

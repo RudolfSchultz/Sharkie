@@ -5,7 +5,7 @@
 - Verdict: corpus is large enough that graph structure adds value.
 
 ## Summary
-- 50 nodes · 57 edges · 10 communities (0 shown, 8 thin omitted)
+- 49 nodes · 56 edges · 10 communities (0 shown, 8 thin omitted)
 - Extraction: 100% EXTRACTED · 0% INFERRED · 0% AMBIGUOUS
 - Token cost: 0 input · 0 output
 
@@ -27,7 +27,7 @@
 ## God Nodes (most connected - your core abstractions)
 1. `MovableObject` - 13 edges
 2. `World` - 9 edges
-3. `PufferFish` - 7 edges
+3. `PufferFish` - 6 edges
 4. `Character` - 5 edges
 5. `BackgroundObjects` - 2 edges
 6. `keyboard` - 1 edges
@@ -45,13 +45,13 @@
 
 ## Knowledge Gaps
 - **4 isolated node(s):** `keyboard`, `keyMap`, `Keyboard`, `graphify`
-  These have ≤1 connection - possible missing edges or undocumented components. (Counts symbols only; 22 node(s) total have ≤1 connection when file, concept and rationale nodes are included.)
+  These have ≤1 connection - possible missing edges or undocumented components. (Counts symbols only; 21 node(s) total have ≤1 connection when file, concept and rationale nodes are included.)
 - **8 thin communities (<3 nodes) omitted from report** — run `graphify query` to explore isolated nodes.
 
 ## Suggested Questions
 _Questions this graph is uniquely positioned to answer:_
 
 - **Why does `MovableObject` connect `MovableObject` to `.respawn`, `.animated`?**
-  _High betweenness centrality (0.063) - this node is a cross-community bridge._
+  _High betweenness centrality (0.066) - this node is a cross-community bridge._
 - **What connects `keyboard`, `keyMap`, `Keyboard` to the rest of the system?**
   _4 weakly-connected nodes found - possible documentation gaps or missing edges._
