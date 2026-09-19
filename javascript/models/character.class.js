@@ -124,11 +124,11 @@ class Character extends MovableObject {
     }
 
     updateState() {
-    this.whichMovement();
+        this.whichMovement();
     }
 
     whichMovement() {
-       if (this.world.keyboard.RIGHT || this.world.keyboard.LEFT || this.world.keyboard.UP || this.world.keyboard.DOWN) {
+        if (this.world.keyboard.RIGHT || this.world.keyboard.LEFT || this.world.keyboard.UP || this.world.keyboard.DOWN) {
             this.setCurrentMovement(this.Images_Swimming);
         }
         else if (this.world.keyboard.A) {
@@ -137,6 +137,10 @@ class Character extends MovableObject {
         else {
             this.setCurrentMovement(this.Images_Idle);
         }
+    }
+
+    moveCamera() {
+        this.world.kamera_x = -this.x;
     }
 
 }

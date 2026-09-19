@@ -8,6 +8,7 @@ class World {
     canvas;
     keyboard;
     backgroundObjects = [];
+    kamera_x = 0;
 
     constructor(canvas, keyboard) {
         this.canvas = canvas;
@@ -22,6 +23,8 @@ class World {
     draw() {
         this.ctx.clearRect(0, 0, this.canvas.width, this.canvas.height);
 
+        this.ctx.translate(this.kamera_x, 0);
+
         this.backgroundObjects.forEach(bgo => {
             this.addToMap(bgo);
         });
@@ -31,6 +34,8 @@ class World {
         });
 
         this.addToMap(this.character);
+
+        this.ctx.translate(-this.kamera_x, 0);
 
         let self = this;
         requestAnimationFrame(function () {
@@ -70,6 +75,7 @@ class World {
         if (this.keyboard.UP) this.character.moveUp();
         if (this.keyboard.DOWN) this.character.moveDown();
         if (this.keyboard.LEFT) this.character.moveLeft();
+        this.character.moveCamera(); 
     }
 
     moveEnemies() {
