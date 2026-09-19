@@ -1,0 +1,10 @@
+const level1 = new Level(
+    [
+        new PufferFish(),
+        new PufferFish(),
+        new PufferFish(),
+    ],
+    [
+        new BackgroundObjects("../img/3. Background/Dark/1.png", 0, 0),
+        new BackgroundObjects("../img/3. Background/Dark/2.png", 719, 0),
+    ])

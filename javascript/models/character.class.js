@@ -103,6 +103,9 @@ class Character extends MovableObject {
     currentImage = 0;
     currentMovement;
     world;
+    idleSince = null;
+    static LONG_IDLE_DELAY_MS = 2 * 60 * 1000;  
+
 
 
     constructor() {
@@ -129,12 +132,18 @@ class Character extends MovableObject {
 
     whichMovement() {
         if (this.world.keyboard.RIGHT || this.world.keyboard.LEFT || this.world.keyboard.UP || this.world.keyboard.DOWN) {
+            this.idleSince = null;
             this.setCurrentMovement(this.Images_Swimming);
         }
         else if (this.world.keyboard.A) {
+            this.idleSince = null;
             this.setCurrentMovement(this.Images_Attack_Slap);
         }
+        else if (this.idleSince !== null && Date.now() - this.idleSince >= Character.LONG_IDLE_DELAY_MS) {
+            this.setCurrentMovement(this.Images_Long_Idle);
+        }
         else {
+            if (this.idleSince === null) this.idleSince = Date.now();
             this.setCurrentMovement(this.Images_Idle);
         }
     }

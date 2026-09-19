@@ -24,7 +24,7 @@ class MovableObject {
     }
 
     moveRight() {
-        if (this.x + this.width < this.world.canvas.width) {
+        if (this.x + this.width < this.world.level.level_end_x) {
             this.x += this.speed;
             this.otherDirection = false;
         }
@@ -55,7 +55,7 @@ class MovableObject {
  * Resets the enemy's position to the right edge with a new random y.
  */
     respawn() {
-        this.x = this.world.canvas.width;
+        this.x = -this.world.kamera_x + this.world.canvas.width;
         this.y = Math.random() * 400;
         this.onRespawn();
     }

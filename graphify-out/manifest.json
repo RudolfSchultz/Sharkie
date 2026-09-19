@@ -12,15 +12,15 @@
     "semantic_hash": ""
   },
   "javascript/models/background-objects.class.js": {
-    "mtime": 1789379268.1603642,
-    "seen": 1789381560.4356382,
-    "ast_hash": "28e72e0e2dec51a1b789d19f336cbb6a",
+    "mtime": 1789858511.5194495,
+    "seen": 1789858524.5782342,
+    "ast_hash": "875ac5f067d14fb4885ea447fe3877d2",
     "semantic_hash": ""
   },
   "javascript/models/character.class.js": {
-    "mtime": 1789389914.7317314,
-    "seen": 1789396139.2600718,
-    "ast_hash": "681337bea45323f822f1a5aa3febda82",
+    "mtime": 1789856588.5266964,
+    "seen": 1789857085.9710395,
+    "ast_hash": "294453cfc2c465e338a3379920cb6287",
     "semantic_hash": ""
   },
   "javascript/models/keyboard.class.js": {
@@ -30,21 +30,21 @@
     "semantic_hash": ""
   },
   "javascript/models/movable-object.class.js": {
-    "mtime": 1789410522.3124309,
-    "seen": 1789410591.280085,
-    "ast_hash": "cc134e2250bcbb614630f8021dbb5581",
+    "mtime": 1789859263.0611455,
+    "seen": 1789859600.8306253,
+    "ast_hash": "dfca2a88576523bd98b9dd84ed4fa91e",
     "semantic_hash": ""
   },
   "javascript/models/pufferfish.class.js": {
-    "mtime": 1789396130.755989,
-    "seen": 1789396389.6118896,
-    "ast_hash": "d2e8a2d03834b41c4ed27e6e0dfba61c",
+    "mtime": 1789857133.4224968,
+    "seen": 1789857738.4478683,
+    "ast_hash": "0f274fa5749d94e360d3564bb524119a",
     "semantic_hash": ""
   },
   "javascript/models/world.class.js": {
-    "mtime": 1789402321.9733167,
-    "seen": 1789410591.280085,
-    "ast_hash": "cd926b97866e9a7e4a493cf8926e771f",
+    "mtime": 1789859593.647765,
+    "seen": 1789859600.8306253,
+    "ast_hash": "b64122caed35ff5bc1d40c859c5a3023",
     "semantic_hash": ""
   },
   "CLAUDE.md": {
@@ -54,9 +54,9 @@
     "semantic_hash": ""
   },
   "index.html": {
-    "mtime": 1785791865.9907923,
-    "seen": 1789381560.4356382,
-    "ast_hash": "31e1cb6fb23c74947f1be90b2067e3bc",
+    "mtime": 1789857731.1466541,
+    "seen": 1789857738.4478683,
+    "ast_hash": "1734e4bd97858e88915f72f028440883",
     "semantic_hash": ""
   },
   "img/1.Sharkie/1.IDLE/1.png": {
@@ -2799,6 +2799,18 @@
     "mtime": 1785580140.6659641,
     "seen": 1789381560.4361377,
     "ast_hash": "a0f9fdbf8165a867eb626c4a4fc1f537",
+    "semantic_hash": ""
+  },
+  "javascript/levels/level1.js": {
+    "mtime": 1789859574.5696034,
+    "seen": 1789859600.8306253,
+    "ast_hash": "121ab568061d6203c48117dbc6d2241d",
+    "semantic_hash": ""
+  },
+  "javascript/models/level.class.js": {
+    "mtime": 1789859579.4455583,
+    "seen": 1789859600.8306253,
+    "ast_hash": "6f8f26f4fe11432ef90cd5c6dffbdbbb",
     "semantic_hash": ""
   }
 }

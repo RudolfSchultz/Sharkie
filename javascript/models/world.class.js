@@ -1,13 +1,8 @@
 class World {
     character = new Character();
-    enemies =
-        [new PufferFish(),
-        new PufferFish(),
-        new PufferFish()
-        ];
+    level = level1;
     canvas;
     keyboard;
-    backgroundObjects = [];
     kamera_x = 0;
 
     constructor(canvas, keyboard) {
@@ -15,7 +10,6 @@ class World {
         this.ctx = canvas.getContext("2d");
         this.keyboard = keyboard;
         this.setWorld();
-        this.createBackgroundObjects();
         this.draw();
         this.runGameLogic();
     }
@@ -25,11 +19,11 @@ class World {
 
         this.ctx.translate(this.kamera_x, 0);
 
-        this.backgroundObjects.forEach(bgo => {
+        this.level.backgroundObjects.forEach(bgo => {
             this.addToMap(bgo);
         });
 
-        this.enemies.forEach(enemy => {
+        this.level.enemies.forEach(enemy => {
             this.addToMap(enemy);
         });
 
@@ -57,12 +51,6 @@ class World {
         }
     }
 
-    createBackgroundObjects() {
-        this.backgroundObjects.push(
-            new BackgroundObjects("../img/3. Background/Dark/1.png", 0, 0, this.canvas.width, this.canvas.height)
-        );
-    }
-
     runGameLogic() {
         setInterval(() => {
             this.moveCharacter();
@@ -75,11 +63,11 @@ class World {
         if (this.keyboard.UP) this.character.moveUp();
         if (this.keyboard.DOWN) this.character.moveDown();
         if (this.keyboard.LEFT) this.character.moveLeft();
-        this.character.moveCamera(); 
+        this.character.moveCamera();
     }
 
     moveEnemies() {
-        this.enemies.forEach(enemy => enemy.moveLeft());
+        this.level.enemies.forEach(enemy => enemy.moveLeft());
     }
 
     /**
@@ -88,6 +76,6 @@ class World {
      */
     setWorld() {
         this.character.world = this;
-        this.enemies.forEach(enemy => enemy.world = this);
+        this.level.enemies.forEach(enemy => enemy.world = this);
     }
 }

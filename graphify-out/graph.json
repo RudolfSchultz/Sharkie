@@ -30,6 +30,19 @@
       "source_location": "L1"
     },
     {
+      "id": "javascript_models_level_class_level",
+      "label": "Level",
+      "_callable": true,
+      "_callable_class": true,
+      "_origin": "ast",
+      "community": 10,
+      "community_name": "Level",
+      "file_type": "code",
+      "norm_label": "level",
+      "source_file": "javascript/models/level.class.js",
+      "source_location": "L1"
+    },
+    {
       "id": "javascript_models_character_class_character",
       "label": "Character",
       "_callable": true,
@@ -91,7 +104,7 @@
       "file_type": "code",
       "norm_label": ".addtomap()",
       "source_file": "javascript/models/world.class.js",
-      "source_location": "L41"
+      "source_location": "L40"
     },
     {
       "id": "javascript_models_world_class_world_constructor",
@@ -103,19 +116,7 @@
       "file_type": "code",
       "norm_label": ".constructor()",
       "source_file": "javascript/models/world.class.js",
-      "source_location": "L12"
-    },
-    {
-      "id": "javascript_models_world_class_world_createbackgroundobjects",
-      "label": ".createBackgroundObjects()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 0,
-      "community_name": "World",
-      "file_type": "code",
-      "norm_label": ".createbackgroundobjects()",
-      "source_file": "javascript/models/world.class.js",
-      "source_location": "L55"
+      "source_location": "L8"
     },
     {
       "id": "javascript_models_world_class_world_draw",
@@ -127,7 +128,7 @@
       "file_type": "code",
       "norm_label": ".draw()",
       "source_file": "javascript/models/world.class.js",
-      "source_location": "L22"
+      "source_location": "L17"
     },
     {
       "id": "javascript_models_world_class_world_movecharacter",
@@ -139,7 +140,7 @@
       "file_type": "code",
       "norm_label": ".movecharacter()",
       "source_file": "javascript/models/world.class.js",
-      "source_location": "L68"
+      "source_location": "L61"
     },
     {
       "id": "javascript_models_world_class_world_moveenemies",
@@ -151,7 +152,7 @@
       "file_type": "code",
       "norm_label": ".moveenemies()",
       "source_file": "javascript/models/world.class.js",
-      "source_location": "L75"
+      "source_location": "L69"
     },
     {
       "id": "javascript_models_world_class_world_rungamelogic",
@@ -163,7 +164,7 @@
       "file_type": "code",
       "norm_label": ".rungamelogic()",
       "source_file": "javascript/models/world.class.js",
-      "source_location": "L61"
+      "source_location": "L54"
     },
     {
       "id": "javascript_models_world_class_world_setworld",
@@ -175,7 +176,7 @@
       "file_type": "code",
       "norm_label": ".setworld()",
       "source_file": "javascript/models/world.class.js",
-      "source_location": "L83"
+      "source_location": "L77"
     },
     {
       "id": "javascript_models_movable_object_class_movableobject_loadimage",
@@ -262,6 +263,18 @@
       "source_location": "L82"
     },
     {
+      "id": "javascript_models_level_class_level_constructor",
+      "label": ".constructor()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 10,
+      "community_name": "Level",
+      "file_type": "code",
+      "norm_label": ".constructor()",
+      "source_file": "javascript/models/level.class.js",
+      "source_location": "L6"
+    },
+    {
       "id": "javascript_game_init",
       "label": "init()",
       "_callable": true,
@@ -295,7 +308,7 @@
       "file_type": "code",
       "norm_label": ".constructor()",
       "source_file": "javascript/models/character.class.js",
-      "source_location": "L108"
+      "source_location": "L111"
     },
     {
       "id": "javascript_models_character_class_character_loadallimages",
@@ -307,7 +320,19 @@
       "file_type": "code",
       "norm_label": ".loadallimages()",
       "source_file": "javascript/models/character.class.js",
-      "source_location": "L115"
+      "source_location": "L118"
+    },
+    {
+      "id": "javascript_models_character_class_character_movecamera",
+      "label": ".moveCamera()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 3,
+      "community_name": "Character",
+      "file_type": "code",
+      "norm_label": ".movecamera()",
+      "source_file": "javascript/models/character.class.js",
+      "source_location": "L151"
     },
     {
       "id": "javascript_models_character_class_character_updatestate",
@@ -319,7 +344,7 @@
       "file_type": "code",
       "norm_label": ".updatestate()",
       "source_file": "javascript/models/character.class.js",
-      "source_location": "L126"
+      "source_location": "L129"
     },
     {
       "id": "javascript_models_character_class_character_whichmovement",
@@ -331,7 +356,7 @@
       "file_type": "code",
       "norm_label": ".whichmovement()",
       "source_file": "javascript/models/character.class.js",
-      "source_location": "L130"
+      "source_location": "L133"
     },
     {
       "id": "javascript_models_pufferfish_class_pufferfish_constructor",
@@ -403,7 +428,7 @@
       "file_type": "code",
       "norm_label": ".constructor()",
       "source_file": "javascript/models/background-objects.class.js",
-      "source_location": "L2"
+      "source_location": "L5"
     },
     {
       "id": "javascript_models_movable_object_class_movableobject_moveleft",
@@ -485,6 +510,39 @@
       "file_type": "code",
       "norm_label": "movable-object.class.js",
       "source_file": "javascript/models/movable-object.class.js",
+      "source_location": "L1"
+    },
+    {
+      "id": "javascript_models_level_class",
+      "label": "level.class.js",
+      "_origin": "ast",
+      "community": 10,
+      "community_name": "Level",
+      "file_type": "code",
+      "norm_label": "level.class.js",
+      "source_file": "javascript/models/level.class.js",
+      "source_location": "L1"
+    },
+    {
+      "id": "javascript_levels_level1",
+      "label": "level1.js",
+      "_origin": "ast",
+      "community": 11,
+      "community_name": "level1.js",
+      "file_type": "code",
+      "norm_label": "level1.js",
+      "source_file": "javascript/levels/level1.js",
+      "source_location": "L1"
+    },
+    {
+      "id": "javascript_levels_level1_level1",
+      "label": "level1",
+      "_origin": "ast",
+      "community": 11,
+      "community_name": "level1.js",
+      "file_type": "code",
+      "norm_label": "level1",
+      "source_file": "javascript/levels/level1.js",
       "source_location": "L1"
     },
     {
@@ -599,7 +657,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "javascript/models/character.class.js",
-      "source_location": "L110",
+      "source_location": "L113",
       "weight": 1.0
     },
     {
@@ -611,7 +669,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "javascript/models/character.class.js",
-      "source_location": "L127",
+      "source_location": "L130",
       "weight": 1.0
     },
     {
@@ -695,19 +753,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "javascript/models/world.class.js",
-      "source_location": "L16",
-      "weight": 1.0
-    },
-    {
-      "source": "javascript_models_world_class_world_constructor",
-      "target": "javascript_models_world_class_world_createbackgroundobjects",
-      "relation": "calls",
-      "_origin": "ast",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "context": "call",
-      "source_file": "javascript/models/world.class.js",
-      "source_location": "L17",
+      "source_location": "L12",
       "weight": 1.0
     },
     {
@@ -719,7 +765,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "javascript/models/world.class.js",
-      "source_location": "L18",
+      "source_location": "L13",
       "weight": 1.0
     },
     {
@@ -731,7 +777,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "javascript/models/world.class.js",
-      "source_location": "L19",
+      "source_location": "L14",
       "weight": 1.0
     },
     {
@@ -743,7 +789,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "javascript/models/world.class.js",
-      "source_location": "L26",
+      "source_location": "L23",
       "weight": 1.0
     },
     {
@@ -755,7 +801,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "javascript/models/world.class.js",
-      "source_location": "L63",
+      "source_location": "L56",
       "weight": 1.0
     },
     {
@@ -767,7 +813,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "javascript/models/world.class.js",
-      "source_location": "L64",
+      "source_location": "L57",
       "weight": 1.0
     },
     {
@@ -826,6 +872,17 @@
       "weight": 1.0
     },
     {
+      "source": "javascript_levels_level1",
+      "target": "javascript_levels_level1_level1",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "javascript/levels/level1.js",
+      "source_location": "L1",
+      "weight": 1.0
+    },
+    {
       "source": "javascript_models_background_objects_class",
       "target": "javascript_models_background_objects_class_backgroundobjects",
       "relation": "contains",
@@ -856,6 +913,17 @@
       "confidence_score": 1.0,
       "source_file": "javascript/models/keyboard.class.js",
       "source_location": "L4",
+      "weight": 1.0
+    },
+    {
+      "source": "javascript_models_level_class",
+      "target": "javascript_models_level_class_level",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "javascript/models/level.class.js",
+      "source_location": "L1",
       "weight": 1.0
     },
     {
@@ -899,7 +967,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "javascript/models/background-objects.class.js",
-      "source_location": "L2",
+      "source_location": "L5",
       "weight": 1.0
     },
     {
@@ -910,7 +978,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "javascript/models/character.class.js",
-      "source_location": "L108",
+      "source_location": "L111",
       "weight": 1.0
     },
     {
@@ -921,7 +989,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "javascript/models/character.class.js",
-      "source_location": "L115",
+      "source_location": "L118",
       "weight": 1.0
     },
     {
@@ -932,7 +1000,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "javascript/models/character.class.js",
-      "source_location": "L126",
+      "source_location": "L129",
       "weight": 1.0
     },
     {
@@ -943,7 +1011,29 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "javascript/models/character.class.js",
-      "source_location": "L130",
+      "source_location": "L133",
+      "weight": 1.0
+    },
+    {
+      "source": "javascript_models_character_class_character",
+      "target": "javascript_models_character_class_character_movecamera",
+      "relation": "method",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "javascript/models/character.class.js",
+      "source_location": "L151",
+      "weight": 1.0
+    },
+    {
+      "source": "javascript_models_level_class_level",
+      "target": "javascript_models_level_class_level_constructor",
+      "relation": "method",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "javascript/models/level.class.js",
+      "source_location": "L6",
       "weight": 1.0
     },
     {
@@ -1135,24 +1225,13 @@
     },
     {
       "source": "javascript_models_world_class_world",
-      "target": "javascript_models_world_class_world_constructor",
-      "relation": "method",
-      "_origin": "ast",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "javascript/models/world.class.js",
-      "source_location": "L12",
-      "weight": 1.0
-    },
-    {
-      "source": "javascript_models_world_class_world",
       "target": "javascript_models_world_class_world_draw",
       "relation": "method",
       "_origin": "ast",
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "javascript/models/world.class.js",
-      "source_location": "L22",
+      "source_location": "L17",
       "weight": 1.0
     },
     {
@@ -1163,18 +1242,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "javascript/models/world.class.js",
-      "source_location": "L41",
-      "weight": 1.0
-    },
-    {
-      "source": "javascript_models_world_class_world",
-      "target": "javascript_models_world_class_world_createbackgroundobjects",
-      "relation": "method",
-      "_origin": "ast",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "javascript/models/world.class.js",
-      "source_location": "L55",
+      "source_location": "L40",
       "weight": 1.0
     },
     {
@@ -1185,7 +1253,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "javascript/models/world.class.js",
-      "source_location": "L61",
+      "source_location": "L54",
       "weight": 1.0
     },
     {
@@ -1196,7 +1264,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "javascript/models/world.class.js",
-      "source_location": "L68",
+      "source_location": "L61",
       "weight": 1.0
     },
     {
@@ -1207,7 +1275,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "javascript/models/world.class.js",
-      "source_location": "L75",
+      "source_location": "L69",
       "weight": 1.0
     },
     {
@@ -1218,10 +1286,21 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "javascript/models/world.class.js",
-      "source_location": "L83",
+      "source_location": "L77",
+      "weight": 1.0
+    },
+    {
+      "source": "javascript_models_world_class_world",
+      "target": "javascript_models_world_class_world_constructor",
+      "relation": "method",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "javascript/models/world.class.js",
+      "source_location": "L8",
       "weight": 1.0
     }
   ],
   "hyperedges": [],
-  "built_at_commit": "97ea7237069097851f68076e93129cbe7560a713"
+  "built_at_commit": "b453808098c083a22818f16434c6fe493e5dcca1"
 }
