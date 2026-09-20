@@ -604,7 +604,29 @@
       "file_type": "code",
       "norm_label": "level1",
       "source_file": "javascript/levels/level1.js",
-      "source_location": "L1"
+      "source_location": "L16"
+    },
+    {
+      "id": "javascript_levels_level1_level1_backgroundimages",
+      "label": "level1_backgroundImages",
+      "_origin": "ast",
+      "community": 11,
+      "community_name": "level1.js",
+      "file_type": "code",
+      "norm_label": "level1_backgroundimages",
+      "source_file": "javascript/levels/level1.js",
+      "source_location": "L3"
+    },
+    {
+      "id": "javascript_levels_level1_level1_backgroundobjects",
+      "label": "level1_backgroundObjects",
+      "_origin": "ast",
+      "community": 11,
+      "community_name": "level1.js",
+      "file_type": "code",
+      "norm_label": "level1_backgroundobjects",
+      "source_file": "javascript/levels/level1.js",
+      "source_location": "L8"
     },
     {
       "id": "javascript_game",
@@ -975,7 +997,29 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "javascript/levels/level1.js",
-      "source_location": "L1",
+      "source_location": "L16",
+      "weight": 1.0
+    },
+    {
+      "source": "javascript_levels_level1",
+      "target": "javascript_levels_level1_level1_backgroundimages",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "javascript/levels/level1.js",
+      "source_location": "L3",
+      "weight": 1.0
+    },
+    {
+      "source": "javascript_levels_level1",
+      "target": "javascript_levels_level1_level1_backgroundobjects",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "javascript/levels/level1.js",
+      "source_location": "L8",
       "weight": 1.0
     },
     {

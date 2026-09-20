@@ -30,9 +30,9 @@
     "semantic_hash": ""
   },
   "javascript/models/movable-object.class.js": {
-    "mtime": 1789859263.0611455,
-    "seen": 1789859600.8306253,
-    "ast_hash": "dfca2a88576523bd98b9dd84ed4fa91e",
+    "mtime": 1789909562.1486459,
+    "seen": 1789911727.2822297,
+    "ast_hash": "123e8dbb83cf2af2dafc799a6df0c5ee",
     "semantic_hash": ""
   },
   "javascript/models/pufferfish.class.js": {
@@ -2802,9 +2802,9 @@
     "semantic_hash": ""
   },
   "javascript/levels/level1.js": {
-    "mtime": 1789909317.9936833,
-    "seen": 1789909326.9276536,
-    "ast_hash": "e1a559994825d0145c91375183c58d06",
+    "mtime": 1789911285.0561507,
+    "seen": 1789911727.2822297,
+    "ast_hash": "ec40d8583c9a21fbb3caec349c376f3c",
     "semantic_hash": ""
   },
   "javascript/models/level.class.js": {
@@ -2814,9 +2814,9 @@
     "semantic_hash": ""
   },
   "javascript/models/endboss.class.js": {
-    "mtime": 1789909096.4919991,
-    "seen": 1789909326.9276536,
-    "ast_hash": "9394325abce8006589846b409f4c10d4",
+    "mtime": 1789911046.0559328,
+    "seen": 1789911727.2822297,
+    "ast_hash": "4e172d81452f045116e509ce96af4969",
     "semantic_hash": ""
   }
 }
