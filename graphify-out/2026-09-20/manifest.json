@@ -30,9 +30,9 @@
     "semantic_hash": ""
   },
   "javascript/models/movable-object.class.js": {
-    "mtime": 1789857079.2708702,
-    "seen": 1789857085.9710395,
-    "ast_hash": "4d805344c1b8a515210aefa830692bc8",
+    "mtime": 1789859263.0611455,
+    "seen": 1789859600.8306253,
+    "ast_hash": "dfca2a88576523bd98b9dd84ed4fa91e",
     "semantic_hash": ""
   },
   "javascript/models/pufferfish.class.js": {
@@ -42,9 +42,9 @@
     "semantic_hash": ""
   },
   "javascript/models/world.class.js": {
-    "mtime": 1789858336.914423,
-    "seen": 1789858524.5782342,
-    "ast_hash": "10d733ed5706a37f226fd69366635a1d",
+    "mtime": 1789859593.647765,
+    "seen": 1789859600.8306253,
+    "ast_hash": "b64122caed35ff5bc1d40c859c5a3023",
     "semantic_hash": ""
   },
   "CLAUDE.md": {
@@ -54,9 +54,9 @@
     "semantic_hash": ""
   },
   "index.html": {
-    "mtime": 1789857731.1466541,
-    "seen": 1789857738.4478683,
-    "ast_hash": "1734e4bd97858e88915f72f028440883",
+    "mtime": 1789908808.285623,
+    "seen": 1789908815.9572933,
+    "ast_hash": "8741bcf66428d6cbe66b2e9d1b95056c",
     "semantic_hash": ""
   },
   "img/1.Sharkie/1.IDLE/1.png": {
@@ -2802,15 +2802,21 @@
     "semantic_hash": ""
   },
   "javascript/levels/level1.js": {
-    "mtime": 1789858515.9668128,
-    "seen": 1789858524.5782342,
-    "ast_hash": "0106fc565688a52bfbf5e244ccad2355",
+    "mtime": 1789859574.5696034,
+    "seen": 1789859600.8306253,
+    "ast_hash": "121ab568061d6203c48117dbc6d2241d",
     "semantic_hash": ""
   },
   "javascript/models/level.class.js": {
-    "mtime": 1789857678.74941,
-    "seen": 1789857738.4478683,
-    "ast_hash": "1c38fb4db7654cafeedf2e01daee56bb",
+    "mtime": 1789859579.4455583,
+    "seen": 1789859600.8306253,
+    "ast_hash": "6f8f26f4fe11432ef90cd5c6dffbdbbb",
+    "semantic_hash": ""
+  },
+  "javascript/models/endboss.class.js": {
+    "mtime": 1789908800.8265157,
+    "seen": 1789908815.9572933,
+    "ast_hash": "edad4faf5ffb2471f3483c4cdf2e6676",
     "semantic_hash": ""
   }
 }

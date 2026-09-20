@@ -54,9 +54,9 @@
     "semantic_hash": ""
   },
   "index.html": {
-    "mtime": 1789857731.1466541,
-    "seen": 1789857738.4478683,
-    "ast_hash": "1734e4bd97858e88915f72f028440883",
+    "mtime": 1789908808.285623,
+    "seen": 1789908815.9572933,
+    "ast_hash": "8741bcf66428d6cbe66b2e9d1b95056c",
     "semantic_hash": ""
   },
   "img/1.Sharkie/1.IDLE/1.png": {
@@ -2802,15 +2802,21 @@
     "semantic_hash": ""
   },
   "javascript/levels/level1.js": {
-    "mtime": 1789859574.5696034,
-    "seen": 1789859600.8306253,
-    "ast_hash": "121ab568061d6203c48117dbc6d2241d",
+    "mtime": 1789909317.9936833,
+    "seen": 1789909326.9276536,
+    "ast_hash": "e1a559994825d0145c91375183c58d06",
     "semantic_hash": ""
   },
   "javascript/models/level.class.js": {
     "mtime": 1789859579.4455583,
     "seen": 1789859600.8306253,
     "ast_hash": "6f8f26f4fe11432ef90cd5c6dffbdbbb",
+    "semantic_hash": ""
+  },
+  "javascript/models/endboss.class.js": {
+    "mtime": 1789909096.4919991,
+    "seen": 1789909326.9276536,
+    "ast_hash": "9394325abce8006589846b409f4c10d4",
     "semantic_hash": ""
   }
 }

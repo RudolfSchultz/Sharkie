@@ -35,7 +35,7 @@ class MovableObject {
             if (this.x > 0) this.x -= this.speed;
             this.otherDirection = true;
 
-        } else {
+        } else if (this instanceof PufferFish) {
             this.x -= this.speed;
             if (this.x + this.width < 0) this.respawn();
         }

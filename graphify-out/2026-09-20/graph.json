@@ -95,6 +95,19 @@
       "source_location": "L4"
     },
     {
+      "id": "javascript_models_endboss_class_endboss",
+      "label": "Endboss",
+      "_callable": true,
+      "_callable_class": true,
+      "_origin": "ast",
+      "community": 8,
+      "community_name": "Endboss",
+      "file_type": "code",
+      "norm_label": "endboss",
+      "source_file": "javascript/models/endboss.class.js",
+      "source_location": "L1"
+    },
+    {
       "id": "javascript_models_world_class_world_addtomap",
       "label": ".addToMap()",
       "_callable": true,
@@ -104,7 +117,7 @@
       "file_type": "code",
       "norm_label": ".addtomap()",
       "source_file": "javascript/models/world.class.js",
-      "source_location": "L42"
+      "source_location": "L40"
     },
     {
       "id": "javascript_models_world_class_world_constructor",
@@ -116,19 +129,7 @@
       "file_type": "code",
       "norm_label": ".constructor()",
       "source_file": "javascript/models/world.class.js",
-      "source_location": "L9"
-    },
-    {
-      "id": "javascript_models_world_class_world_createbackgroundobjects",
-      "label": ".createBackgroundObjects()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 0,
-      "community_name": "World",
-      "file_type": "code",
-      "norm_label": ".createbackgroundobjects()",
-      "source_file": "javascript/models/world.class.js",
-      "source_location": "L56"
+      "source_location": "L8"
     },
     {
       "id": "javascript_models_world_class_world_draw",
@@ -140,7 +141,7 @@
       "file_type": "code",
       "norm_label": ".draw()",
       "source_file": "javascript/models/world.class.js",
-      "source_location": "L19"
+      "source_location": "L17"
     },
     {
       "id": "javascript_models_world_class_world_movecharacter",
@@ -152,7 +153,7 @@
       "file_type": "code",
       "norm_label": ".movecharacter()",
       "source_file": "javascript/models/world.class.js",
-      "source_location": "L68"
+      "source_location": "L61"
     },
     {
       "id": "javascript_models_world_class_world_moveenemies",
@@ -164,7 +165,7 @@
       "file_type": "code",
       "norm_label": ".moveenemies()",
       "source_file": "javascript/models/world.class.js",
-      "source_location": "L76"
+      "source_location": "L69"
     },
     {
       "id": "javascript_models_world_class_world_rungamelogic",
@@ -176,7 +177,7 @@
       "file_type": "code",
       "norm_label": ".rungamelogic()",
       "source_file": "javascript/models/world.class.js",
-      "source_location": "L61"
+      "source_location": "L54"
     },
     {
       "id": "javascript_models_world_class_world_setworld",
@@ -188,7 +189,7 @@
       "file_type": "code",
       "norm_label": ".setworld()",
       "source_file": "javascript/models/world.class.js",
-      "source_location": "L84"
+      "source_location": "L77"
     },
     {
       "id": "javascript_models_movable_object_class_movableobject_animated",
@@ -503,6 +504,54 @@
       "source_location": "L5"
     },
     {
+      "id": "javascript_models_endboss_class_endboss_constructor",
+      "label": ".constructor()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 8,
+      "community_name": "Endboss",
+      "file_type": "code",
+      "norm_label": ".constructor()",
+      "source_file": "javascript/models/endboss.class.js",
+      "source_location": "L61"
+    },
+    {
+      "id": "javascript_models_endboss_class_endboss_loadallimages",
+      "label": ".loadAllImages()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 8,
+      "community_name": "Endboss",
+      "file_type": "code",
+      "norm_label": ".loadallimages()",
+      "source_file": "javascript/models/endboss.class.js",
+      "source_location": "L72"
+    },
+    {
+      "id": "javascript_models_endboss_class_endboss_updatestate",
+      "label": ".updateState()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 8,
+      "community_name": "Endboss",
+      "file_type": "code",
+      "norm_label": ".updatestate()",
+      "source_file": "javascript/models/endboss.class.js",
+      "source_location": "L80"
+    },
+    {
+      "id": "javascript_models_endboss_class_endboss_whichmovement",
+      "label": ".whichMovement()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 8,
+      "community_name": "Endboss",
+      "file_type": "code",
+      "norm_label": ".whichmovement()",
+      "source_file": "javascript/models/endboss.class.js",
+      "source_location": "L84"
+    },
+    {
       "id": "javascript_models_world_class",
       "label": "world.class.js",
       "_origin": "ast",
@@ -547,26 +596,15 @@
       "source_location": "L1"
     },
     {
-      "id": "javascript_levels_level1_level1_backgroundobjects",
-      "label": "level1_backgroundObjects",
+      "id": "javascript_levels_level1_level1",
+      "label": "level1",
       "_origin": "ast",
       "community": 11,
       "community_name": "level1.js",
       "file_type": "code",
-      "norm_label": "level1_backgroundobjects",
+      "norm_label": "level1",
       "source_file": "javascript/levels/level1.js",
       "source_location": "L1"
-    },
-    {
-      "id": "javascript_levels_level1_level1_enemies",
-      "label": "level1_enemies",
-      "_origin": "ast",
-      "community": 11,
-      "community_name": "level1.js",
-      "file_type": "code",
-      "norm_label": "level1_enemies",
-      "source_file": "javascript/levels/level1.js",
-      "source_location": "L6"
     },
     {
       "id": "javascript_game",
@@ -668,6 +706,17 @@
       "norm_label": "keyboard.class.js",
       "source_file": "javascript/models/keyboard.class.js",
       "source_location": "L1"
+    },
+    {
+      "id": "javascript_models_endboss_class",
+      "label": "endboss.class.js",
+      "_origin": "ast",
+      "community": 8,
+      "community_name": "Endboss",
+      "file_type": "code",
+      "norm_label": "endboss.class.js",
+      "source_file": "javascript/models/endboss.class.js",
+      "source_location": "L1"
     }
   ],
   "links": [
@@ -693,6 +742,30 @@
       "context": "call",
       "source_file": "javascript/models/character.class.js",
       "source_location": "L130",
+      "weight": 1.0
+    },
+    {
+      "source": "javascript_models_endboss_class_endboss_constructor",
+      "target": "javascript_models_endboss_class_endboss_loadallimages",
+      "relation": "calls",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "call",
+      "source_file": "javascript/models/endboss.class.js",
+      "source_location": "L67",
+      "weight": 1.0
+    },
+    {
+      "source": "javascript_models_endboss_class_endboss_updatestate",
+      "target": "javascript_models_endboss_class_endboss_whichmovement",
+      "relation": "calls",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "call",
+      "source_file": "javascript/models/endboss.class.js",
+      "source_location": "L81",
       "weight": 1.0
     },
     {
@@ -776,19 +849,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "javascript/models/world.class.js",
-      "source_location": "L13",
-      "weight": 1.0
-    },
-    {
-      "source": "javascript_models_world_class_world_constructor",
-      "target": "javascript_models_world_class_world_createbackgroundobjects",
-      "relation": "calls",
-      "_origin": "ast",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "context": "call",
-      "source_file": "javascript/models/world.class.js",
-      "source_location": "L14",
+      "source_location": "L12",
       "weight": 1.0
     },
     {
@@ -800,7 +861,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "javascript/models/world.class.js",
-      "source_location": "L15",
+      "source_location": "L13",
       "weight": 1.0
     },
     {
@@ -812,7 +873,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "javascript/models/world.class.js",
-      "source_location": "L16",
+      "source_location": "L14",
       "weight": 1.0
     },
     {
@@ -824,7 +885,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "javascript/models/world.class.js",
-      "source_location": "L25",
+      "source_location": "L23",
       "weight": 1.0
     },
     {
@@ -836,7 +897,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "javascript/models/world.class.js",
-      "source_location": "L63",
+      "source_location": "L56",
       "weight": 1.0
     },
     {
@@ -848,7 +909,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "javascript/models/world.class.js",
-      "source_location": "L64",
+      "source_location": "L57",
       "weight": 1.0
     },
     {
@@ -908,24 +969,13 @@
     },
     {
       "source": "javascript_levels_level1",
-      "target": "javascript_levels_level1_level1_backgroundobjects",
+      "target": "javascript_levels_level1_level1",
       "relation": "contains",
       "_origin": "ast",
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "javascript/levels/level1.js",
       "source_location": "L1",
-      "weight": 1.0
-    },
-    {
-      "source": "javascript_levels_level1",
-      "target": "javascript_levels_level1_level1_enemies",
-      "relation": "contains",
-      "_origin": "ast",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "javascript/levels/level1.js",
-      "source_location": "L6",
       "weight": 1.0
     },
     {
@@ -947,6 +997,17 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "javascript/models/character.class.js",
+      "source_location": "L1",
+      "weight": 1.0
+    },
+    {
+      "source": "javascript_models_endboss_class",
+      "target": "javascript_models_endboss_class_endboss",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "javascript/models/endboss.class.js",
       "source_location": "L1",
       "weight": 1.0
     },
@@ -1069,6 +1130,50 @@
       "confidence_score": 1.0,
       "source_file": "javascript/models/character.class.js",
       "source_location": "L151",
+      "weight": 1.0
+    },
+    {
+      "source": "javascript_models_endboss_class_endboss",
+      "target": "javascript_models_endboss_class_endboss_constructor",
+      "relation": "method",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "javascript/models/endboss.class.js",
+      "source_location": "L61",
+      "weight": 1.0
+    },
+    {
+      "source": "javascript_models_endboss_class_endboss",
+      "target": "javascript_models_endboss_class_endboss_loadallimages",
+      "relation": "method",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "javascript/models/endboss.class.js",
+      "source_location": "L72",
+      "weight": 1.0
+    },
+    {
+      "source": "javascript_models_endboss_class_endboss",
+      "target": "javascript_models_endboss_class_endboss_updatestate",
+      "relation": "method",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "javascript/models/endboss.class.js",
+      "source_location": "L80",
+      "weight": 1.0
+    },
+    {
+      "source": "javascript_models_endboss_class_endboss",
+      "target": "javascript_models_endboss_class_endboss_whichmovement",
+      "relation": "method",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "javascript/models/endboss.class.js",
+      "source_location": "L84",
       "weight": 1.0
     },
     {
@@ -1277,7 +1382,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "javascript/models/world.class.js",
-      "source_location": "L19",
+      "source_location": "L17",
       "weight": 1.0
     },
     {
@@ -1288,18 +1393,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "javascript/models/world.class.js",
-      "source_location": "L42",
-      "weight": 1.0
-    },
-    {
-      "source": "javascript_models_world_class_world",
-      "target": "javascript_models_world_class_world_createbackgroundobjects",
-      "relation": "method",
-      "_origin": "ast",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "javascript/models/world.class.js",
-      "source_location": "L56",
+      "source_location": "L40",
       "weight": 1.0
     },
     {
@@ -1310,7 +1404,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "javascript/models/world.class.js",
-      "source_location": "L61",
+      "source_location": "L54",
       "weight": 1.0
     },
     {
@@ -1321,7 +1415,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "javascript/models/world.class.js",
-      "source_location": "L68",
+      "source_location": "L61",
       "weight": 1.0
     },
     {
@@ -1332,7 +1426,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "javascript/models/world.class.js",
-      "source_location": "L76",
+      "source_location": "L69",
       "weight": 1.0
     },
     {
@@ -1343,7 +1437,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "javascript/models/world.class.js",
-      "source_location": "L84",
+      "source_location": "L77",
       "weight": 1.0
     },
     {
@@ -1354,10 +1448,10 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "javascript/models/world.class.js",
-      "source_location": "L9",
+      "source_location": "L8",
       "weight": 1.0
     }
   ],
   "hyperedges": [],
-  "built_at_commit": "b453808098c083a22818f16434c6fe493e5dcca1"
+  "built_at_commit": "c441f770505d189ea27b8ae064f140d44424edb2"
 }

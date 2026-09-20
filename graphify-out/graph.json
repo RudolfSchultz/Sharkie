@@ -95,6 +95,19 @@
       "source_location": "L4"
     },
     {
+      "id": "javascript_models_endboss_class_endboss",
+      "label": "Endboss",
+      "_callable": true,
+      "_callable_class": true,
+      "_origin": "ast",
+      "community": 8,
+      "community_name": "Endboss",
+      "file_type": "code",
+      "norm_label": "endboss",
+      "source_file": "javascript/models/endboss.class.js",
+      "source_location": "L1"
+    },
+    {
       "id": "javascript_models_world_class_world_addtomap",
       "label": ".addToMap()",
       "_callable": true,
@@ -179,6 +192,18 @@
       "source_location": "L77"
     },
     {
+      "id": "javascript_models_movable_object_class_movableobject_animated",
+      "label": ".animated()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 1,
+      "community_name": "MovableObject",
+      "file_type": "code",
+      "norm_label": ".animated()",
+      "source_file": "javascript/models/movable-object.class.js",
+      "source_location": "L66"
+    },
+    {
       "id": "javascript_models_movable_object_class_movableobject_loadimage",
       "label": ".loadImage()",
       "_callable": true,
@@ -215,6 +240,18 @@
       "source_location": "L48"
     },
     {
+      "id": "javascript_models_movable_object_class_movableobject_moveleft",
+      "label": ".moveLeft()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 1,
+      "community_name": "MovableObject",
+      "file_type": "code",
+      "norm_label": ".moveleft()",
+      "source_file": "javascript/models/movable-object.class.js",
+      "source_location": "L33"
+    },
+    {
       "id": "javascript_models_movable_object_class_movableobject_moveright",
       "label": ".moveRight()",
       "_callable": true,
@@ -239,6 +276,18 @@
       "source_location": "L44"
     },
     {
+      "id": "javascript_models_movable_object_class_movableobject_onrespawn",
+      "label": ".onRespawn()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 1,
+      "community_name": "MovableObject",
+      "file_type": "code",
+      "norm_label": ".onrespawn()",
+      "source_file": "javascript/models/movable-object.class.js",
+      "source_location": "L63"
+    },
+    {
       "id": "javascript_models_movable_object_class_movableobject_randomvariant",
       "label": ".randomVariant()",
       "_callable": true,
@@ -251,6 +300,18 @@
       "source_location": "L78"
     },
     {
+      "id": "javascript_models_movable_object_class_movableobject_respawn",
+      "label": ".respawn()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 1,
+      "community_name": "MovableObject",
+      "file_type": "code",
+      "norm_label": ".respawn()",
+      "source_file": "javascript/models/movable-object.class.js",
+      "source_location": "L57"
+    },
+    {
       "id": "javascript_models_movable_object_class_movableobject_setcurrentmovement",
       "label": ".setCurrentMovement()",
       "_callable": true,
@@ -261,6 +322,18 @@
       "norm_label": ".setcurrentmovement()",
       "source_file": "javascript/models/movable-object.class.js",
       "source_location": "L82"
+    },
+    {
+      "id": "javascript_models_movable_object_class_movableobject_updatestate",
+      "label": ".updateState()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 1,
+      "community_name": "MovableObject",
+      "file_type": "code",
+      "norm_label": ".updatestate()",
+      "source_file": "javascript/models/movable-object.class.js",
+      "source_location": "L76"
     },
     {
       "id": "javascript_models_level_class_level_constructor",
@@ -431,64 +504,52 @@
       "source_location": "L5"
     },
     {
-      "id": "javascript_models_movable_object_class_movableobject_moveleft",
-      "label": ".moveLeft()",
+      "id": "javascript_models_endboss_class_endboss_constructor",
+      "label": ".constructor()",
       "_callable": true,
       "_origin": "ast",
       "community": 8,
-      "community_name": ".respawn",
+      "community_name": "Endboss",
       "file_type": "code",
-      "norm_label": ".moveleft()",
-      "source_file": "javascript/models/movable-object.class.js",
-      "source_location": "L33"
+      "norm_label": ".constructor()",
+      "source_file": "javascript/models/endboss.class.js",
+      "source_location": "L61"
     },
     {
-      "id": "javascript_models_movable_object_class_movableobject_onrespawn",
-      "label": ".onRespawn()",
+      "id": "javascript_models_endboss_class_endboss_loadallimages",
+      "label": ".loadAllImages()",
       "_callable": true,
       "_origin": "ast",
       "community": 8,
-      "community_name": ".respawn",
+      "community_name": "Endboss",
       "file_type": "code",
-      "norm_label": ".onrespawn()",
-      "source_file": "javascript/models/movable-object.class.js",
-      "source_location": "L63"
+      "norm_label": ".loadallimages()",
+      "source_file": "javascript/models/endboss.class.js",
+      "source_location": "L72"
     },
     {
-      "id": "javascript_models_movable_object_class_movableobject_respawn",
-      "label": ".respawn()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 8,
-      "community_name": ".respawn",
-      "file_type": "code",
-      "norm_label": ".respawn()",
-      "source_file": "javascript/models/movable-object.class.js",
-      "source_location": "L57"
-    },
-    {
-      "id": "javascript_models_movable_object_class_movableobject_animated",
-      "label": ".animated()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 9,
-      "community_name": ".animated",
-      "file_type": "code",
-      "norm_label": ".animated()",
-      "source_file": "javascript/models/movable-object.class.js",
-      "source_location": "L66"
-    },
-    {
-      "id": "javascript_models_movable_object_class_movableobject_updatestate",
+      "id": "javascript_models_endboss_class_endboss_updatestate",
       "label": ".updateState()",
       "_callable": true,
       "_origin": "ast",
-      "community": 9,
-      "community_name": ".animated",
+      "community": 8,
+      "community_name": "Endboss",
       "file_type": "code",
       "norm_label": ".updatestate()",
-      "source_file": "javascript/models/movable-object.class.js",
-      "source_location": "L76"
+      "source_file": "javascript/models/endboss.class.js",
+      "source_location": "L80"
+    },
+    {
+      "id": "javascript_models_endboss_class_endboss_whichmovement",
+      "label": ".whichMovement()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 8,
+      "community_name": "Endboss",
+      "file_type": "code",
+      "norm_label": ".whichmovement()",
+      "source_file": "javascript/models/endboss.class.js",
+      "source_location": "L84"
     },
     {
       "id": "javascript_models_world_class",
@@ -543,7 +604,29 @@
       "file_type": "code",
       "norm_label": "level1",
       "source_file": "javascript/levels/level1.js",
-      "source_location": "L1"
+      "source_location": "L16"
+    },
+    {
+      "id": "javascript_levels_level1_level1_backgroundimages",
+      "label": "level1_backgroundImages",
+      "_origin": "ast",
+      "community": 11,
+      "community_name": "level1.js",
+      "file_type": "code",
+      "norm_label": "level1_backgroundimages",
+      "source_file": "javascript/levels/level1.js",
+      "source_location": "L3"
+    },
+    {
+      "id": "javascript_levels_level1_level1_backgroundobjects",
+      "label": "level1_backgroundObjects",
+      "_origin": "ast",
+      "community": 11,
+      "community_name": "level1.js",
+      "file_type": "code",
+      "norm_label": "level1_backgroundobjects",
+      "source_file": "javascript/levels/level1.js",
+      "source_location": "L8"
     },
     {
       "id": "javascript_game",
@@ -645,6 +728,17 @@
       "norm_label": "keyboard.class.js",
       "source_file": "javascript/models/keyboard.class.js",
       "source_location": "L1"
+    },
+    {
+      "id": "javascript_models_endboss_class",
+      "label": "endboss.class.js",
+      "_origin": "ast",
+      "community": 8,
+      "community_name": "Endboss",
+      "file_type": "code",
+      "norm_label": "endboss.class.js",
+      "source_file": "javascript/models/endboss.class.js",
+      "source_location": "L1"
     }
   ],
   "links": [
@@ -670,6 +764,30 @@
       "context": "call",
       "source_file": "javascript/models/character.class.js",
       "source_location": "L130",
+      "weight": 1.0
+    },
+    {
+      "source": "javascript_models_endboss_class_endboss_constructor",
+      "target": "javascript_models_endboss_class_endboss_loadallimages",
+      "relation": "calls",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "call",
+      "source_file": "javascript/models/endboss.class.js",
+      "source_location": "L67",
+      "weight": 1.0
+    },
+    {
+      "source": "javascript_models_endboss_class_endboss_updatestate",
+      "target": "javascript_models_endboss_class_endboss_whichmovement",
+      "relation": "calls",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "call",
+      "source_file": "javascript/models/endboss.class.js",
+      "source_location": "L81",
       "weight": 1.0
     },
     {
@@ -879,7 +997,29 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "javascript/levels/level1.js",
-      "source_location": "L1",
+      "source_location": "L16",
+      "weight": 1.0
+    },
+    {
+      "source": "javascript_levels_level1",
+      "target": "javascript_levels_level1_level1_backgroundimages",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "javascript/levels/level1.js",
+      "source_location": "L3",
+      "weight": 1.0
+    },
+    {
+      "source": "javascript_levels_level1",
+      "target": "javascript_levels_level1_level1_backgroundobjects",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "javascript/levels/level1.js",
+      "source_location": "L8",
       "weight": 1.0
     },
     {
@@ -901,6 +1041,17 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "javascript/models/character.class.js",
+      "source_location": "L1",
+      "weight": 1.0
+    },
+    {
+      "source": "javascript_models_endboss_class",
+      "target": "javascript_models_endboss_class_endboss",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "javascript/models/endboss.class.js",
       "source_location": "L1",
       "weight": 1.0
     },
@@ -1023,6 +1174,50 @@
       "confidence_score": 1.0,
       "source_file": "javascript/models/character.class.js",
       "source_location": "L151",
+      "weight": 1.0
+    },
+    {
+      "source": "javascript_models_endboss_class_endboss",
+      "target": "javascript_models_endboss_class_endboss_constructor",
+      "relation": "method",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "javascript/models/endboss.class.js",
+      "source_location": "L61",
+      "weight": 1.0
+    },
+    {
+      "source": "javascript_models_endboss_class_endboss",
+      "target": "javascript_models_endboss_class_endboss_loadallimages",
+      "relation": "method",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "javascript/models/endboss.class.js",
+      "source_location": "L72",
+      "weight": 1.0
+    },
+    {
+      "source": "javascript_models_endboss_class_endboss",
+      "target": "javascript_models_endboss_class_endboss_updatestate",
+      "relation": "method",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "javascript/models/endboss.class.js",
+      "source_location": "L80",
+      "weight": 1.0
+    },
+    {
+      "source": "javascript_models_endboss_class_endboss",
+      "target": "javascript_models_endboss_class_endboss_whichmovement",
+      "relation": "method",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "javascript/models/endboss.class.js",
+      "source_location": "L84",
       "weight": 1.0
     },
     {
@@ -1302,5 +1497,5 @@
     }
   ],
   "hyperedges": [],
-  "built_at_commit": "b453808098c083a22818f16434c6fe493e5dcca1"
+  "built_at_commit": "c441f770505d189ea27b8ae064f140d44424edb2"
 }
