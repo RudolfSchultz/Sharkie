@@ -44,6 +44,10 @@ class World {
             this.ctx.scale(-1, 1);
             movableObbject.x = movableObbject.x * -1;
         }
+
+        movableObbject.draw(this.ctx);
+        movableObbject.drawFrame(this.ctx);
+
         this.ctx.drawImage(movableObbject.img, movableObbject.x, movableObbject.y, movableObbject.width, movableObbject.height);
         if (movableObbject.otherDirection) {
             movableObbject.x = movableObbject.x * -1;
