@@ -24,7 +24,7 @@ class PufferFish extends MovableObject {
         "../img/2.Enemy/1.Puffer fish (3 color options)/1.Swim/3.swim4.png",
         "../img/2.Enemy/1.Puffer fish (3 color options)/1.Swim/3.swim5.png"
     ]
-
+    offset = { top: 5, right: 5, bottom: 23, left: 0 };
     currentImage = 0;
     currentMovement;
 
@@ -32,8 +32,8 @@ class PufferFish extends MovableObject {
         super();
         this.loadImage("../img/2.Enemy/1.Puffer fish (3 color options)/1.Swim/1.swim1.png");
         this.x = 640;
-        this.y = 0 + Math.random() * 400; 
-        this.speed = 1 + Math.random() * 1.5; 
+        this.y = 0 + Math.random() * 400;
+        this.speed = 1 + Math.random() * 1.5;
         this.loadAllImages();
         this.onRespawn();
         this.animated();

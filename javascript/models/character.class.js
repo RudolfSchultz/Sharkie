@@ -37,6 +37,8 @@ class Character extends MovableObject {
         "../img/1.Sharkie/2.Long_IDLE/I13.png",
         "../img/1.Sharkie/2.Long_IDLE/I14.png"
     ]
+    Long_Idle_Loop_From = 10;
+    Long_Idle_Loop_Frame_Ms = 300;
 
     Images_Swimming = [
         "../img/1.Sharkie/3.Swim/1.png",
@@ -86,6 +88,7 @@ class Character extends MovableObject {
         "../img/1.Sharkie/6.dead/1.Poisoned/11.png",
         "../img/1.Sharkie/6.dead/1.Poisoned/12.png"
     ]
+    Dead_by_Poison_Loop_From = this.Images_Dead_by_Poison.length - 1;
 
     Images_Dead_by_Shock = [
         "../img/1.Sharkie/6.dead/2.Electro_shock/1.png",
@@ -99,12 +102,20 @@ class Character extends MovableObject {
         "../img/1.Sharkie/6.dead/2.Electro_shock/9.png",
         "../img/1.Sharkie/6.dead/2.Electro_shock/10.png"
     ]
+    Dead_by_Shock_Loop_From = this.Images_Dead_by_Shock.length - 1;
 
+    offset = { top: 33, right: 10, bottom: 10, left: 10 };
     currentImage = 0;
     currentMovement;
     world;
     idleSince = null;
-    static LONG_IDLE_DELAY_MS = 2 * 60 * 1000;  
+    static LONG_IDLE_DELAY_MS = 2 * 60 * 1000;
+    surfaced = false;
+    bobStart = 0;
+    static FLOAT_GAP = 8;          // Abstand zwischen Lebensleiste und Sharkie
+    static BOB_AMPLITUDE = 4;
+    static CAMERA_LEAD_X = 150;    // so weit schwimmt Sharkie frei, bevor die Kamera mitgeht
+    static CAMERA_SMOOTHING = 0.2; // Anteil des Abstands, den die Kamera pro Frame aufholt
 
 
 
@@ -131,25 +142,61 @@ class Character extends MovableObject {
     }
 
     whichMovement() {
-        if (this.world.keyboard.RIGHT || this.world.keyboard.LEFT || this.world.keyboard.UP || this.world.keyboard.DOWN) {
-            this.idleSince = null;
-            this.setCurrentMovement(this.Images_Swimming);
-        }
-        else if (this.world.keyboard.A) {
-            this.idleSince = null;
-            this.setCurrentMovement(this.Images_Attack_Slap);
-        }
-        else if (this.idleSince !== null && Date.now() - this.idleSince >= Character.LONG_IDLE_DELAY_MS) {
-            this.setCurrentMovement(this.Images_Long_Idle);
+        if (this.isDead()) {
+            this.setCurrentMovement(this.Images_Dead_by_Poison, this.Dead_by_Poison_Loop_From);
+            console.log(this.Images_Dead_by_Shock.length - 1);
         }
         else {
-            if (this.idleSince === null) this.idleSince = Date.now();
-            this.setCurrentMovement(this.Images_Idle);
+            if (this.world.keyboard.RIGHT || this.world.keyboard.LEFT || this.world.keyboard.UP || this.world.keyboard.DOWN) {
+                this.idleSince = null;
+                this.setCurrentMovement(this.Images_Swimming);
+            }
+            else if (this.world.keyboard.A) {
+                this.idleSince = null;
+                this.setCurrentMovement(this.Images_Attack_Slap);
+            }
+            else if (this.idleSince !== null && Date.now() - this.idleSince >= Character.LONG_IDLE_DELAY_MS) {
+                this.setCurrentMovement(this.Images_Long_Idle, this.Long_Idle_Loop_From, this.Long_Idle_Loop_Frame_Ms);
+            }
+            else {
+                if (this.idleSince === null) this.idleSince = Date.now();
+                this.setCurrentMovement(this.Images_Idle);
+            }
         }
     }
 
+    /**
+     * Camera stays put for the first CAMERA_LEAD_X px, then glides after the character.
+     * Clamped to the level start and end.
+     */
     moveCamera() {
-        this.world.kamera_x = -this.x;
+        let maxCamera = this.world.level.level_end_x - this.world.canvas.width;
+        let target = Math.min(Math.max(0, this.x - Character.CAMERA_LEAD_X), maxCamera);
+        this.world.kamera_x += (-target - this.world.kamera_x) * Character.CAMERA_SMOOTHING;
     }
 
+    /**
+     * Highest y the character may float to: hitbox top just below the health bar.
+     */
+    surfaceY() {
+        let bar = this.world.healthBar;
+        return bar.y + bar.height + Character.FLOAT_GAP - this.offset.top;
+    }
+
+    /**
+     * After the death animation has finished, float up below the health bar and bob gently.
+     */
+    floatUp() {
+        if (this.currentMovement !== this.Images_Dead_by_Poison || !this.isLooping()) return;   // erst Todesanimation abwarten
+        let surfaceY = this.surfaceY();
+        if (!this.surfaced) {
+            if (Math.abs(this.y - surfaceY) > 0.6) this.y += Math.sign(surfaceY - this.y) * 0.6;   // auch von oben sanft hin
+            else {
+                this.y = surfaceY;
+                this.surfaced = true;
+                this.bobStart = Date.now();
+            }
+        }
+        else this.y = surfaceY + (1 - Math.cos((Date.now() - this.bobStart) / 600)) * Character.BOB_AMPLITUDE;
+    }
 }

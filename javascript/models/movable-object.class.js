@@ -8,7 +8,31 @@ class MovableObject {
     world;
     imageCache = {};
     otherDirection = false;
-    
+    loopFrom = 0;
+    loopFrameMs = 100;
+    tick = 0;
+    offset = { top: 0, right: 0, bottom: 0, left: 0 };
+
+    hitboxLeft() { return this.x + (this.otherDirection ? this.offset.right : this.offset.left); }
+    hitboxRight() { return this.x + this.width - (this.otherDirection ? this.offset.left : this.offset.right); }
+    hitboxTop() { return this.y + this.offset.top; }
+    hitboxBottom() { return this.y + this.height - this.offset.bottom; }
+
+    energy = 100;
+    lastHit = 0;
+
+    hit(damage = 5) {
+        this.energy = Math.max(0, this.energy - damage);
+        this.lastHit = Date.now();
+    }
+
+    isHurt() {
+        return Date.now() - this.lastHit < 1000;  
+    }
+
+    isDead() {
+        return this.energy === 0;
+    }
 
     loadimages(arr) {
         arr.forEach((path) => {
@@ -60,28 +84,43 @@ class MovableObject {
         this.onRespawn();
     }
 
-    onRespawn() { }   // no-op Default
 
 
     animated() {
         setInterval(() => {
             this.updateState();
-            let i = this.currentImage % this.currentMovement.length;
-            let path = this.currentMovement[i];
+            this.tick++;
+            if (this.isLooping() && this.tick % (this.loopFrameMs / 100) !== 0) return;
+            let path = this.currentMovement[this.frameIndex()];
             this.img = this.imageCache[path];
             this.currentImage++;
         }, 100);
     }
 
-    updateState() { }   // no-op Default
+    /**
+     * First pass plays all frames, afterwards only frames from loopFrom on repeat.
+     */
+    frameIndex() {
+        let length = this.currentMovement.length;
+        if (this.currentImage < length) return this.currentImage;
+        let loopLength = length - this.loopFrom;
+        return this.loopFrom + (this.currentImage - this.loopFrom) % loopLength;
+    }
+
+    isLooping() {
+        return this.currentImage >= this.currentMovement.length;
+    }
+
 
     randomVariant(variants) {
         return variants[Math.floor(Math.random() * variants.length)];
     }
 
-    setCurrentMovement(images) {
+    setCurrentMovement(images, loopFrom = 0, loopFrameMs = 100) {
         if (this.currentMovement === images) return;
         this.currentMovement = images;
+        this.loopFrom = loopFrom;
+        this.loopFrameMs = loopFrameMs;
         this.currentImage = 0;
     }
 
@@ -94,7 +133,33 @@ class MovableObject {
             ctx.beginPath();
             ctx.lineWidth = "2";
             ctx.strokeStyle = "blue";
-            ctx.rect(this.x, this.y, this.width, this.height);
+            ctx.rect(...this.getHitboxRect());
             ctx.stroke();
-        }}
+        }
+    }
+
+    getHitboxRect() {
+        return [
+            this.hitboxLeft(),
+            this.hitboxTop(),
+            this.hitboxRight() - this.hitboxLeft(),
+            this.hitboxBottom() - this.hitboxTop()
+        ];
+    }
+
+    isColliding(mo) {
+        return (
+            this.hitboxRight() > mo.hitboxLeft() &&
+            this.hitboxBottom() > mo.hitboxTop() &&
+            this.hitboxLeft() < mo.hitboxRight() &&
+            this.hitboxTop() < mo.hitboxBottom()
+        );
+    }
+
+
+    //no-op Default
+    updateState() { }
+    onRespawn() { }  
+
+
 }

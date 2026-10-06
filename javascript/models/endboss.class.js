@@ -54,7 +54,7 @@ class Endboss extends MovableObject {
         "../img/2.Enemy/3 Final Enemy/Hurt/3.png",
         "../img/2.Enemy/3 Final Enemy/Hurt/4.png"
     ]
-
+    offset = { top: 100, right: 10, bottom: 40, left: 10 };
     currentImage = 0;
     currentMovement;
 

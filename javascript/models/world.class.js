@@ -1,5 +1,6 @@
 class World {
     character = new Character();
+    healthBar = new HealthBar(this.character);
     level = level1;
     canvas;
     keyboard;
@@ -12,6 +13,7 @@ class World {
         this.setWorld();
         this.draw();
         this.runGameLogic();
+        this.checkCollisions();
     }
 
     draw() {
@@ -31,6 +33,8 @@ class World {
 
         this.ctx.translate(-this.kamera_x, 0);
 
+        this.healthBar.draw(this.ctx);   
+
         let self = this;
         requestAnimationFrame(function () {
             self.draw();
@@ -46,13 +50,12 @@ class World {
         }
 
         movableObbject.draw(this.ctx);
-        movableObbject.drawFrame(this.ctx);
 
-        this.ctx.drawImage(movableObbject.img, movableObbject.x, movableObbject.y, movableObbject.width, movableObbject.height);
         if (movableObbject.otherDirection) {
             movableObbject.x = movableObbject.x * -1;
             this.ctx.restore();
         }
+        movableObbject.drawFrame(this.ctx);   
     }
 
     runGameLogic() {
@@ -63,10 +66,13 @@ class World {
     }
 
     moveCharacter() {
-        if (this.keyboard.RIGHT) this.character.moveRight();
-        if (this.keyboard.UP) this.character.moveUp();
-        if (this.keyboard.DOWN) this.character.moveDown();
-        if (this.keyboard.LEFT) this.character.moveLeft();
+        if (this.character.isDead()) this.character.floatUp();
+        else {
+            if (this.keyboard.RIGHT) this.character.moveRight();
+            if (this.keyboard.UP) this.character.moveUp();
+            if (this.keyboard.DOWN) this.character.moveDown();
+            if (this.keyboard.LEFT) this.character.moveLeft();
+        }
         this.character.moveCamera();
     }
 
@@ -81,5 +87,15 @@ class World {
     setWorld() {
         this.character.world = this;
         this.level.enemies.forEach(enemy => enemy.world = this);
+    }
+
+    checkCollisions() {
+        setInterval(() => {
+            this.level.enemies.forEach(enemy => {
+                if (!this.character.isDead() && this.character.isColliding(enemy)) {
+                    this.character.hit();
+                }
+            });
+        }, 500);
     }
 }
