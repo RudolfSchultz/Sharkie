@@ -973,7 +973,7 @@
       "file_type": "code",
       "norm_label": ".drawcoins()",
       "source_file": "javascript/models/player-hud.class.js",
-      "source_location": "L114"
+      "source_location": "L113"
     },
     {
       "id": "javascript_models_player_hud_class_playerhud_drawheart",
@@ -1009,7 +1009,7 @@
       "file_type": "code",
       "norm_label": ".drawpoison()",
       "source_file": "javascript/models/player-hud.class.js",
-      "source_location": "L99"
+      "source_location": "L98"
     },
     {
       "id": "javascript_models_player_hud_class_playerhud_drawpoisonicon",
@@ -1021,7 +1021,7 @@
       "file_type": "code",
       "norm_label": ".drawpoisonicon()",
       "source_file": "javascript/models/player-hud.class.js",
-      "source_location": "L106"
+      "source_location": "L105"
     },
     {
       "id": "javascript_models_player_hud_class_playerhud_iscritical",
@@ -1057,7 +1057,7 @@
       "file_type": "code",
       "norm_label": ".mixcolor()",
       "source_file": "javascript/models/player-hud.class.js",
-      "source_location": "L93"
+      "source_location": "L92"
     },
     {
       "id": "javascript_models_player_hud_class_playerhud_poisoncolors",
@@ -1069,7 +1069,7 @@
       "file_type": "code",
       "norm_label": ".poisoncolors()",
       "source_file": "javascript/models/player-hud.class.js",
-      "source_location": "L89"
+      "source_location": "L88"
     },
     {
       "id": "javascript_models_world_class",
@@ -1605,7 +1605,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "javascript/models/player-hud.class.js",
-      "source_location": "L102",
+      "source_location": "L101",
       "weight": 1.0
     },
     {
@@ -1617,7 +1617,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "javascript/models/player-hud.class.js",
-      "source_location": "L103",
+      "source_location": "L102",
       "weight": 1.0
     },
     {
@@ -1629,7 +1629,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "javascript/models/player-hud.class.js",
-      "source_location": "L90",
+      "source_location": "L89",
       "weight": 1.0
     },
     {
@@ -2497,7 +2497,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "javascript/models/player-hud.class.js",
-      "source_location": "L106",
+      "source_location": "L105",
       "weight": 1.0
     },
     {
@@ -2508,7 +2508,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "javascript/models/player-hud.class.js",
-      "source_location": "L114",
+      "source_location": "L113",
       "weight": 1.0
     },
     {
@@ -2585,7 +2585,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "javascript/models/player-hud.class.js",
-      "source_location": "L89",
+      "source_location": "L88",
       "weight": 1.0
     },
     {
@@ -2596,7 +2596,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "javascript/models/player-hud.class.js",
-      "source_location": "L93",
+      "source_location": "L92",
       "weight": 1.0
     },
     {
@@ -2607,7 +2607,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "javascript/models/player-hud.class.js",
-      "source_location": "L99",
+      "source_location": "L98",
       "weight": 1.0
     },
     {
@@ -2766,5 +2766,5 @@
     }
   ],
   "hyperedges": [],
-  "built_at_commit": "55447f71a86cd540b64b9c49a3089bccde6b6917"
+  "built_at_commit": "867c4d639bed42430a70c39d000657a69395b5de"
 }
