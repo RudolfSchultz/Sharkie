@@ -8,10 +8,12 @@
   "6": "CLAUDE.md",
   "7": "keyboard.class.js",
   "8": "Endboss",
-  "9": "HealthBar",
+  "9": "PlayerHud",
   "10": "Level",
   "11": "level1.js",
   "12": ".getHitboxRect",
-  "13": ".respawn",
-  "14": ".animated"
+  "13": "AnimatedBar",
+  "14": ".animated",
+  "15": "BossBar",
+  "16": "HudElement"
 }

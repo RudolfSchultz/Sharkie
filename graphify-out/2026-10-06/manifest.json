@@ -18,9 +18,9 @@
     "semantic_hash": ""
   },
   "javascript/models/character.class.js": {
-    "mtime": 1791287609.324,
-    "seen": 1791287628.9614594,
-    "ast_hash": "991c9c9b484ada50055a59cfbf6c73c6",
+    "mtime": 1791291840.924,
+    "seen": 1791292824.394933,
+    "ast_hash": "f0b73c3bbc9327e03c4f4c3a326ea243",
     "semantic_hash": ""
   },
   "javascript/models/keyboard.class.js": {
@@ -30,21 +30,21 @@
     "semantic_hash": ""
   },
   "javascript/models/movable-object.class.js": {
-    "mtime": 1791287603.241,
-    "seen": 1791287628.9614594,
-    "ast_hash": "1cee73a99280fd62ee479efa1e027e42",
+    "mtime": 1791292790.832,
+    "seen": 1791292824.394933,
+    "ast_hash": "2e33b241d833d7c24d806b628920d54d",
     "semantic_hash": ""
   },
   "javascript/models/pufferfish.class.js": {
-    "mtime": 1791275494.556,
-    "seen": 1791278043.547982,
-    "ast_hash": "cde027ef0f19f9b4c7d857b8f5acb737",
+    "mtime": 1791292773.758,
+    "seen": 1791292824.394933,
+    "ast_hash": "ac99d3ab4857c6c8c5c1115bbccc04ab",
     "semantic_hash": ""
   },
   "javascript/models/world.class.js": {
-    "mtime": 1791287610.954,
-    "seen": 1791287628.9614594,
-    "ast_hash": "dac0758791417760c031ef53942504d8",
+    "mtime": 1791292779.42,
+    "seen": 1791292824.394933,
+    "ast_hash": "0af861b9dbae01b4de552c8f0d3b8a6f",
     "semantic_hash": ""
   },
   "CLAUDE.md": {
@@ -2802,21 +2802,21 @@
     "semantic_hash": ""
   },
   "javascript/levels/level1.js": {
-    "mtime": 1791271445.045,
-    "seen": 1791278043.547982,
-    "ast_hash": "ec40d8583c9a21fbb3caec349c376f3c",
+    "mtime": 1791292769.854,
+    "seen": 1791292824.394933,
+    "ast_hash": "7eebdc3362077d06fb62a6571765ece2",
     "semantic_hash": ""
   },
   "javascript/models/level.class.js": {
-    "mtime": 1791271445.122,
-    "seen": 1791278043.547982,
-    "ast_hash": "6f8f26f4fe11432ef90cd5c6dffbdbbb",
+    "mtime": 1791292771.502,
+    "seen": 1791292824.394933,
+    "ast_hash": "fd363363bbb70c50d0a13df68c2ace1a",
     "semantic_hash": ""
   },
   "javascript/models/endboss.class.js": {
-    "mtime": 1791275648.503,
-    "seen": 1791278043.547982,
-    "ast_hash": "aeef54ed20dde59b7c22876be8d42f7a",
+    "mtime": 1791292774.889,
+    "seen": 1791292824.394933,
+    "ast_hash": "7d60156ca50fa98630a6eee168cf8a57",
     "semantic_hash": ""
   },
   "javascript/models/health-bar.class.js": {

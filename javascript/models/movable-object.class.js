@@ -4,13 +4,14 @@ class MovableObject {
     img;
     height = 100;
     width = 100;
-    speed = 2;
+    speed = 10;
     world;
     imageCache = {};
     otherDirection = false;
     loopFrom = 0;
     loopFrameMs = 100;
     tick = 0;
+    movingToB = true;
     offset = { top: 0, right: 0, bottom: 0, left: 0 };
 
     hitboxLeft() { return this.x + (this.otherDirection ? this.offset.right : this.offset.left); }
@@ -55,14 +56,8 @@ class MovableObject {
     }
 
     moveLeft() {
-        if (this instanceof Character) {
-            if (this.x > 0) this.x -= this.speed;
-            this.otherDirection = true;
-
-        } else if (this instanceof PufferFish) {
-            this.x -= this.speed;
-            if (this.x + this.width < 0) this.respawn();
-        }
+        if (this.x > 0) this.x -= this.speed;
+        this.otherDirection = true;
     }
 
     moveUp() {
@@ -76,12 +71,22 @@ class MovableObject {
     }
 
     /**
- * Resets the enemy's position to the right edge with a new random y.
- */
-    respawn() {
-        this.x = -this.world.kamera_x + this.world.canvas.width;
-        this.y = Math.random() * 400;
-        this.onRespawn();
+     * Moves straight towards the current target point, turns around on arrival.
+     */
+    patrol() {
+        let target = this.movingToB ? this.pointB : this.pointA;
+        let dx = target.x - this.x;
+        let dy = target.y - this.y;
+        let distance = Math.hypot(dx, dy);
+        if (distance <= this.speed) {
+            this.x = target.x;
+            this.y = target.y;
+            this.movingToB = !this.movingToB;
+            return;
+        }
+        this.x += dx / distance * this.speed;
+        this.y += dy / distance * this.speed;
+        if (dx !== 0) this.otherDirection = dx > 0;   // Sprite schaut nach links → beim Schwimmen nach rechts spiegeln
     }
 
 
@@ -159,7 +164,7 @@ class MovableObject {
 
     //no-op Default
     updateState() { }
-    onRespawn() { }  
+    move() { }  
 
 
 }

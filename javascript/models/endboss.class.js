@@ -57,13 +57,14 @@ class Endboss extends MovableObject {
     offset = { top: 100, right: 10, bottom: 40, left: 10 };
     currentImage = 0;
     currentMovement;
+    static SPAWN_GAP = 30;   
 
-    constructor() {
+    constructor(levelLength) {
         super();
         this.loadImage("../img/2.Enemy/3 Final Enemy/1.Introduce/1.png");
         this.height = 350;
         this.width = 350;
-        this.x = 340;
+        this.x = levelLength - this.width - Endboss.SPAWN_GAP;
         this.y = (480 - this.height) / 2;
         console.log("Endboss created at x:", this.x, "y:", this.y);
         this.speed = 1.5;

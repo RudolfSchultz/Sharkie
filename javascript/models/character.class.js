@@ -112,8 +112,10 @@ class Character extends MovableObject {
     static LONG_IDLE_DELAY_MS = 2 * 60 * 1000;
     surfaced = false;
     bobStart = 0;
-    static FLOAT_GAP = 8;          // Abstand zwischen Lebensleiste und Sharkie
     static BOB_AMPLITUDE = 4;
+    static MAX_POISON = 5;
+    poison = 0;
+    coins = 0;
     static CAMERA_LEAD_X = 150;    // so weit schwimmt Sharkie frei, bevor die Kamera mitgeht
     static CAMERA_SMOOTHING = 0.2; // Anteil des Abstands, den die Kamera pro Frame aufholt
 
@@ -144,7 +146,6 @@ class Character extends MovableObject {
     whichMovement() {
         if (this.isDead()) {
             this.setCurrentMovement(this.Images_Dead_by_Poison, this.Dead_by_Poison_Loop_From);
-            console.log(this.Images_Dead_by_Shock.length - 1);
         }
         else {
             if (this.world.keyboard.RIGHT || this.world.keyboard.LEFT || this.world.keyboard.UP || this.world.keyboard.DOWN) {
@@ -176,19 +177,11 @@ class Character extends MovableObject {
     }
 
     /**
-     * Highest y the character may float to: hitbox top just below the health bar.
-     */
-    surfaceY() {
-        let bar = this.world.healthBar;
-        return bar.y + bar.height + Character.FLOAT_GAP - this.offset.top;
-    }
-
-    /**
-     * After the death animation has finished, float up below the health bar and bob gently.
+     * After the death animation has finished, float up to the top edge and bob gently.
      */
     floatUp() {
         if (this.currentMovement !== this.Images_Dead_by_Poison || !this.isLooping()) return;   // erst Todesanimation abwarten
-        let surfaceY = this.surfaceY();
+        let surfaceY = -this.offset.top;   // Hitbox-Oberkante = oberer Canvas-Rand
         if (!this.surfaced) {
             if (Math.abs(this.y - surfaceY) > 0.6) this.y += Math.sign(surfaceY - this.y) * 0.6;   // auch von oben sanft hin
             else {

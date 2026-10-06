@@ -18,9 +18,9 @@
     "semantic_hash": ""
   },
   "javascript/models/character.class.js": {
-    "mtime": 1791289677.993,
-    "seen": 1791289691.5983407,
-    "ast_hash": "d85848e11defaf1a264ed5d72b36cf7f",
+    "mtime": 1791296619.072,
+    "seen": 1791296658.99284,
+    "ast_hash": "b74e3f36f1a3c6f939c2e65881cf8858",
     "semantic_hash": ""
   },
   "javascript/models/keyboard.class.js": {
@@ -30,21 +30,21 @@
     "semantic_hash": ""
   },
   "javascript/models/movable-object.class.js": {
-    "mtime": 1791287603.241,
-    "seen": 1791287628.9614594,
-    "ast_hash": "1cee73a99280fd62ee479efa1e027e42",
+    "mtime": 1791293122.04,
+    "seen": 1791296658.99284,
+    "ast_hash": "97a852dafa9606e19369a41854da08d3",
     "semantic_hash": ""
   },
   "javascript/models/pufferfish.class.js": {
-    "mtime": 1791275494.556,
-    "seen": 1791278043.547982,
-    "ast_hash": "cde027ef0f19f9b4c7d857b8f5acb737",
+    "mtime": 1791292773.758,
+    "seen": 1791292824.394933,
+    "ast_hash": "ac99d3ab4857c6c8c5c1115bbccc04ab",
     "semantic_hash": ""
   },
   "javascript/models/world.class.js": {
-    "mtime": 1791288169.273,
-    "seen": 1791289691.5983407,
-    "ast_hash": "2ef69083e8b05ea50a50d9ccf25df6f1",
+    "mtime": 1791296623.615,
+    "seen": 1791296658.99284,
+    "ast_hash": "34a57803afd0d62ceae55ef050f78f78",
     "semantic_hash": ""
   },
   "CLAUDE.md": {
@@ -54,9 +54,9 @@
     "semantic_hash": ""
   },
   "index.html": {
-    "mtime": 1791278015.143,
-    "seen": 1791278043.547982,
-    "ast_hash": "9d7c6ffcfede6a69780420693022d3d5",
+    "mtime": 1791296624.788,
+    "seen": 1791296658.99284,
+    "ast_hash": "c5af70fde5344ca7918d012a643adbe1",
     "semantic_hash": ""
   },
   "img/1.Sharkie/1.IDLE/1.png": {
@@ -2802,27 +2802,45 @@
     "semantic_hash": ""
   },
   "javascript/levels/level1.js": {
-    "mtime": 1791271445.045,
-    "seen": 1791278043.547982,
-    "ast_hash": "ec40d8583c9a21fbb3caec349c376f3c",
+    "mtime": 1791292769.854,
+    "seen": 1791292824.394933,
+    "ast_hash": "7eebdc3362077d06fb62a6571765ece2",
     "semantic_hash": ""
   },
   "javascript/models/level.class.js": {
-    "mtime": 1791271445.122,
-    "seen": 1791278043.547982,
-    "ast_hash": "6f8f26f4fe11432ef90cd5c6dffbdbbb",
+    "mtime": 1791296620.222,
+    "seen": 1791296658.99284,
+    "ast_hash": "f5d00ed6a99f8b969922e6f36d4a14b8",
     "semantic_hash": ""
   },
   "javascript/models/endboss.class.js": {
-    "mtime": 1791275648.503,
-    "seen": 1791278043.547982,
-    "ast_hash": "aeef54ed20dde59b7c22876be8d42f7a",
+    "mtime": 1791293113.94,
+    "seen": 1791296658.99284,
+    "ast_hash": "66b12481c44144ecef47f858970e5f11",
     "semantic_hash": ""
   },
-  "javascript/models/health-bar.class.js": {
-    "mtime": 1791280456.462,
-    "seen": 1791285931.0901296,
-    "ast_hash": "ffb78a7a5972aaae5bdb655223d86135",
+  "javascript/models/animated-bar.class.js": {
+    "mtime": 1791296594.77,
+    "seen": 1791296658.99284,
+    "ast_hash": "2abfba018963b64e5f3e7d4f16c22d77",
+    "semantic_hash": ""
+  },
+  "javascript/models/boss-bar.class.js": {
+    "mtime": 1791296598.119,
+    "seen": 1791296658.99284,
+    "ast_hash": "86d826dd9e7d0b58a5714568219d68a4",
+    "semantic_hash": ""
+  },
+  "javascript/models/hud-element.class.js": {
+    "mtime": 1791296595.898,
+    "seen": 1791296658.99284,
+    "ast_hash": "259c45957dc7c000968190e1b3451e03",
+    "semantic_hash": ""
+  },
+  "javascript/models/player-hud.class.js": {
+    "mtime": 1791296597.017,
+    "seen": 1791296658.99284,
+    "ast_hash": "1cabdf33682bc63f09b895f6dcc93832",
     "semantic_hash": ""
   }
 }

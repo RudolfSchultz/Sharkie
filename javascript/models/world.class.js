@@ -1,7 +1,6 @@
 class World {
     character = new Character();
-    healthBar = new HealthBar(this.character);
-    level = level1;
+    level = createLevel1();
     canvas;
     keyboard;
     kamera_x = 0;
@@ -10,6 +9,8 @@ class World {
         this.canvas = canvas;
         this.ctx = canvas.getContext("2d");
         this.keyboard = keyboard;
+        this.playerHud = new PlayerHud(this.character, canvas.width);
+        this.bossBar = new BossBar(this.level.boss, canvas.width, canvas.height);
         this.setWorld();
         this.draw();
         this.runGameLogic();
@@ -33,12 +34,18 @@ class World {
 
         this.ctx.translate(-this.kamera_x, 0);
 
-        this.healthBar.draw(this.ctx);   
+        if (this.isOnScreen(this.level.boss)) this.bossBar.activate();
+        this.playerHud.draw(this.ctx);
+        this.bossBar.draw(this.ctx);
 
         let self = this;
         requestAnimationFrame(function () {
             self.draw();
         });
+    }
+
+    isOnScreen(mo) {
+        return mo.x < -this.kamera_x + this.canvas.width && mo.x + mo.width > -this.kamera_x;
     }
 
     addToMap(movableObbject) {
@@ -77,7 +84,7 @@ class World {
     }
 
     moveEnemies() {
-        this.level.enemies.forEach(enemy => enemy.moveLeft());
+        this.level.enemies.forEach(enemy => enemy.move());
     }
 
     /**

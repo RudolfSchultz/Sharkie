@@ -226,7 +226,7 @@
       "file_type": "code",
       "norm_label": ".draw()",
       "source_file": "javascript/models/movable-object.class.js",
-      "source_location": "L127"
+      "source_location": "L132"
     },
     {
       "id": "javascript_models_movable_object_class_movableobject_hit",
@@ -238,7 +238,7 @@
       "file_type": "code",
       "norm_label": ".hit()",
       "source_file": "javascript/models/movable-object.class.js",
-      "source_location": "L24"
+      "source_location": "L25"
     },
     {
       "id": "javascript_models_movable_object_class_movableobject_isdead",
@@ -250,7 +250,7 @@
       "file_type": "code",
       "norm_label": ".isdead()",
       "source_file": "javascript/models/movable-object.class.js",
-      "source_location": "L33"
+      "source_location": "L34"
     },
     {
       "id": "javascript_models_movable_object_class_movableobject_ishurt",
@@ -262,7 +262,7 @@
       "file_type": "code",
       "norm_label": ".ishurt()",
       "source_file": "javascript/models/movable-object.class.js",
-      "source_location": "L29"
+      "source_location": "L30"
     },
     {
       "id": "javascript_models_movable_object_class_movableobject_loadimage",
@@ -274,7 +274,7 @@
       "file_type": "code",
       "norm_label": ".loadimage()",
       "source_file": "javascript/models/movable-object.class.js",
-      "source_location": "L45"
+      "source_location": "L46"
     },
     {
       "id": "javascript_models_movable_object_class_movableobject_loadimages",
@@ -286,7 +286,19 @@
       "file_type": "code",
       "norm_label": ".loadimages()",
       "source_file": "javascript/models/movable-object.class.js",
-      "source_location": "L37"
+      "source_location": "L38"
+    },
+    {
+      "id": "javascript_models_movable_object_class_movableobject_move",
+      "label": ".move()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 1,
+      "community_name": "MovableObject",
+      "file_type": "code",
+      "norm_label": ".move()",
+      "source_file": "javascript/models/movable-object.class.js",
+      "source_location": "L167"
     },
     {
       "id": "javascript_models_movable_object_class_movableobject_movedown",
@@ -298,7 +310,19 @@
       "file_type": "code",
       "norm_label": ".movedown()",
       "source_file": "javascript/models/movable-object.class.js",
-      "source_location": "L72"
+      "source_location": "L67"
+    },
+    {
+      "id": "javascript_models_movable_object_class_movableobject_moveleft",
+      "label": ".moveLeft()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 1,
+      "community_name": "MovableObject",
+      "file_type": "code",
+      "norm_label": ".moveleft()",
+      "source_file": "javascript/models/movable-object.class.js",
+      "source_location": "L58"
     },
     {
       "id": "javascript_models_movable_object_class_movableobject_moveright",
@@ -310,7 +334,7 @@
       "file_type": "code",
       "norm_label": ".moveright()",
       "source_file": "javascript/models/movable-object.class.js",
-      "source_location": "L50"
+      "source_location": "L51"
     },
     {
       "id": "javascript_models_movable_object_class_movableobject_moveup",
@@ -322,7 +346,19 @@
       "file_type": "code",
       "norm_label": ".moveup()",
       "source_file": "javascript/models/movable-object.class.js",
-      "source_location": "L68"
+      "source_location": "L63"
+    },
+    {
+      "id": "javascript_models_movable_object_class_movableobject_patrol",
+      "label": ".patrol()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 1,
+      "community_name": "MovableObject",
+      "file_type": "code",
+      "norm_label": ".patrol()",
+      "source_file": "javascript/models/movable-object.class.js",
+      "source_location": "L76"
     },
     {
       "id": "javascript_models_movable_object_class_movableobject_randomvariant",
@@ -334,7 +370,7 @@
       "file_type": "code",
       "norm_label": ".randomvariant()",
       "source_file": "javascript/models/movable-object.class.js",
-      "source_location": "L115"
+      "source_location": "L120"
     },
     {
       "id": "javascript_models_movable_object_class_movableobject_setcurrentmovement",
@@ -346,7 +382,7 @@
       "file_type": "code",
       "norm_label": ".setcurrentmovement()",
       "source_file": "javascript/models/movable-object.class.js",
-      "source_location": "L119"
+      "source_location": "L124"
     },
     {
       "id": "javascript_models_level_class_level_constructor",
@@ -358,7 +394,31 @@
       "file_type": "code",
       "norm_label": ".constructor()",
       "source_file": "javascript/models/level.class.js",
-      "source_location": "L6"
+      "source_location": "L4"
+    },
+    {
+      "id": "javascript_models_level_class_level_createbackground",
+      "label": ".createBackground()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 10,
+      "community_name": "Level",
+      "file_type": "code",
+      "norm_label": ".createbackground()",
+      "source_file": "javascript/models/level.class.js",
+      "source_location": "L15"
+    },
+    {
+      "id": "javascript_levels_level1_createlevel1",
+      "label": "createLevel1()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 11,
+      "community_name": "level1.js",
+      "file_type": "code",
+      "norm_label": "createlevel1()",
+      "source_file": "javascript/levels/level1.js",
+      "source_location": "L11"
     },
     {
       "id": "javascript_models_movable_object_class_movableobject_drawframe",
@@ -370,7 +430,7 @@
       "file_type": "code",
       "norm_label": ".drawframe()",
       "source_file": "javascript/models/movable-object.class.js",
-      "source_location": "L131"
+      "source_location": "L136"
     },
     {
       "id": "javascript_models_movable_object_class_movableobject_gethitboxrect",
@@ -382,7 +442,7 @@
       "file_type": "code",
       "norm_label": ".gethitboxrect()",
       "source_file": "javascript/models/movable-object.class.js",
-      "source_location": "L141"
+      "source_location": "L146"
     },
     {
       "id": "javascript_models_movable_object_class_movableobject_hitboxbottom",
@@ -394,7 +454,7 @@
       "file_type": "code",
       "norm_label": ".hitboxbottom()",
       "source_file": "javascript/models/movable-object.class.js",
-      "source_location": "L19"
+      "source_location": "L20"
     },
     {
       "id": "javascript_models_movable_object_class_movableobject_hitboxleft",
@@ -406,7 +466,7 @@
       "file_type": "code",
       "norm_label": ".hitboxleft()",
       "source_file": "javascript/models/movable-object.class.js",
-      "source_location": "L16"
+      "source_location": "L17"
     },
     {
       "id": "javascript_models_movable_object_class_movableobject_hitboxright",
@@ -418,7 +478,7 @@
       "file_type": "code",
       "norm_label": ".hitboxright()",
       "source_file": "javascript/models/movable-object.class.js",
-      "source_location": "L17"
+      "source_location": "L18"
     },
     {
       "id": "javascript_models_movable_object_class_movableobject_hitboxtop",
@@ -430,7 +490,7 @@
       "file_type": "code",
       "norm_label": ".hitboxtop()",
       "source_file": "javascript/models/movable-object.class.js",
-      "source_location": "L18"
+      "source_location": "L19"
     },
     {
       "id": "javascript_models_movable_object_class_movableobject_iscolliding",
@@ -442,43 +502,7 @@
       "file_type": "code",
       "norm_label": ".iscolliding()",
       "source_file": "javascript/models/movable-object.class.js",
-      "source_location": "L150"
-    },
-    {
-      "id": "javascript_models_movable_object_class_movableobject_moveleft",
-      "label": ".moveLeft()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 13,
-      "community_name": ".respawn",
-      "file_type": "code",
-      "norm_label": ".moveleft()",
-      "source_file": "javascript/models/movable-object.class.js",
-      "source_location": "L57"
-    },
-    {
-      "id": "javascript_models_movable_object_class_movableobject_onrespawn",
-      "label": ".onRespawn()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 13,
-      "community_name": ".respawn",
-      "file_type": "code",
-      "norm_label": ".onrespawn()",
-      "source_file": "javascript/models/movable-object.class.js",
-      "source_location": "L162"
-    },
-    {
-      "id": "javascript_models_movable_object_class_movableobject_respawn",
-      "label": ".respawn()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 13,
-      "community_name": ".respawn",
-      "file_type": "code",
-      "norm_label": ".respawn()",
-      "source_file": "javascript/models/movable-object.class.js",
-      "source_location": "L81"
+      "source_location": "L155"
     },
     {
       "id": "javascript_models_movable_object_class_movableobject_animated",
@@ -490,7 +514,7 @@
       "file_type": "code",
       "norm_label": ".animated()",
       "source_file": "javascript/models/movable-object.class.js",
-      "source_location": "L89"
+      "source_location": "L94"
     },
     {
       "id": "javascript_models_movable_object_class_movableobject_frameindex",
@@ -502,7 +526,7 @@
       "file_type": "code",
       "norm_label": ".frameindex()",
       "source_file": "javascript/models/movable-object.class.js",
-      "source_location": "L103"
+      "source_location": "L108"
     },
     {
       "id": "javascript_models_movable_object_class_movableobject_islooping",
@@ -514,7 +538,7 @@
       "file_type": "code",
       "norm_label": ".islooping()",
       "source_file": "javascript/models/movable-object.class.js",
-      "source_location": "L110"
+      "source_location": "L115"
     },
     {
       "id": "javascript_models_movable_object_class_movableobject_updatestate",
@@ -526,7 +550,7 @@
       "file_type": "code",
       "norm_label": ".updatestate()",
       "source_file": "javascript/models/movable-object.class.js",
-      "source_location": "L161"
+      "source_location": "L166"
     },
     {
       "id": "javascript_game_init",
@@ -562,7 +586,7 @@
       "file_type": "code",
       "norm_label": ".constructor()",
       "source_file": "javascript/models/character.class.js",
-      "source_location": "L118"
+      "source_location": "L122"
     },
     {
       "id": "javascript_models_character_class_character_floatup",
@@ -574,7 +598,7 @@
       "file_type": "code",
       "norm_label": ".floatup()",
       "source_file": "javascript/models/character.class.js",
-      "source_location": "L171"
+      "source_location": "L188"
     },
     {
       "id": "javascript_models_character_class_character_loadallimages",
@@ -586,7 +610,7 @@
       "file_type": "code",
       "norm_label": ".loadallimages()",
       "source_file": "javascript/models/character.class.js",
-      "source_location": "L125"
+      "source_location": "L129"
     },
     {
       "id": "javascript_models_character_class_character_movecamera",
@@ -598,7 +622,19 @@
       "file_type": "code",
       "norm_label": ".movecamera()",
       "source_file": "javascript/models/character.class.js",
-      "source_location": "L164"
+      "source_location": "L171"
+    },
+    {
+      "id": "javascript_models_character_class_character_surfacey",
+      "label": ".surfaceY()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 3,
+      "community_name": "Character",
+      "file_type": "code",
+      "norm_label": ".surfacey()",
+      "source_file": "javascript/models/character.class.js",
+      "source_location": "L180"
     },
     {
       "id": "javascript_models_character_class_character_updatestate",
@@ -610,7 +646,7 @@
       "file_type": "code",
       "norm_label": ".updatestate()",
       "source_file": "javascript/models/character.class.js",
-      "source_location": "L136"
+      "source_location": "L140"
     },
     {
       "id": "javascript_models_character_class_character_whichmovement",
@@ -622,7 +658,7 @@
       "file_type": "code",
       "norm_label": ".whichmovement()",
       "source_file": "javascript/models/character.class.js",
-      "source_location": "L140"
+      "source_location": "L144"
     },
     {
       "id": "javascript_models_pufferfish_class_pufferfish_constructor",
@@ -646,19 +682,19 @@
       "file_type": "code",
       "norm_label": ".loadallimages()",
       "source_file": "javascript/models/pufferfish.class.js",
-      "source_location": "L42"
+      "source_location": "L48"
     },
     {
-      "id": "javascript_models_pufferfish_class_pufferfish_onrespawn",
-      "label": ".onRespawn()",
+      "id": "javascript_models_pufferfish_class_pufferfish_move",
+      "label": ".move()",
       "_callable": true,
       "_origin": "ast",
       "community": 4,
       "community_name": "PufferFish",
       "file_type": "code",
-      "norm_label": ".onrespawn()",
+      "norm_label": ".move()",
       "source_file": "javascript/models/pufferfish.class.js",
-      "source_location": "L48"
+      "source_location": "L44"
     },
     {
       "id": "javascript_models_pufferfish_class_pufferfish_updatestate",
@@ -670,7 +706,7 @@
       "file_type": "code",
       "norm_label": ".updatestate()",
       "source_file": "javascript/models/pufferfish.class.js",
-      "source_location": "L52"
+      "source_location": "L54"
     },
     {
       "id": "javascript_models_pufferfish_class_pufferfish_whichmovement",
@@ -682,7 +718,7 @@
       "file_type": "code",
       "norm_label": ".whichmovement()",
       "source_file": "javascript/models/pufferfish.class.js",
-      "source_location": "L56"
+      "source_location": "L58"
     },
     {
       "id": "javascript_models_background_objects_class_backgroundobjects_constructor",
@@ -706,7 +742,7 @@
       "file_type": "code",
       "norm_label": ".constructor()",
       "source_file": "javascript/models/endboss.class.js",
-      "source_location": "L61"
+      "source_location": "L62"
     },
     {
       "id": "javascript_models_endboss_class_endboss_loadallimages",
@@ -718,7 +754,7 @@
       "file_type": "code",
       "norm_label": ".loadallimages()",
       "source_file": "javascript/models/endboss.class.js",
-      "source_location": "L75"
+      "source_location": "L76"
     },
     {
       "id": "javascript_models_endboss_class_endboss_updatestate",
@@ -730,7 +766,7 @@
       "file_type": "code",
       "norm_label": ".updatestate()",
       "source_file": "javascript/models/endboss.class.js",
-      "source_location": "L83"
+      "source_location": "L84"
     },
     {
       "id": "javascript_models_endboss_class_endboss_whichmovement",
@@ -742,7 +778,7 @@
       "file_type": "code",
       "norm_label": ".whichmovement()",
       "source_file": "javascript/models/endboss.class.js",
-      "source_location": "L87"
+      "source_location": "L88"
     },
     {
       "id": "javascript_models_health_bar_class_healthbar_colorsfor",
@@ -909,17 +945,6 @@
       "source_location": "L1"
     },
     {
-      "id": "javascript_levels_level1_level1",
-      "label": "level1",
-      "_origin": "ast",
-      "community": 11,
-      "community_name": "level1.js",
-      "file_type": "code",
-      "norm_label": "level1",
-      "source_file": "javascript/levels/level1.js",
-      "source_location": "L16"
-    },
-    {
       "id": "javascript_levels_level1_level1_backgroundimages",
       "label": "level1_backgroundImages",
       "_origin": "ast",
@@ -929,17 +954,6 @@
       "norm_label": "level1_backgroundimages",
       "source_file": "javascript/levels/level1.js",
       "source_location": "L3"
-    },
-    {
-      "id": "javascript_levels_level1_level1_backgroundobjects",
-      "label": "level1_backgroundObjects",
-      "_origin": "ast",
-      "community": 11,
-      "community_name": "level1.js",
-      "file_type": "code",
-      "norm_label": "level1_backgroundobjects",
-      "source_file": "javascript/levels/level1.js",
-      "source_location": "L8"
     },
     {
       "id": "javascript_game",
@@ -1075,7 +1089,19 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "javascript/models/character.class.js",
-      "source_location": "L120",
+      "source_location": "L124",
+      "weight": 1.0
+    },
+    {
+      "source": "javascript_models_character_class_character_floatup",
+      "target": "javascript_models_character_class_character_surfacey",
+      "relation": "calls",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "call",
+      "source_file": "javascript/models/character.class.js",
+      "source_location": "L190",
       "weight": 1.0
     },
     {
@@ -1087,7 +1113,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "javascript/models/character.class.js",
-      "source_location": "L137",
+      "source_location": "L141",
       "weight": 1.0
     },
     {
@@ -1099,7 +1125,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "javascript/models/endboss.class.js",
-      "source_location": "L70",
+      "source_location": "L71",
       "weight": 1.0
     },
     {
@@ -1111,7 +1137,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "javascript/models/endboss.class.js",
-      "source_location": "L84",
+      "source_location": "L85",
       "weight": 1.0
     },
     {
@@ -1259,6 +1285,18 @@
       "weight": 1.0
     },
     {
+      "source": "javascript_models_level_class_level_constructor",
+      "target": "javascript_models_level_class_level_createbackground",
+      "relation": "calls",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "call",
+      "source_file": "javascript/models/level.class.js",
+      "source_location": "L9",
+      "weight": 1.0
+    },
+    {
       "source": "javascript_models_movable_object_class_movableobject_animated",
       "target": "javascript_models_movable_object_class_movableobject_updatestate",
       "relation": "calls",
@@ -1267,7 +1305,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "javascript/models/movable-object.class.js",
-      "source_location": "L91",
+      "source_location": "L96",
       "weight": 1.0
     },
     {
@@ -1279,7 +1317,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "javascript/models/movable-object.class.js",
-      "source_location": "L93",
+      "source_location": "L98",
       "weight": 1.0
     },
     {
@@ -1291,7 +1329,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "javascript/models/movable-object.class.js",
-      "source_location": "L94",
+      "source_location": "L99",
       "weight": 1.0
     },
     {
@@ -1303,7 +1341,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "javascript/models/movable-object.class.js",
-      "source_location": "L136",
+      "source_location": "L141",
       "weight": 1.0
     },
     {
@@ -1315,7 +1353,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "javascript/models/movable-object.class.js",
-      "source_location": "L143",
+      "source_location": "L148",
       "weight": 1.0
     },
     {
@@ -1327,7 +1365,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "javascript/models/movable-object.class.js",
-      "source_location": "L144",
+      "source_location": "L149",
       "weight": 1.0
     },
     {
@@ -1339,7 +1377,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "javascript/models/movable-object.class.js",
-      "source_location": "L145",
+      "source_location": "L150",
       "weight": 1.0
     },
     {
@@ -1351,7 +1389,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "javascript/models/movable-object.class.js",
-      "source_location": "L146",
+      "source_location": "L151",
       "weight": 1.0
     },
     {
@@ -1363,7 +1401,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "javascript/models/movable-object.class.js",
-      "source_location": "L152",
+      "source_location": "L157",
       "weight": 1.0
     },
     {
@@ -1375,7 +1413,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "javascript/models/movable-object.class.js",
-      "source_location": "L152",
+      "source_location": "L157",
       "weight": 1.0
     },
     {
@@ -1387,7 +1425,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "javascript/models/movable-object.class.js",
-      "source_location": "L153",
+      "source_location": "L158",
       "weight": 1.0
     },
     {
@@ -1399,31 +1437,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "javascript/models/movable-object.class.js",
-      "source_location": "L153",
-      "weight": 1.0
-    },
-    {
-      "source": "javascript_models_movable_object_class_movableobject_moveleft",
-      "target": "javascript_models_movable_object_class_movableobject_respawn",
-      "relation": "calls",
-      "_origin": "ast",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "context": "call",
-      "source_file": "javascript/models/movable-object.class.js",
-      "source_location": "L64",
-      "weight": 1.0
-    },
-    {
-      "source": "javascript_models_movable_object_class_movableobject_respawn",
-      "target": "javascript_models_movable_object_class_movableobject_onrespawn",
-      "relation": "calls",
-      "_origin": "ast",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "context": "call",
-      "source_file": "javascript/models/movable-object.class.js",
-      "source_location": "L84",
+      "source_location": "L158",
       "weight": 1.0
     },
     {
@@ -1435,19 +1449,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "javascript/models/pufferfish.class.js",
-      "source_location": "L37",
-      "weight": 1.0
-    },
-    {
-      "source": "javascript_models_pufferfish_class_pufferfish_constructor",
-      "target": "javascript_models_pufferfish_class_pufferfish_onrespawn",
-      "relation": "calls",
-      "_origin": "ast",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "context": "call",
-      "source_file": "javascript/models/pufferfish.class.js",
-      "source_location": "L38",
+      "source_location": "L39",
       "weight": 1.0
     },
     {
@@ -1459,7 +1461,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "javascript/models/pufferfish.class.js",
-      "source_location": "L53",
+      "source_location": "L55",
       "weight": 1.0
     },
     {
@@ -1603,13 +1605,13 @@
     },
     {
       "source": "javascript_levels_level1",
-      "target": "javascript_levels_level1_level1",
+      "target": "javascript_levels_level1_createlevel1",
       "relation": "contains",
       "_origin": "ast",
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "javascript/levels/level1.js",
-      "source_location": "L16",
+      "source_location": "L11",
       "weight": 1.0
     },
     {
@@ -1621,17 +1623,6 @@
       "confidence_score": 1.0,
       "source_file": "javascript/levels/level1.js",
       "source_location": "L3",
-      "weight": 1.0
-    },
-    {
-      "source": "javascript_levels_level1",
-      "target": "javascript_levels_level1_level1_backgroundobjects",
-      "relation": "contains",
-      "_origin": "ast",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "javascript/levels/level1.js",
-      "source_location": "L8",
       "weight": 1.0
     },
     {
@@ -1752,7 +1743,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "javascript/models/character.class.js",
-      "source_location": "L118",
+      "source_location": "L122",
       "weight": 1.0
     },
     {
@@ -1763,7 +1754,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "javascript/models/character.class.js",
-      "source_location": "L125",
+      "source_location": "L129",
       "weight": 1.0
     },
     {
@@ -1774,7 +1765,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "javascript/models/character.class.js",
-      "source_location": "L136",
+      "source_location": "L140",
       "weight": 1.0
     },
     {
@@ -1785,7 +1776,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "javascript/models/character.class.js",
-      "source_location": "L140",
+      "source_location": "L144",
       "weight": 1.0
     },
     {
@@ -1796,7 +1787,18 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "javascript/models/character.class.js",
-      "source_location": "L164",
+      "source_location": "L171",
+      "weight": 1.0
+    },
+    {
+      "source": "javascript_models_character_class_character",
+      "target": "javascript_models_character_class_character_surfacey",
+      "relation": "method",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "javascript/models/character.class.js",
+      "source_location": "L180",
       "weight": 1.0
     },
     {
@@ -1807,7 +1809,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "javascript/models/character.class.js",
-      "source_location": "L171",
+      "source_location": "L188",
       "weight": 1.0
     },
     {
@@ -1818,7 +1820,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "javascript/models/endboss.class.js",
-      "source_location": "L61",
+      "source_location": "L62",
       "weight": 1.0
     },
     {
@@ -1829,7 +1831,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "javascript/models/endboss.class.js",
-      "source_location": "L75",
+      "source_location": "L76",
       "weight": 1.0
     },
     {
@@ -1840,7 +1842,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "javascript/models/endboss.class.js",
-      "source_location": "L83",
+      "source_location": "L84",
       "weight": 1.0
     },
     {
@@ -1851,7 +1853,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "javascript/models/endboss.class.js",
-      "source_location": "L87",
+      "source_location": "L88",
       "weight": 1.0
     },
     {
@@ -1966,13 +1968,24 @@
     },
     {
       "source": "javascript_models_level_class_level",
+      "target": "javascript_models_level_class_level_createbackground",
+      "relation": "method",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "javascript/models/level.class.js",
+      "source_location": "L15",
+      "weight": 1.0
+    },
+    {
+      "source": "javascript_models_level_class_level",
       "target": "javascript_models_level_class_level_constructor",
       "relation": "method",
       "_origin": "ast",
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "javascript/models/level.class.js",
-      "source_location": "L6",
+      "source_location": "L4",
       "weight": 1.0
     },
     {
@@ -1983,7 +1996,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "javascript/models/movable-object.class.js",
-      "source_location": "L103",
+      "source_location": "L108",
       "weight": 1.0
     },
     {
@@ -1994,7 +2007,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "javascript/models/movable-object.class.js",
-      "source_location": "L110",
+      "source_location": "L115",
       "weight": 1.0
     },
     {
@@ -2005,7 +2018,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "javascript/models/movable-object.class.js",
-      "source_location": "L115",
+      "source_location": "L120",
       "weight": 1.0
     },
     {
@@ -2016,7 +2029,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "javascript/models/movable-object.class.js",
-      "source_location": "L119",
+      "source_location": "L124",
       "weight": 1.0
     },
     {
@@ -2027,7 +2040,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "javascript/models/movable-object.class.js",
-      "source_location": "L127",
+      "source_location": "L132",
       "weight": 1.0
     },
     {
@@ -2038,7 +2051,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "javascript/models/movable-object.class.js",
-      "source_location": "L131",
+      "source_location": "L136",
       "weight": 1.0
     },
     {
@@ -2049,7 +2062,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "javascript/models/movable-object.class.js",
-      "source_location": "L141",
+      "source_location": "L146",
       "weight": 1.0
     },
     {
@@ -2060,18 +2073,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "javascript/models/movable-object.class.js",
-      "source_location": "L150",
-      "weight": 1.0
-    },
-    {
-      "source": "javascript_models_movable_object_class_movableobject",
-      "target": "javascript_models_movable_object_class_movableobject_hitboxleft",
-      "relation": "method",
-      "_origin": "ast",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "javascript/models/movable-object.class.js",
-      "source_location": "L16",
+      "source_location": "L155",
       "weight": 1.0
     },
     {
@@ -2082,23 +2084,23 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "javascript/models/movable-object.class.js",
-      "source_location": "L161",
+      "source_location": "L166",
       "weight": 1.0
     },
     {
       "source": "javascript_models_movable_object_class_movableobject",
-      "target": "javascript_models_movable_object_class_movableobject_onrespawn",
+      "target": "javascript_models_movable_object_class_movableobject_move",
       "relation": "method",
       "_origin": "ast",
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "javascript/models/movable-object.class.js",
-      "source_location": "L162",
+      "source_location": "L167",
       "weight": 1.0
     },
     {
       "source": "javascript_models_movable_object_class_movableobject",
-      "target": "javascript_models_movable_object_class_movableobject_hitboxright",
+      "target": "javascript_models_movable_object_class_movableobject_hitboxleft",
       "relation": "method",
       "_origin": "ast",
       "confidence": "EXTRACTED",
@@ -2109,7 +2111,7 @@
     },
     {
       "source": "javascript_models_movable_object_class_movableobject",
-      "target": "javascript_models_movable_object_class_movableobject_hitboxtop",
+      "target": "javascript_models_movable_object_class_movableobject_hitboxright",
       "relation": "method",
       "_origin": "ast",
       "confidence": "EXTRACTED",
@@ -2120,7 +2122,7 @@
     },
     {
       "source": "javascript_models_movable_object_class_movableobject",
-      "target": "javascript_models_movable_object_class_movableobject_hitboxbottom",
+      "target": "javascript_models_movable_object_class_movableobject_hitboxtop",
       "relation": "method",
       "_origin": "ast",
       "confidence": "EXTRACTED",
@@ -2131,13 +2133,24 @@
     },
     {
       "source": "javascript_models_movable_object_class_movableobject",
+      "target": "javascript_models_movable_object_class_movableobject_hitboxbottom",
+      "relation": "method",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "javascript/models/movable-object.class.js",
+      "source_location": "L20",
+      "weight": 1.0
+    },
+    {
+      "source": "javascript_models_movable_object_class_movableobject",
       "target": "javascript_models_movable_object_class_movableobject_hit",
       "relation": "method",
       "_origin": "ast",
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "javascript/models/movable-object.class.js",
-      "source_location": "L24",
+      "source_location": "L25",
       "weight": 1.0
     },
     {
@@ -2148,7 +2161,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "javascript/models/movable-object.class.js",
-      "source_location": "L29",
+      "source_location": "L30",
       "weight": 1.0
     },
     {
@@ -2159,7 +2172,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "javascript/models/movable-object.class.js",
-      "source_location": "L33",
+      "source_location": "L34",
       "weight": 1.0
     },
     {
@@ -2170,7 +2183,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "javascript/models/movable-object.class.js",
-      "source_location": "L37",
+      "source_location": "L38",
       "weight": 1.0
     },
     {
@@ -2181,7 +2194,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "javascript/models/movable-object.class.js",
-      "source_location": "L45",
+      "source_location": "L46",
       "weight": 1.0
     },
     {
@@ -2192,7 +2205,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "javascript/models/movable-object.class.js",
-      "source_location": "L50",
+      "source_location": "L51",
       "weight": 1.0
     },
     {
@@ -2203,7 +2216,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "javascript/models/movable-object.class.js",
-      "source_location": "L57",
+      "source_location": "L58",
       "weight": 1.0
     },
     {
@@ -2214,7 +2227,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "javascript/models/movable-object.class.js",
-      "source_location": "L68",
+      "source_location": "L63",
       "weight": 1.0
     },
     {
@@ -2225,18 +2238,18 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "javascript/models/movable-object.class.js",
-      "source_location": "L72",
+      "source_location": "L67",
       "weight": 1.0
     },
     {
       "source": "javascript_models_movable_object_class_movableobject",
-      "target": "javascript_models_movable_object_class_movableobject_respawn",
+      "target": "javascript_models_movable_object_class_movableobject_patrol",
       "relation": "method",
       "_origin": "ast",
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "javascript/models/movable-object.class.js",
-      "source_location": "L81",
+      "source_location": "L76",
       "weight": 1.0
     },
     {
@@ -2247,7 +2260,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "javascript/models/movable-object.class.js",
-      "source_location": "L89",
+      "source_location": "L94",
       "weight": 1.0
     },
     {
@@ -2263,18 +2276,18 @@
     },
     {
       "source": "javascript_models_pufferfish_class_pufferfish",
-      "target": "javascript_models_pufferfish_class_pufferfish_loadallimages",
+      "target": "javascript_models_pufferfish_class_pufferfish_move",
       "relation": "method",
       "_origin": "ast",
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "javascript/models/pufferfish.class.js",
-      "source_location": "L42",
+      "source_location": "L44",
       "weight": 1.0
     },
     {
       "source": "javascript_models_pufferfish_class_pufferfish",
-      "target": "javascript_models_pufferfish_class_pufferfish_onrespawn",
+      "target": "javascript_models_pufferfish_class_pufferfish_loadallimages",
       "relation": "method",
       "_origin": "ast",
       "confidence": "EXTRACTED",
@@ -2291,7 +2304,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "javascript/models/pufferfish.class.js",
-      "source_location": "L52",
+      "source_location": "L54",
       "weight": 1.0
     },
     {
@@ -2302,7 +2315,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "javascript/models/pufferfish.class.js",
-      "source_location": "L56",
+      "source_location": "L58",
       "weight": 1.0
     },
     {
@@ -2395,5 +2408,5 @@
     }
   ],
   "hyperedges": [],
-  "built_at_commit": "e946fdb347578b6e1a2e6db6904ca89ee2ec67be"
+  "built_at_commit": "55447f71a86cd540b64b9c49a3089bccde6b6917"
 }
