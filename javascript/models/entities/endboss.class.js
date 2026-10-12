@@ -1,7 +1,10 @@
+/**
+ * Final enemy, placed at the end of the level.
+ */
 class Endboss extends MovableObject {
 
 
-    Images_Intro = [
+    imagesIntro = [
         "../img/2.Enemy/3 Final Enemy/1.Introduce/1.png",
         "../img/2.Enemy/3 Final Enemy/1.Introduce/2.png",
         "../img/2.Enemy/3 Final Enemy/1.Introduce/3.png",
@@ -14,7 +17,7 @@ class Endboss extends MovableObject {
         "../img/2.Enemy/3 Final Enemy/1.Introduce/10.png"
     ]
 
-    Images_floating = [
+    imagesFloating = [
         "../img/2.Enemy/3 Final Enemy/2.floating/1.png",
         "../img/2.Enemy/3 Final Enemy/2.floating/2.png",
         "../img/2.Enemy/3 Final Enemy/2.floating/3.png",
@@ -30,7 +33,7 @@ class Endboss extends MovableObject {
         "../img/2.Enemy/3 Final Enemy/2.floating/13.png"
     ]
 
-    Images_attack = [
+    imagesAttack = [
         "../img/2.Enemy/3 Final Enemy/Attack/1.png",
         "../img/2.Enemy/3 Final Enemy/Attack/2.png",
         "../img/2.Enemy/3 Final Enemy/Attack/3.png",
@@ -39,7 +42,7 @@ class Endboss extends MovableObject {
         "../img/2.Enemy/3 Final Enemy/Attack/6.png"
     ]
 
-    Images_Dead = [
+    imagesDead = [
         "../img/2.Enemy/3 Final Enemy/Dead/Mesa de trabajo 2.png",
         "../img/2.Enemy/3 Final Enemy/Dead/Mesa de trabajo 2 copia 6.png",
         "../img/2.Enemy/3 Final Enemy/Dead/Mesa de trabajo 2 copia 7.png",
@@ -48,17 +51,24 @@ class Endboss extends MovableObject {
         "../img/2.Enemy/3 Final Enemy/Dead/Mesa de trabajo 2 copia 10.png"
     ]
 
-    Images_Hurt = [
+    imagesHurt = [
         "../img/2.Enemy/3 Final Enemy/Hurt/1.png",
         "../img/2.Enemy/3 Final Enemy/Hurt/2.png",
         "../img/2.Enemy/3 Final Enemy/Hurt/3.png",
         "../img/2.Enemy/3 Final Enemy/Hurt/4.png"
     ]
     offset = { top: 100, right: 10, bottom: 40, left: 10 };
+    damageTaken = { poison: 20 };
     currentImage = 0;
     currentMovement;
+    /**
+     * Gap in px between boss and level end.
+     */
     static SPAWN_GAP = 30;   
 
+    /**
+     * @param {number} levelLength - Level length in px, used to place the boss at the end.
+     */
     constructor(levelLength) {
         super();
         this.loadImage("../img/2.Enemy/3 Final Enemy/1.Introduce/1.png");
@@ -66,27 +76,35 @@ class Endboss extends MovableObject {
         this.width = 350;
         this.x = levelLength - this.width - Endboss.SPAWN_GAP;
         this.y = (480 - this.height) / 2;
-        console.log("Endboss created at x:", this.x, "y:", this.y);
         this.speed = 1.5;
         this.loadAllImages();
-        this.setCurrentMovement(this.Images_Intro);
+        this.setCurrentMovement(this.imagesIntro);
         this.animated();
     }
 
+    /**
+     * Preloads all animation frames.
+     */
     loadAllImages() {
-        this.loadimages(this.Images_Intro);
-        this.loadimages(this.Images_floating);
-        this.loadimages(this.Images_attack);
-        this.loadimages(this.Images_Dead);
-        this.loadimages(this.Images_Hurt);
+        this.loadImages(this.imagesIntro);
+        this.loadImages(this.imagesFloating);
+        this.loadImages(this.imagesAttack);
+        this.loadImages(this.imagesDead);
+        this.loadImages(this.imagesHurt);
     }
 
+    /**
+     * Chooses the current animation.
+     */
     updateState() {
         this.whichMovement();
     }
 
+    /**
+     * Plays the floating animation.
+     */
     whichMovement() {
-        this.setCurrentMovement(this.Images_floating);
+        this.setCurrentMovement(this.imagesFloating);
     }
 
 }

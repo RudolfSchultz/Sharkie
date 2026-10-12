@@ -1,47 +1,53 @@
-# Graph Report - Sharkie  (2026-10-06)
+# Graph Report - Sharkie  (2026-10-12)
 
 ## Corpus Check
-- 16 files · ~2,480,876 words
+- 22 files · ~2,488,533 words
 - Verdict: corpus is large enough that graph structure adds value.
 
 ## Summary
-- 107 nodes · 131 edges · 17 communities (0 shown, 15 thin omitted)
+- 182 nodes · 242 edges · 21 communities (2 shown, 19 thin omitted)
 - Extraction: 100% EXTRACTED · 0% INFERRED · 0% AMBIGUOUS
 - Token cost: 0 input · 0 output
 
 ## Graph Freshness
-- Built from commit: `867c4d63`
+- Built from commit: `e9bdc272`
 - Run `git rev-parse HEAD` and compare to check if the graph is stale.
 - Run `graphify update .` after code changes (no API cost).
 
 ## Community Hubs (Navigation)
-- World
 - MovableObject
+- Sharkie – Status & Umsetzungsplan
 - game.js
-- Character
-- PufferFish
-- BackgroundObjects
-- CLAUDE.md
-- keyboard.class.js
-- Endboss
 - PlayerHud
-- Level
-- level1.js
+- World
+- Character
+- CLAUDE.md
+- PufferFish
+- Endboss
+- JellyFish
 - AnimatedBar
+- level1.js
 - BossBar
+- Coin
 - HudElement
+- Level
+- BackgroundObjects
+- Barrier
+- keyboard.class.js
+- Bubble
+- Geometry
 
 ## God Nodes (most connected - your core abstractions)
-1. `MovableObject` - 26 edges
-2. `PlayerHud` - 12 edges
-3. `World` - 10 edges
-4. `Character` - 7 edges
-5. `PufferFish` - 6 edges
-6. `AnimatedBar` - 5 edges
-7. `BossBar` - 5 edges
-8. `Endboss` - 5 edges
-9. `HudElement` - 3 edges
-10. `Level` - 3 edges
+1. `MovableObject` - 27 edges
+2. `World` - 21 edges
+3. `Character` - 15 edges
+4. `PlayerHud` - 14 edges
+5. `Sharkie – Status & Umsetzungsplan` - 13 edges
+6. `AnimatedBar` - 11 edges
+7. `Geometry` - 7 edges
+8. `PufferFish` - 6 edges
+9. `Endboss` - 5 edges
+10. `JellyFish` - 5 edges
 
 ## Surprising Connections (you probably didn't know these)
 - None detected - all connections are within the same source files.
@@ -49,19 +55,27 @@
 ## Import Cycles
 - None detected.
 
-## Communities (17 total, 15 thin omitted)
+## Communities (21 total, 19 thin omitted)
+
+### Community 1 - "Sharkie – Status & Umsetzungsplan"
+Cohesion: 0.14
+Nodes (13): A – Git & Struktur, B – Funktionalität & Design, C – Charakter, D – Gegner, E – Spielablauf, F – Sound, G – Landingpage, H – Responsive / Mobile (+5 more)
+
+### Community 11 - "level1.js"
+Cohesion: 0.53
+Nodes (5): createLevel1(), createLevel1Barriers(), createLevel1Coins(), createLevel1Enemies(), level1BackgroundImages
 
 ## Knowledge Gaps
-- **5 isolated node(s):** `level1_backgroundImages`, `Keyboard`, `keyboard`, `keyMap`, `graphify`
-  These have ≤1 connection - possible missing edges or undocumented components. (Counts symbols only; 46 node(s) total have ≤1 connection when file, concept and rationale nodes are included.)
-- **15 thin communities (<3 nodes) omitted from report** — run `graphify query` to explore isolated nodes.
+- **18 isolated node(s):** `keyboard`, `keyMap`, `level1BackgroundImages`, `Keyboard`, `graphify` (+13 more)
+  These have ≤1 connection - possible missing edges or undocumented components. (Counts symbols only; 66 node(s) total have ≤1 connection when file, concept and rationale nodes are included.)
+- **19 thin communities (<3 nodes) omitted from report** — run `graphify query` to explore isolated nodes.
 
 ## Suggested Questions
 _Questions this graph is uniquely positioned to answer:_
 
-- **Why does `MovableObject` connect `MovableObject` to `.getHitboxRect`, `.animated`?**
-  _High betweenness centrality (0.055) - this node is a cross-community bridge._
-- **What connects `level1_backgroundImages`, `Keyboard`, `keyboard` to the rest of the system?**
-  _5 weakly-connected nodes found - possible documentation gaps or missing edges._
+- **What connects `keyboard`, `keyMap`, `level1BackgroundImages` to the rest of the system?**
+  _18 weakly-connected nodes found - possible documentation gaps or missing edges._
 - **Should `MovableObject` be split into smaller, more focused modules?**
-  _Cohesion score 0.125 - nodes in this community are weakly interconnected._
+  _Cohesion score 0.10582010582010581 - nodes in this community are weakly interconnected._
+- **Should `Sharkie – Status & Umsetzungsplan` be split into smaller, more focused modules?**
+  _Cohesion score 0.14285714285714285 - nodes in this community are weakly interconnected._

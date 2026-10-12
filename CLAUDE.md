@@ -7,3 +7,9 @@ Rules:
 - If graphify-out/wiki/index.md exists, use it for broad navigation instead of raw source browsing.
 - Read graphify-out/GRAPH_REPORT.md only for broad architecture review or when query/path/explain do not surface enough context.
 - After modifying code, run `graphify update .` to keep the graph current (AST-only, no API cost).
+
+## Fortschritt (STATUS.md)
+
+- `STATUS.md` ist die einzige Fortschritts-Übersicht gegen die Projekt-Checkliste (`Sharkie Checkliste.pdf`). Keine neue Übersicht anlegen.
+- Nach jeder Code-Änderung: erledigte Punkte in `STATUS.md` abhaken, Prozentwert (erledigte / alle Pflichtpunkte, optionale zählen nicht) und Stand-Datum aktualisieren, eine Zeile ins Änderungsprotokoll schreiben.
+- Jede Antwort endet mit dem aktuellen Fortschritt, z. B. `**Fortschritt: XX % (erledigt / gesamt)**` – Wert immer aus STATUS.md übernehmen.

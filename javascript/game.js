@@ -2,6 +2,9 @@ let canvas;
 let world;
 let keyboard = new Keyboard();
 
+/**
+ * Maps KeyboardEvent.code values to the property names of the Keyboard object.
+ */
 const keyMap = {
     ArrowRight: "RIGHT",
     ArrowLeft: "LEFT",
