@@ -1,5 +1,5 @@
 /**
- * Holds everything that belongs to one level: length, background, enemies, coins and barriers.
+ * Holds everything that belongs to one level: length, background, enemies, coins, poison bottles and barriers.
  */
 class Level {
     /**
@@ -14,11 +14,13 @@ class Level {
      * @param {MovableObject[]} config.enemies - Enemies, must contain the Endboss.
      * @param {Coin[]} [config.coins=[]] - Collectible coins.
      * @param {Barrier[]} [config.barriers=[]] - Obstacles.
+     * @param {PoisonBottle[]} [config.poisonBottles=[]] - Collectible poison bottles.
      */
-    constructor({ length, backgroundImages, enemies, coins = [], barriers = [] }) {
+    constructor({ length, backgroundImages, enemies, coins = [], barriers = [], poisonBottles = [] }) {
         this.levelEndX = length;
         this.enemies = enemies;
         this.coins = coins;
+        this.poisonBottles = poisonBottles;
         this.barriers = barriers;
         this.backgroundObjects = this.createBackground(backgroundImages);
         this.boss = enemies.find(enemy => enemy instanceof Endboss);

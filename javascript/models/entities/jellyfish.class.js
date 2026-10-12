@@ -26,10 +26,11 @@ class JellyFish extends MovableObject {
     /**
      * @param {{x: number, y: number}} pointA - Start of the patrol path.
      * @param {{x: number, y: number}} pointB - End of the patrol path.
+     * @param {string} [variantName] - Fixed color variant ("Lila", "Yellow", "Green", "Pink"); random if omitted.
      */
-    constructor(pointA, pointB) {
+    constructor(pointA, pointB, variantName) {
         super();
-        let variant = this.randomVariant(JellyFish.VARIANTS);
+        let variant = this.pickVariant(variantName);
         this.swimImages = this.buildSwimImages(variant);
         this.damage = variant.damage;
         this.pointA = pointA;
@@ -40,6 +41,15 @@ class JellyFish extends MovableObject {
         this.loadImage(this.swimImages[0]);
         this.loadImages(this.swimImages);
         this.animated();
+    }
+
+    /**
+     * @param {string} [variantName] - Name of the wanted color variant.
+     * @returns {{folder: string, name: string, damage: number}} The named variant, or a random one.
+     */
+    pickVariant(variantName) {
+        let named = JellyFish.VARIANTS.find(variant => variant.name === variantName);
+        return named || this.randomVariant(JellyFish.VARIANTS);
     }
 
     /**

@@ -1,6 +1,6 @@
 # Sharkie – Status & Umsetzungsplan
 
-**Fortschritt: 42 % (23 / 55 Pflichtpunkte)** · Stand: 12.10.2026 · Basis: Commit e9bdc27
+**Fortschritt: 45 % (25 / 55 Pflichtpunkte)** · Stand: 12.10.2026 · Basis: Commit e9bdc27
 
 Diese Datei ist die einzige Fortschritts-Übersicht. Nach jeder Code-Änderung abhaken und Prozentwert neu berechnen.
 Fortschritt = erledigte Pflichtpunkte / alle Pflichtpunkte; optionale Punkte zählen nicht mit.
@@ -43,11 +43,11 @@ Fortschritt = erledigte Pflichtpunkte / alle Pflichtpunkte; optionale Punkte zä
 - [ ] Tod durch Stromschlag
 - [x] Fin Slap mit Trefferlogik (SPACE, Pfad-Bug behoben)
 - [x] Blasen-Angriff (Taste A)
-- [ ] Gift-Blase (verbraucht Gift) – Logik vorhanden, Giftflaschen zum Einsammeln fehlen noch
+- [x] Gift-Blase (verbraucht Gift)
 - [x] Lebensleiste sinkt bei Schaden
 - [x] HUD für Leben / Gift / Coins
 - [x] Coins einsammeln
-- [ ] Giftflaschen einsammeln
+- [x] Giftflaschen einsammeln (PoisonBottle, max. 5, volle Flaschen bleiben liegen)
 
 ## D – Gegner
 - [x] Kugelfisch: Bewegung / Patrouille
@@ -58,7 +58,7 @@ Fortschritt = erledigte Pflichtpunkte / alle Pflichtpunkte; optionale Punkte zä
 - [ ] Endboss: Angriff / Bewegung
 - [ ] Endboss: Hurt + Tod (nur per Gift-Blase)
 - [x] Hitbox-Offsets definiert
-- [ ] Level-Design & Balancing (Anzahl/Stärke, kein Überrennen am Start)
+- [ ] Level-Design & Balancing (Anzahl/Stärke, kein Überrennen am Start) – Level-1-Layout umgesetzt, Spieltest/Balancing offen
 
 ## E – Spielablauf
 - [ ] Zentrale Interval-Verwaltung (Voraussetzung für Restart)
@@ -109,3 +109,4 @@ Fortschritt = erledigte Pflichtpunkte / alle Pflichtpunkte; optionale Punkte zä
 - 12.10.2026: Polygon-Hitboxen auch für Barrier 1 (zwei Teile) und Barrier 3 (Prozentwert unverändert).
 - 12.10.2026: Barrier(x, y, variante, scale) – Position, Variante und Größenfaktor einstellbar (Prozentwert unverändert).
 - 12.10.2026: Debug-Log der Charakter-Position alle 10 s (World.logPositionEvery, vor Abgabe entfernen; Prozentwert unverändert).
+- 12.10.2026: Level 1 nach Bauplan: 5 Zonen, 13 Gegner + Endboss, 36 Coins, 6 Barrieren, 7 Giftflaschen; PoisonBottle-Klasse + Einsammeln; JellyFish mit fester Farbvariante (45 %).

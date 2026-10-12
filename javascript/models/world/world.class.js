@@ -45,13 +45,14 @@ class World {
     }
 
     /**
-     * Draws everything that moves with the camera: background, barriers, coins, enemies, character.
+     * Draws everything that moves with the camera: background, barriers, coins, poison bottles, enemies, character.
      */
     drawWorld() {
         this.ctx.translate(this.cameraX, 0);
         this.level.backgroundObjects.forEach(bgo => this.addToMap(bgo));
         this.level.barriers.forEach(barrier => this.addToMap(barrier));
         this.level.coins.forEach(coin => this.addToMap(coin));
+        this.level.poisonBottles.forEach(bottle => this.addToMap(bottle));
         this.level.enemies.forEach(enemy => this.addToMap(enemy));
         this.bubbles.forEach(bubble => this.addToMap(bubble));
         this.addToMap(this.character);
@@ -97,13 +98,14 @@ class World {
     }
 
     /**
-     * Starts the 60 fps loop for movement and coin pickup.
+     * Starts the 60 fps loop for movement, coin and poison pickup.
      */
     runGameLogic() {
         setInterval(() => {
             this.moveCharacter();
             this.moveEnemies();
             this.collectCoins();
+            this.collectPoison();
             this.moveBubbles();
             this.removeDeadEnemies();
         }, 1000 / 60);
@@ -160,6 +162,20 @@ class World {
         let collected = this.level.coins.filter(coin => this.character.isColliding(coin));
         this.character.coins += collected.length;
         this.level.coins = this.level.coins.filter(coin => !collected.includes(coin));
+    }
+
+    /**
+     * Collects the poison bottles the character touches, as long as the poison is not full.
+     * Bottles stay in the level while the poison is full.
+     */
+    collectPoison() {
+        if (this.character.isDead()) return;
+        this.level.poisonBottles.forEach(bottle => {
+            if (this.character.poison >= Character.MAX_POISON || !this.character.isColliding(bottle)) return;
+            this.character.poison++;
+            bottle.collected = true;
+        });
+        this.level.poisonBottles = this.level.poisonBottles.filter(bottle => !bottle.collected);
     }
 
     /**
