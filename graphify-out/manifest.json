@@ -18,9 +18,9 @@
     "semantic_hash": ""
   },
   "index.html": {
-    "mtime": 1791810564.3264096,
-    "seen": 1791810582.8240643,
-    "ast_hash": "819388d65e584d6cb8a36d4c0299a508",
+    "mtime": 1791814129.085733,
+    "seen": 1791814272.883242,
+    "ast_hash": "b8476f22f2bbe7b10d1f5fe511ae320a",
     "semantic_hash": ""
   },
   "img/1.Sharkie/1.IDLE/1.png": {
@@ -2766,9 +2766,9 @@
     "semantic_hash": ""
   },
   "javascript/levels/level1.js": {
-    "mtime": 1791811502.6081855,
-    "seen": 1791811569.4241953,
-    "ast_hash": "568f127a78f834322b55309fd433de11",
+    "mtime": 1791814168.0493822,
+    "seen": 1791814272.883242,
+    "ast_hash": "bf34b26920d91cabb2a044fd4b6ec41b",
     "semantic_hash": ""
   },
   "javascript/models/base/keyboard.class.js": {
@@ -2802,9 +2802,9 @@
     "semantic_hash": ""
   },
   "javascript/models/entities/jellyfish.class.js": {
-    "mtime": 1791806083.5233977,
-    "seen": 1791806111.555878,
-    "ast_hash": "1f4c39f408ebb8f9ca94ab59ac9dc291",
+    "mtime": 1791814128.96071,
+    "seen": 1791814272.883242,
+    "ast_hash": "46f388dbc81ecc6a34af67a7faf92d02",
     "semantic_hash": ""
   },
   "javascript/models/entities/pufferfish.class.js": {
@@ -2850,21 +2850,21 @@
     "semantic_hash": ""
   },
   "javascript/models/world/level.class.js": {
-    "mtime": 1791805786.6360517,
-    "seen": 1791806111.555878,
-    "ast_hash": "90257d7da8dc5a7f2dd839cc2022a466",
+    "mtime": 1791814128.990438,
+    "seen": 1791814272.883242,
+    "ast_hash": "077e8d346f5f849e21ced41129deae91",
     "semantic_hash": ""
   },
   "javascript/models/world/world.class.js": {
-    "mtime": 1791811567.5153205,
-    "seen": 1791811569.4241953,
-    "ast_hash": "ce6ddc025e420fa52320480d390e2510",
+    "mtime": 1791814129.0797021,
+    "seen": 1791814272.883242,
+    "ast_hash": "b24947fda5814f0fa3913cee89147b8c",
     "semantic_hash": ""
   },
   "STATUS.md": {
-    "mtime": 1791811567.6205237,
-    "seen": 1791811569.4241953,
-    "ast_hash": "15258df77bb6b9c41c6e1b4d3ab2a7e4",
+    "mtime": 1791814184.7769842,
+    "seen": 1791814272.883242,
+    "ast_hash": "4f0820481df61778377bd1933d791c9c",
     "semantic_hash": ""
   },
   "Sharkie Checkliste.pdf": {
@@ -2901,6 +2901,12 @@
     "mtime": 1791810551.8679543,
     "seen": 1791810582.823063,
     "ast_hash": "0ed5bb390b0df39b7b4f7a3adacb3d4a",
+    "semantic_hash": ""
+  },
+  "javascript/models/collectibles/poison-bottle.class.js": {
+    "mtime": 1791814128.9073832,
+    "seen": 1791814272.883242,
+    "ast_hash": "174a5fa10e106997a941010d8e8b75dc",
     "semantic_hash": ""
   }
 }
