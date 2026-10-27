@@ -23,3 +23,7 @@ h1 {
 canvas {
     background-color: #000000;
 }
+
+button {
+    cursor: pointer;
+}

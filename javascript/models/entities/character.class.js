@@ -126,7 +126,7 @@ class Character extends MovableObject {
     /**
      * Idle time in ms before the long idle animation starts.
      */
-    static LONG_IDLE_DELAY_MS = 2 * 60 * 1000;
+    static LONG_IDLE_DELAY_MS = 15 * 1000;
     surfaced = false;
     bobStart = 0;
     /**
