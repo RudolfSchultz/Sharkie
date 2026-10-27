@@ -32,6 +32,6 @@ class Coin extends MovableObject {
      * Keeps the spin animation running.
      */
     updateState() {
-        this.setCurrentMovement(this.imagesSpin, 0, 200);
+        this.setCurrentMovement(this.imagesSpin, 0, this.loopFrameMs);
     }
 }
