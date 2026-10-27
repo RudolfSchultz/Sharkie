@@ -8,6 +8,8 @@ class World {
     keyboard;
     bubbles = [];
     cameraX = 0;
+    frameId;
+    stopped = false;
 
     /**
      * @param {HTMLCanvasElement} canvas - The game canvas.
@@ -31,17 +33,28 @@ class World {
      * @param {number} ms - Time between two log lines in ms.
      */
     logPositionEvery(ms) {
-        setInterval(() => console.log(`Character x: ${Math.round(this.character.x)}, y: ${Math.round(this.character.y)}`), ms);
+        GameIntervals.start(() => console.log(`Character x: ${Math.round(this.character.x)}, y: ${Math.round(this.character.y)}`), ms);
+    }
+
+    /**
+     * Stops the whole game: all intervals and the draw loop. Call this before showing
+     * the end screen or before creating a new World for a restart.
+     */
+    stop() {
+        this.stopped = true;
+        GameIntervals.stopAll();
+        cancelAnimationFrame(this.frameId);
     }
 
     /**
      * Draws one frame (world, then HUD) and schedules the next one.
      */
     draw() {
+        if (this.stopped) return;
         this.ctx.clearRect(0, 0, this.canvas.width, this.canvas.height);
         this.drawWorld();
         this.drawHud();
-        requestAnimationFrame(() => this.draw());
+        this.frameId = requestAnimationFrame(() => this.draw());
     }
 
     /**
@@ -101,7 +114,7 @@ class World {
      * Starts the 60 fps loop for movement, coin and poison pickup.
      */
     runGameLogic() {
-        setInterval(() => {
+        GameIntervals.start(() => {
             this.moveCharacter();
             this.moveEnemies();
             this.collectCoins();
@@ -238,7 +251,7 @@ class World {
      * Starts the check for enemy contact (twice per second); each contact hurts the character.
      */
     checkCollisions() {
-        setInterval(() => {
+        GameIntervals.start(() => {
             this.level.enemies.forEach(enemy => {
                 if (!this.character.isDead() && this.character.isColliding(enemy)) {
                     this.character.hit(enemy.damage);

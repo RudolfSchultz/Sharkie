@@ -151,7 +151,7 @@ class MovableObject {
      * Starts the animation loop: updates the state and shows the next frame every 100 ms.
      */
     animated() {
-        setInterval(() => {
+        GameIntervals.start(() => {
             this.updateState();
             this.tick++;
             if (this.isLooping() && this.tick % (this.loopFrameMs / 100) !== 0) return;

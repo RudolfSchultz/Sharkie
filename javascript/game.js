@@ -19,6 +19,14 @@ const keyMap = {
  */
 function init() {
     canvas = document.getElementById("canvas");
+    startGame();
+}
+
+/**
+ * Starts a fresh game. A running game is stopped first, so no old interval keeps running.
+ */
+function startGame() {
+    if (world) world.stop();
     world = new World(canvas, keyboard);
 }
 
