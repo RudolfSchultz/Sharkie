@@ -215,13 +215,14 @@ class World {
     }
 
     /**
-     * Applies the damage an attack type does to this enemy; nothing happens if it is immune.
+     * Applies the damage an attack type does to this enemy (nothing if it is immune) and lets the enemy react to it.
      * @param {MovableObject} enemy - The enemy that was hit.
      * @param {string} type - Attack type ("slap", "bubble" or "poison").
      */
     damageEnemy(enemy, type) {
         let damage = enemy.damageTaken[type];
         if (damage) enemy.hit(damage);
+        if (enemy.reactTo) enemy.reactTo(type);
     }
 
     /**

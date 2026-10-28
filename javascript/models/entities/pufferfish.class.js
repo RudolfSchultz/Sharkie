@@ -1,5 +1,7 @@
 /**
- * Enemy that swims back and forth between two points. Color variant is random.
+ * Enemy that swims back and forth between two points. The color variant is chosen once at random;
+ * it is one object that holds all image lists of that color, so every state uses the right color directly.
+ * A bubble does not kill it but inflates it: transition animation once, then the bubble swim loop.
  */
 class PufferFish extends MovableObject {
 
@@ -50,24 +52,24 @@ class PufferFish extends MovableObject {
     ]
 
     imagesBubbleSwimGreen = [
-        "../img/2.Enemy/1.Puffer fish (3 color options)/3.Bubbleswim/1.bubbleswim1.png",
-        "../img/2.Enemy/1.Puffer fish (3 color options)/3.Bubbleswim/1.bubbleswim2.png",
-        "../img/2.Enemy/1.Puffer fish (3 color options)/3.Bubbleswim/1.bubbleswim3.png",
-        "../img/2.Enemy/1.Puffer fish (3 color options)/3.Bubbleswim/1.bubbleswim4.png"
+        "../img/2.Enemy/1.Puffer fish (3 color options)/3.Bubbleeswim/1.bubbleswim1.png",
+        "../img/2.Enemy/1.Puffer fish (3 color options)/3.Bubbleeswim/1.bubbleswim2.png",
+        "../img/2.Enemy/1.Puffer fish (3 color options)/3.Bubbleeswim/1.bubbleswim3.png",
+        "../img/2.Enemy/1.Puffer fish (3 color options)/3.Bubbleeswim/1.bubbleswim4.png"
     ]
 
     imagesBubbleSwimOrange = [
-        "../img/2.Enemy/1.Puffer fish (3 color options)/3.Bubbleswim/2.bubbleswim1.png",
-        "../img/2.Enemy/1.Puffer fish (3 color options)/3.Bubbleswim/2.bubbleswim2.png",
-        "../img/2.Enemy/1.Puffer fish (3 color options)/3.Bubbleswim/2.bubbleswim3.png",
-        "../img/2.Enemy/1.Puffer fish (3 color options)/3.Bubbleswim/2.bubbleswim4.png"
+        "../img/2.Enemy/1.Puffer fish (3 color options)/3.Bubbleeswim/2.bubbleswim1.png",
+        "../img/2.Enemy/1.Puffer fish (3 color options)/3.Bubbleeswim/2.bubbleswim2.png",
+        "../img/2.Enemy/1.Puffer fish (3 color options)/3.Bubbleeswim/2.bubbleswim3.png",
+        "../img/2.Enemy/1.Puffer fish (3 color options)/3.Bubbleeswim/2.bubbleswim4.png"
     ]
 
     imagesBubbleSwimRed = [
-        "../img/2.Enemy/1.Puffer fish (3 color options)/3.Bubbleswim/3.bubbleswim1.png",
-        "../img/2.Enemy/1.Puffer fish (3 color options)/3.Bubbleswim/3.bubbleswim2.png",
-        "../img/2.Enemy/1.Puffer fish (3 color options)/3.Bubbleswim/3.bubbleswim3.png",
-        "../img/2.Enemy/1.Puffer fish (3 color options)/3.Bubbleswim/3.bubbleswim4.png"
+        "../img/2.Enemy/1.Puffer fish (3 color options)/3.Bubbleeswim/3.bubbleswim1.png",
+        "../img/2.Enemy/1.Puffer fish (3 color options)/3.Bubbleeswim/3.bubbleswim2.png",
+        "../img/2.Enemy/1.Puffer fish (3 color options)/3.Bubbleeswim/3.bubbleswim3.png",
+        "../img/2.Enemy/1.Puffer fish (3 color options)/3.Bubbleeswim/3.bubbleswim4.png"
     ]
 
     imagesDeadGreen = [
@@ -89,7 +91,8 @@ class PufferFish extends MovableObject {
     ]
 
     offset = { top: 5, right: 5, bottom: 23, left: 0 };
-    damageTaken = { slap: 100, bubble: 100, poison: 100 };
+    damageTaken = { slap: 100, bubble: 0, poison: 100 };
+    inflated = false;
     currentImage = 0;
     currentMovement;
 
@@ -106,7 +109,7 @@ class PufferFish extends MovableObject {
         this.y = pointA.y;
         this.speed = 1 + Math.random() * 1.5;
         this.loadAllImages();
-        this.swimImages = this.randomVariant([this.imagesGreenSwim, this.imagesOrangeSwim, this.imagesRedSwim]);
+        this.variant = this.randomVariant(this.variants());
         this.animated();
     }
 
@@ -118,12 +121,40 @@ class PufferFish extends MovableObject {
     }
 
     /**
-     * Preloads the swim frames of all color variants.
+     * Preloads every image list of all color variants.
      */
     loadAllImages() {
-        this.loadImages(this.imagesGreenSwim);
-        this.loadImages(this.imagesOrangeSwim);
-        this.loadImages(this.imagesRedSwim);
+        this.variants().forEach(variant => Object.values(variant).forEach(images => this.loadImages(images)));
+    }
+
+    /**
+     * @returns {Object[]} One entry per color with all of its image lists (see variantOf).
+     */
+    variants() {
+        return [
+            this.variantOf(this.imagesGreenSwim, this.imagesTransitionGreen, this.imagesBubbleSwimGreen, this.imagesDeadGreen),
+            this.variantOf(this.imagesOrangeSwim, this.imagesTransitionOrange, this.imagesBubbleSwimOrange, this.imagesDeadOrange),
+            this.variantOf(this.imagesRedSwim, this.imagesTransitionRed, this.imagesBubbleSwimRed, this.imagesDeadRed)
+        ];
+    }
+
+    /**
+     * @param {string[]} swim - Normal swim frames.
+     * @param {string[]} transition - Frames of the puffing up.
+     * @param {string[]} bubbleSwim - Swim frames while inflated.
+     * @param {string[]} dead - Frames of the death.
+     * @returns {Object} All lists of one color; "inflate" is the transition followed by the bubble swim loop.
+     */
+    variantOf(swim, transition, bubbleSwim, dead) {
+        return { swim, transition, bubbleSwim, dead, inflate: [...transition, ...bubbleSwim] };
+    }
+
+    /**
+     * Called by the world for every attack that reaches this enemy, also for types it takes no damage from.
+     * @param {string} type - Attack type ("slap", "bubble" or "poison").
+     */
+    reactTo(type) {
+        if (type === "bubble") this.inflated = true;
     }
 
     /**
@@ -134,10 +165,11 @@ class PufferFish extends MovableObject {
     }
 
     /**
-     * Plays the swim animation of the chosen color variant.
+     * Plays the swim animation of the chosen color; once inflated the transition plays once, then the bubble swim loops.
      */
     whichMovement() {
-        this.setCurrentMovement(this.swimImages);
+        if (this.inflated) this.setCurrentMovement(this.variant.inflate, this.variant.transition.length);
+        else this.setCurrentMovement(this.variant.swim);
     }
 
 }
