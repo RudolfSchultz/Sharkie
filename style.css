@@ -27,3 +27,112 @@ canvas {
 button {
     cursor: pointer;
 }
+
+.d-none {
+    display: none !important;
+}
+
+.game-container {
+    position: relative;
+    width: 720px;
+    height: 480px;
+}
+
+.screen {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 24px;
+    box-sizing: border-box;
+    font-family: "Luckiest Guy", sans-serif;
+}
+
+.start-screen {
+    align-items: flex-end;
+    padding-right: 70px;
+    background: url("img/3. Background/Mesa de trabajo 1.png") center / cover no-repeat;
+}
+
+.game-title {
+    margin: 0;
+    font-size: 72px;
+    font-weight: normal;
+    letter-spacing: 2px;
+    color: #ffffff;
+    text-shadow: 0 5px 0 #5b1f8a, 0 8px 16px rgba(0, 0, 0, 0.5);
+}
+
+.img-btn {
+    padding: 0;
+    border: none;
+    background: transparent center / contain no-repeat;
+    transition: transform 0.15s;
+}
+
+.img-btn:hover,
+.text-btn:hover {
+    transform: scale(1.05);
+}
+
+.start-btn {
+    width: 208px;
+    height: 68px;
+    background-image: url("img/6.Botones/Start/1.png");
+}
+
+.start-btn:hover {
+    background-image: url("img/6.Botones/Start/4.png");
+}
+
+.end-screen {
+    background-color: rgba(0, 10, 30, 0.72);
+}
+
+.end-screen.win {
+    justify-content: flex-end;
+    align-items: flex-end;
+    padding: 0 36px 28px 0;
+    background: url("img/6.Botones/Tittles/You win/Mesa de trabajo 1.png") center / cover no-repeat, #2a8fd0;
+}
+
+.end-title {
+    width: 480px;
+}
+
+.end-screen.win .end-title {
+    display: none;
+}
+
+.end-buttons {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.try-again-btn {
+    width: 220px;
+    height: 51px;
+    background-image: url("img/6.Botones/Try again/Recurso 15.png");
+}
+
+.try-again-btn:hover {
+    background-image: url("img/6.Botones/Try again/Recurso 17.png");
+}
+
+.text-btn {
+    padding: 8px 28px;
+    font-family: inherit;
+    font-size: 26px;
+    color: #ffffff;
+    background-color: #5b1f8a;
+    border: 3px solid #ffffff;
+    border-radius: 14px;
+    transition: transform 0.15s, background-color 0.15s;
+}
+
+.text-btn:hover {
+    background-color: #c2187d;
+}

@@ -1,5 +1,6 @@
 /**
  * Enemy that moves between two points. Color variant (random) decides the damage.
+ * Touching it gives the character an electric shock. Only bubbles kill it: it is trapped in the bubble and floats up.
  */
 class JellyFish extends MovableObject {
     /**
@@ -7,19 +8,24 @@ class JellyFish extends MovableObject {
      */
     static PATH = "../img/2.Enemy/2 Jelly fish/";
     /**
-     * Color variants: image folder, file name prefix and damage.
+     * Color variants: image folder, file name prefix, death frame prefix (folder/file) and damage.
      */
     static VARIANTS = [
-        { folder: "Regular damage", name: "Lila", damage: 5 },
-        { folder: "Regular damage", name: "Yellow", damage: 5 },
-        { folder: "Súper dangerous", name: "Green", damage: 10 },
-        { folder: "Súper dangerous", name: "Pink", damage: 10 }
+        { folder: "Regular damage", name: "Lila", dead: "Lila/L", damage: 5 },
+        { folder: "Regular damage", name: "Yellow", dead: "Yellow/y", damage: 5 },
+        { folder: "Súper dangerous", name: "Green", dead: "green/g", damage: 10 },
+        { folder: "Súper dangerous", name: "Pink", dead: "Pink/P", damage: 10 }
     ];
+    /**
+     * Speed in px per game tick of the dead jellyfish floating up.
+     */
+    static FLOAT_SPEED = 2;
 
     width = 70;
     height = 100;
     offset = { top: 10, right: 8, bottom: 25, left: 8 };
     damageTaken = { bubble: 100, poison: 100 };
+    hurtType = "shock";
     currentImage = 0;
     currentMovement;
 
@@ -32,6 +38,7 @@ class JellyFish extends MovableObject {
         super();
         let variant = this.pickVariant(variantName);
         this.swimImages = this.buildSwimImages(variant);
+        this.deadImages = this.buildDeadImages(variant);
         this.damage = variant.damage;
         this.pointA = pointA;
         this.pointB = pointB;
@@ -40,6 +47,7 @@ class JellyFish extends MovableObject {
         this.speed = 0.5 + Math.random();
         this.loadImage(this.swimImages[0]);
         this.loadImages(this.swimImages);
+        this.loadImages(this.deadImages);
         this.animated();
     }
 
@@ -62,16 +70,27 @@ class JellyFish extends MovableObject {
     }
 
     /**
-     * Patrols between the two points.
+     * Builds the 4 death frame paths (jellyfish trapped in a bubble) of one color variant.
+     * @param {{dead: string}} variant - Color variant.
+     * @returns {string[]} Frame paths.
      */
-    move() {
-        this.patrol();
+    buildDeadImages(variant) {
+        return [1, 2, 3, 4].map(i => `${JellyFish.PATH}Dead/${variant.dead}${i}.png`);
     }
 
     /**
-     * Plays the swim animation.
+     * Patrols between the two points; after death it floats up and becomes removable above the canvas.
+     */
+    move() {
+        if (!this.isDead()) return this.patrol();
+        this.y -= JellyFish.FLOAT_SPEED;
+        this.removable = this.y + this.height < 0;
+    }
+
+    /**
+     * Plays the swim animation, or the death animation in a loop while floating up.
      */
     updateState() {
-        this.setCurrentMovement(this.swimImages);
+        this.setCurrentMovement(this.isDead() ? this.deadImages : this.swimImages);
     }
 }

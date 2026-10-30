@@ -32,9 +32,10 @@ class BossBar extends HudElement {
     }
 
     /**
-     * @returns {string[]} Fill colors [top, bottom].
+     * @returns {string[]} Fill colors [top, bottom]; green while the boss is poisoned.
      */
     colors() {
+        if (this.boss.poisonStacks > 0) return ["#9be15d", "#2e8b2e"];
         return ["#ff5f7e", "#b3123a"];
     }
 

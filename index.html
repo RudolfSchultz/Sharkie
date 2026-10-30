@@ -17,7 +17,22 @@
 
     <h1>Willkommen bei Sharkie</h1>
 
-    <canvas id="canvas" width="720" height="480"></canvas>
+    <div class="game-container">
+        <canvas id="canvas" width="720" height="480"></canvas>
+
+        <div id="startScreen" class="screen start-screen">
+            <h2 class="game-title">Sharkie</h2>
+            <button class="img-btn start-btn" onclick="startGame()" aria-label="Start"></button>
+        </div>
+
+        <div id="endScreen" class="screen end-screen d-none">
+            <img class="end-title" src="img/6.Botones/Tittles/Game Over/Recurso 9.png" alt="Game over">
+            <div class="end-buttons">
+                <button class="img-btn try-again-btn" onclick="startGame()" aria-label="Try again"></button>
+                <button class="text-btn" onclick="goHome()">Home</button>
+            </div>
+        </div>
+    </div>
 </body>
 
 

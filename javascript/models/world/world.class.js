@@ -10,15 +10,25 @@ class World {
     cameraX = 0;
     frameId;
     stopped = false;
+    /**
+     * True once the character has reached the boss arena; from then on it cannot swim back.
+     */
+    bossFight = false;
+    /**
+     * Time in ms between the death of the character or the boss and the end screen.
+     */
+    static END_DELAY_MS = 2500;
 
     /**
      * @param {HTMLCanvasElement} canvas - The game canvas.
      * @param {Keyboard} keyboard - Current key states.
+     * @param {function(boolean): void} onEnd - Called once when the game is over, with true on a win.
      */
-    constructor(canvas, keyboard) {
+    constructor(canvas, keyboard, onEnd) {
         this.canvas = canvas;
         this.ctx = canvas.getContext("2d");
         this.keyboard = keyboard;
+        this.onEnd = onEnd;
         this.playerHud = new PlayerHud(this.character, canvas.width);
         this.bossBar = new BossBar(this.level.boss, canvas.width, canvas.height);
         this.setWorld();
@@ -73,20 +83,12 @@ class World {
     }
 
     /**
-     * Draws the fixed HUD; the boss bar appears as soon as the boss is on screen.
+     * Draws the fixed HUD; the boss bar appears together with the boss.
      */
     drawHud() {
-        if (this.isOnScreen(this.level.boss)) this.bossBar.activate();
+        if (this.level.boss.hasAppeared()) this.bossBar.activate();
         this.playerHud.draw(this.ctx);
         this.bossBar.draw(this.ctx);
-    }
-
-    /**
-     * @param {MovableObject} mo - Object to check.
-     * @returns {boolean} True when the object is at least partly inside the visible area.
-     */
-    isOnScreen(mo) {
-        return mo.x < -this.cameraX + this.canvas.width && mo.x + mo.width > -this.cameraX;
     }
 
     /**
@@ -121,7 +123,53 @@ class World {
             this.collectPoison();
             this.moveBubbles();
             this.removeDeadEnemies();
+            this.checkBossFight();
+            this.checkGameEnd();
         }, 1000 / 60);
+    }
+
+    /**
+     * Starts the boss fight once the camera has reached the arena at the level end.
+     */
+    checkBossFight() {
+        let arenaTriggerX = this.level.levelEndX - this.canvas.width + Character.CAMERA_LEAD_X;
+        if (this.bossFight || this.character.x < arenaTriggerX) return;
+        this.bossFight = true;
+        this.level.boss.appear();
+    }
+
+    /**
+     * @returns {number} Smallest x the character may swim to: the level start, or the arena start during the boss fight.
+     */
+    leftBoundary() {
+        return this.bossFight ? this.level.levelEndX - this.canvas.width : 0;
+    }
+
+    /**
+     * Ends the game a moment after the character (lost) or the boss (won) has died.
+     */
+    checkGameEnd() {
+        if (this.isDeadFor(this.character, World.END_DELAY_MS)) this.end(false);
+        else if (this.isDeadFor(this.level.boss, World.END_DELAY_MS)) this.end(true);
+    }
+
+    /**
+     * @param {MovableObject} mo - Character or boss.
+     * @param {number} ms - Time in ms.
+     * @returns {boolean} True when the object died at least ms ago.
+     */
+    isDeadFor(mo, ms) {
+        return mo.isDead() && Date.now() - mo.diedAt >= ms;
+    }
+
+    /**
+     * Stops the game and reports the result (only once).
+     * @param {boolean} won - True when the boss was defeated.
+     */
+    end(won) {
+        if (this.stopped) return;
+        this.stop();
+        this.onEnd(won);
     }
 
     /**
@@ -155,11 +203,12 @@ class World {
     }
 
     /**
-     * Applies the pressed keys to the character, or lets a dead character float up.
+     * Applies the knockback and the pressed keys to the character, or lets a dead character float up or sink down.
      */
     steerCharacter() {
-        if (this.character.isDead()) this.character.floatUp();
+        if (this.character.isDead()) this.character.afterDeath();
         else {
+            this.character.applyKnockback();
             if (this.keyboard.RIGHT) this.character.moveRight();
             if (this.keyboard.UP) this.character.moveUp();
             if (this.keyboard.DOWN) this.character.moveDown();
@@ -197,7 +246,7 @@ class World {
     moveBubbles() {
         this.bubbles.forEach(bubble => {
             bubble.move();
-            let enemy = this.level.enemies.find(other => bubble.isColliding(other));
+            let enemy = this.level.enemies.find(other => other.isActive() && bubble.isColliding(other));
             if (!enemy) return;
             this.damageEnemy(enemy, bubble.type);
             bubble.popped = true;
@@ -211,7 +260,9 @@ class World {
      * @param {string} type - Attack type ("slap", "bubble" or "poison").
      */
     attackEnemies(area, type) {
-        this.level.enemies.filter(enemy => enemy.isColliding(area)).forEach(enemy => this.damageEnemy(enemy, type));
+        this.level.enemies
+            .filter(enemy => enemy.isActive() && enemy.isColliding(area))
+            .forEach(enemy => this.damageEnemy(enemy, type));
     }
 
     /**
@@ -226,10 +277,10 @@ class World {
     }
 
     /**
-     * Removes defeated enemies from the level. The boss stays.
+     * Removes defeated enemies from the level once their death animation is over. The boss is never removable.
      */
     removeDeadEnemies() {
-        this.level.enemies = this.level.enemies.filter(enemy => !enemy.isDead() || enemy === this.level.boss);
+        this.level.enemies = this.level.enemies.filter(enemy => !enemy.removable);
     }
 
     /**
@@ -249,13 +300,13 @@ class World {
     }
 
     /**
-     * Starts the check for enemy contact (twice per second); each contact hurts the character.
+     * Starts the check for enemy contact (twice per second); each contact with an active enemy hurts the character.
      */
     checkCollisions() {
         GameIntervals.start(() => {
             this.level.enemies.forEach(enemy => {
-                if (!this.character.isDead() && this.character.isColliding(enemy)) {
-                    this.character.hit(enemy.damage);
+                if (!this.character.isDead() && enemy.isActive() && this.character.isColliding(enemy)) {
+                    this.character.takeHitFrom(enemy);
                 }
             });
         }, 500);

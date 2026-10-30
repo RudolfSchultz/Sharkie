@@ -3,26 +3,7 @@
  */
 class Character extends MovableObject {
 
-    imagesIdle = [
-        "../img/1.Sharkie/1.IDLE/1.png",
-        "../img/1.Sharkie/1.IDLE/2.png",
-        "../img/1.Sharkie/1.IDLE/3.png",
-        "../img/1.Sharkie/1.IDLE/4.png",
-        "../img/1.Sharkie/1.IDLE/5.png",
-        "../img/1.Sharkie/1.IDLE/6.png",
-        "../img/1.Sharkie/1.IDLE/7.png",
-        "../img/1.Sharkie/1.IDLE/8.png",
-        "../img/1.Sharkie/1.IDLE/9.png",
-        "../img/1.Sharkie/1.IDLE/10.png",
-        "../img/1.Sharkie/1.IDLE/11.png",
-        "../img/1.Sharkie/1.IDLE/12.png",
-        "../img/1.Sharkie/1.IDLE/13.png",
-        "../img/1.Sharkie/1.IDLE/14.png",
-        "../img/1.Sharkie/1.IDLE/15.png",
-        "../img/1.Sharkie/1.IDLE/16.png",
-        "../img/1.Sharkie/1.IDLE/17.png",
-        "../img/1.Sharkie/1.IDLE/18.png"
-    ]
+    imagesIdle = MovableObject.framePaths("../img/1.Sharkie/1.IDLE/", 18);
 
     imagesLongIdle = [
         "../img/1.Sharkie/2.Long_IDLE/i1.png",
@@ -43,82 +24,40 @@ class Character extends MovableObject {
     longIdleLoopFrom = 10;
     longIdleLoopFrameMs = 300;
 
-    imagesSwimming = [
-        "../img/1.Sharkie/3.Swim/1.png",
-        "../img/1.Sharkie/3.Swim/2.png",
-        "../img/1.Sharkie/3.Swim/3.png",
-        "../img/1.Sharkie/3.Swim/4.png",
-        "../img/1.Sharkie/3.Swim/5.png",
-        "../img/1.Sharkie/3.Swim/6.png"
-    ]
+    imagesSwimming = MovableObject.framePaths("../img/1.Sharkie/3.Swim/", 6);
 
-    imagesAttackSlap = [
-        "../img/1.Sharkie/4.Attack/Fin slap/1.png",
-        "../img/1.Sharkie/4.Attack/Fin slap/2.png",
-        "../img/1.Sharkie/4.Attack/Fin slap/3.png",
-        "../img/1.Sharkie/4.Attack/Fin slap/4.png",
-        "../img/1.Sharkie/4.Attack/Fin slap/5.png",
-        "../img/1.Sharkie/4.Attack/Fin slap/6.png",
-        "../img/1.Sharkie/4.Attack/Fin slap/7.png",
-        "../img/1.Sharkie/4.Attack/Fin slap/8.png"
-    ]
+    imagesAttackSlap = MovableObject.framePaths("../img/1.Sharkie/4.Attack/Fin slap/", 8);
 
-    imagesHurtPoisoned = [
-        "../img/1.Sharkie/5.Hurt/1.Poisoned/1.png",
-        "../img/1.Sharkie/5.Hurt/1.Poisoned/2.png",
-        "../img/1.Sharkie/5.Hurt/1.Poisoned/3.png",
-        "../img/1.Sharkie/5.Hurt/1.Poisoned/4.png",
-        "../img/1.Sharkie/5.Hurt/1.Poisoned/5.png"
-    ]
+    imagesHurtPoisoned = MovableObject.framePaths("../img/1.Sharkie/5.Hurt/1.Poisoned/", 5);
 
-    imagesHurtShocked = [
-        "../img/1.Sharkie/5.Hurt/2.Electric_shock/1.png",
-        "../img/1.Sharkie/5.Hurt/2.Electric_shock/2.png",
-        "../img/1.Sharkie/5.Hurt/2.Electric_shock/3.png"
-    ]
+    imagesHurtShocked = MovableObject.framePaths("../img/1.Sharkie/5.Hurt/2.Electric_shock/", 3);
 
-    imagesDeadByPoison = [
-        "../img/1.Sharkie/6.dead/1.Poisoned/1.png",
-        "../img/1.Sharkie/6.dead/1.Poisoned/2.png",
-        "../img/1.Sharkie/6.dead/1.Poisoned/3.png",
-        "../img/1.Sharkie/6.dead/1.Poisoned/4.png",
-        "../img/1.Sharkie/6.dead/1.Poisoned/5.png",
-        "../img/1.Sharkie/6.dead/1.Poisoned/6.png",
-        "../img/1.Sharkie/6.dead/1.Poisoned/7.png",
-        "../img/1.Sharkie/6.dead/1.Poisoned/8.png",
-        "../img/1.Sharkie/6.dead/1.Poisoned/9.png",
-        "../img/1.Sharkie/6.dead/1.Poisoned/10.png",
-        "../img/1.Sharkie/6.dead/1.Poisoned/11.png",
-        "../img/1.Sharkie/6.dead/1.Poisoned/12.png"
-    ]
+    imagesDeadByPoison = MovableObject.framePaths("../img/1.Sharkie/6.dead/1.Poisoned/", 12);
     deadByPoisonLoopFrom = this.imagesDeadByPoison.length - 1;
 
-    imagesDeadByShock = [
-        "../img/1.Sharkie/6.dead/2.Electro_shock/1.png",
-        "../img/1.Sharkie/6.dead/2.Electro_shock/2.png",
-        "../img/1.Sharkie/6.dead/2.Electro_shock/3.png",
-        "../img/1.Sharkie/6.dead/2.Electro_shock/4.png",
-        "../img/1.Sharkie/6.dead/2.Electro_shock/5.png",
-        "../img/1.Sharkie/6.dead/2.Electro_shock/6.png",
-        "../img/1.Sharkie/6.dead/2.Electro_shock/7.png",
-        "../img/1.Sharkie/6.dead/2.Electro_shock/8.png",
-        "../img/1.Sharkie/6.dead/2.Electro_shock/9.png",
-        "../img/1.Sharkie/6.dead/2.Electro_shock/10.png"
-    ]
+    imagesDeadByShock = MovableObject.framePaths("../img/1.Sharkie/6.dead/2.Electro_shock/", 10);
     deadByShockLoopFrom = this.imagesDeadByShock.length - 1;
 
-    imagesAttackBubble = [
-        "../img/1.Sharkie/4.Attack/Bubble trap/op1 (with bubble formation)/1.png",
-        "../img/1.Sharkie/4.Attack/Bubble trap/op1 (with bubble formation)/2.png",
-        "../img/1.Sharkie/4.Attack/Bubble trap/op1 (with bubble formation)/3.png",
-        "../img/1.Sharkie/4.Attack/Bubble trap/op1 (with bubble formation)/4.png",
-        "../img/1.Sharkie/4.Attack/Bubble trap/op1 (with bubble formation)/5.png",
-        "../img/1.Sharkie/4.Attack/Bubble trap/op1 (with bubble formation)/6.png",
-        "../img/1.Sharkie/4.Attack/Bubble trap/op1 (with bubble formation)/7.png",
-        "../img/1.Sharkie/4.Attack/Bubble trap/op1 (with bubble formation)/8.png"
-    ]
+    imagesAttackBubble = MovableObject.framePaths("../img/1.Sharkie/4.Attack/Bubble trap/op1 (with bubble formation)/", 8);
 
     offset = { top: 33, right: 10, bottom: 10, left: 10 };
+    /**
+     * Type of the last hit, "poison" or "shock"; decides hurt and death animation.
+     */
+    lastHitType = "poison";
+    /**
+     * Speed in px per game tick of the sinking after an electric shock death.
+     */
+    static SINK_SPEED = 2;
+    /**
+     * Current knockback speed in px per game tick (negative = to the left); 0 when not knocked back.
+     */
+    knockX = 0;
+    /**
+     * Start speed of the knockback after a hit and the share of it that is kept per game tick.
+     */
+    static KNOCKBACK_SPEED = 10;
+    static KNOCKBACK_DECAY = 0.85;
     currentImage = 0;
     currentMovement;
     world;
@@ -199,17 +138,77 @@ class Character extends MovableObject {
     }
 
     /**
-     * Picks the animation from death, attack, pressed keys and idle time.
+     * Picks the animation from death, attack, hurt, pressed keys and idle time.
+     * An attack wins over the hurt animation, so the character can still fight back right after a hit.
      */
     whichMovement() {
         this.finishAttack();
-        if (this.isDead()) this.setCurrentMovement(this.imagesDeadByPoison, this.deadByPoisonLoopFrom);
+        if (this.isDead()) this.playDeath();
         else if (this.currentAttack || this.wantsAttack()) this.runAttack();
+        else if (this.isHurt()) this.playHurt();
         else if (this.isMoving()) {
             this.idleSince = null;
             this.setCurrentMovement(this.imagesSwimming);
         }
         else this.chooseIdleAnimation();
+    }
+
+    /**
+     * Takes the damage of an enemy contact, remembers how it hurt (poison or electric shock)
+     * and gets pushed away from the enemy. While hurt (1 s after a hit) further contacts do nothing.
+     * @param {MovableObject} enemy - The enemy the character touched.
+     */
+    takeHitFrom(enemy) {
+        if (this.isHurt()) return;
+        this.lastHitType = enemy.hurtType;
+        this.hit(enemy.damage);
+        this.knockX = (this.centerX() < enemy.centerX() ? -1 : 1) * Character.KNOCKBACK_SPEED;
+    }
+
+    /**
+     * Moves the character by the fading knockback, limited to the allowed area of the level.
+     */
+    applyKnockback() {
+        if (Math.abs(this.knockX) < 0.5) {
+            this.knockX = 0;
+            return;
+        }
+        let maxX = this.world.level.levelEndX - this.width;
+        this.x = Math.min(Math.max(this.world.leftBoundary(), this.x + this.knockX), maxX);
+        this.knockX *= Character.KNOCKBACK_DECAY;
+    }
+
+    /**
+     * Plays the hurt animation that matches the last hit.
+     */
+    playHurt() {
+        this.idleSince = null;
+        this.setCurrentMovement(this.lastHitType === "shock" ? this.imagesHurtShocked : this.imagesHurtPoisoned);
+    }
+
+    /**
+     * Plays the death animation that matches the last hit once and keeps its last frame.
+     */
+    playDeath() {
+        if (this.lastHitType === "shock") this.setCurrentMovement(this.imagesDeadByShock, this.deadByShockLoopFrom);
+        else this.setCurrentMovement(this.imagesDeadByPoison, this.deadByPoisonLoopFrom);
+    }
+
+    /**
+     * Movement after death: poisoned it floats up, shocked it sinks to the ground.
+     */
+    afterDeath() {
+        if (this.lastHitType === "shock") this.sinkDown();
+        else this.floatUp();
+    }
+
+    /**
+     * Waits for the electric shock death animation, then sinks slowly down to the bottom edge.
+     */
+    sinkDown() {
+        if (this.currentMovement !== this.imagesDeadByShock || !this.isLooping()) return;
+        let floorY = this.world.canvas.height - this.height;
+        this.y = Math.min(floorY, this.y + Character.SINK_SPEED);
     }
 
     /**
@@ -275,6 +274,14 @@ class Character extends MovableObject {
     }
 
     /**
+     * Moves left by speed and faces left. Stops at the level start, or at the arena start during the boss fight.
+     */
+    moveLeft() {
+        this.x = Math.max(this.world.leftBoundary(), this.x - this.speed);
+        this.otherDirection = true;
+    }
+
+    /**
      * @returns {boolean} True while a direction key is pressed.
      */
     isMoving() {
@@ -296,11 +303,12 @@ class Character extends MovableObject {
 
     /**
      * Camera stays put for the first CAMERA_LEAD_X px, then glides after the character.
-     * Clamped to the level start and end.
+     * Clamped to the level start and end; during the boss fight it stays on the arena.
      */
     moveCamera() {
         let maxCamera = this.world.level.levelEndX - this.world.canvas.width;
-        let target = Math.min(Math.max(0, this.x - Character.CAMERA_LEAD_X), maxCamera);
+        let minCamera = this.world.bossFight ? maxCamera : 0;
+        let target = Math.min(Math.max(minCamera, this.x - Character.CAMERA_LEAD_X), maxCamera);
         this.world.cameraX += (-target - this.world.cameraX) * Character.CAMERA_SMOOTHING;
     }
 

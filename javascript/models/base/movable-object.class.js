@@ -34,6 +34,14 @@ class MovableObject {
      * @returns {number} Bottom edge of the hitbox.
      */
     hitboxBottom() { return this.y + this.height - this.offset.bottom; }
+    /**
+     * @returns {number} Horizontal center of the hitbox.
+     */
+    centerX() { return (this.hitboxLeft() + this.hitboxRight()) / 2; }
+    /**
+     * @returns {number} Vertical center of the hitbox.
+     */
+    centerY() { return (this.hitboxTop() + this.hitboxBottom()) / 2; }
 
     energy = 100;
     /**
@@ -41,14 +49,40 @@ class MovableObject {
      */
     damageTaken = {};
     lastHit = 0;
+    /**
+     * Time of death in ms, 0 while alive.
+     */
+    diedAt = 0;
+    /**
+     * Damage this object does to the character on contact.
+     */
+    damage = 5;
+    /**
+     * How a contact hurts the character: "poison" or "shock" (decides hurt and death animation).
+     */
+    hurtType = "poison";
+    /**
+     * True once a defeated enemy has finished its death animation and can be taken out of the level.
+     */
+    removable = false;
 
     /**
      * Reduces the energy (not below 0) and remembers the time of the hit.
      * @param {number} [damage=5] - Energy to subtract.
      */
     hit(damage = 5) {
-        this.energy = Math.max(0, this.energy - damage);
+        this.loseEnergy(damage);
         this.lastHit = Date.now();
+    }
+
+    /**
+     * Reduces the energy (not below 0) without counting as a hit (e.g. poison damage over time).
+     * Remembers the time of death once the energy reaches 0.
+     * @param {number} amount - Energy to subtract.
+     */
+    loseEnergy(amount) {
+        this.energy = Math.max(0, this.energy - amount);
+        if (this.energy === 0 && !this.diedAt) this.diedAt = Date.now();
     }
 
     /**
@@ -63,6 +97,23 @@ class MovableObject {
      */
     isDead() {
         return this.energy === 0;
+    }
+
+    /**
+     * @returns {boolean} True when the object can hurt the character and be hit by attacks.
+     */
+    isActive() {
+        return !this.isDead();
+    }
+
+    /**
+     * Builds the paths of numbered animation frames (1.png, 2.png, ...) in one folder.
+     * @param {string} folder - Folder path ending with "/".
+     * @param {number} count - Number of frames.
+     * @returns {string[]} Frame paths in order.
+     */
+    static framePaths(folder, count) {
+        return Array.from({ length: count }, (_, i) => `${folder}${i + 1}.png`);
     }
 
     /**
