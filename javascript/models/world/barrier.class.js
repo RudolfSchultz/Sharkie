@@ -77,19 +77,4 @@ class Barrier extends MovableObject {
         let rect = mo.getHitboxRect();
         return this.worldPolygons().some(polygon => Geometry.polygonIntersectsRect(polygon, rect));
     }
-
-    /**
-     * Debug helper: outlines the hitbox polygons.
-     * @param {CanvasRenderingContext2D} ctx - Canvas context.
-     */
-    drawFrame(ctx) {
-        ctx.lineWidth = "2";
-        ctx.strokeStyle = "blue";
-        this.worldPolygons().forEach(polygon => {
-            ctx.beginPath();
-            polygon.forEach(([x, y], i) => i ? ctx.lineTo(x, y) : ctx.moveTo(x, y));
-            ctx.closePath();
-            ctx.stroke();
-        });
-    }
 }

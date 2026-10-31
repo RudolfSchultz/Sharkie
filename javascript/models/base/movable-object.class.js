@@ -8,7 +8,7 @@ class MovableObject {
     img;
     height = 100;
     width = 100;
-    speed = 10;
+    speed = 4;
     world;
     imageCache = {};
     otherDirection = false;
@@ -260,20 +260,6 @@ class MovableObject {
      */
     draw(ctx) {
         ctx.drawImage(this.img, this.x, this.y, this.width, this.height);
-    }
-
-    /**
-     * Debug helper: outlines the hitbox of characters and enemies.
-     * @param {CanvasRenderingContext2D} ctx - Canvas context.
-     */
-    drawFrame(ctx) {
-        if (this instanceof Character || this instanceof PufferFish || this instanceof JellyFish || this instanceof Endboss) {
-            ctx.beginPath();
-            ctx.lineWidth = "2";
-            ctx.strokeStyle = "blue";
-            ctx.rect(...this.getHitboxRect());
-            ctx.stroke();
-        }
     }
 
     /**

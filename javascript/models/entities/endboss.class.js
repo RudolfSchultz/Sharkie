@@ -1,6 +1,6 @@
 /**
  * Final enemy, placed at the end of the level. It stays hidden until the character reaches the boss arena,
- * then plays its intro, chases the character and lunges at it from time to time.
+ * then plays its intro, guards its place and lunges at the character from time to time (more often when enraged).
  * Only poisoned bubbles hurt it.
  */
 class Endboss extends MovableObject {
@@ -59,21 +59,25 @@ class Endboss extends MovableObject {
         "../img/2.Enemy/3 Final Enemy/Hurt/3.png",
         "../img/2.Enemy/3 Final Enemy/Hurt/4.png"
     ]
-    offset = { top: 90, right: 9, bottom: 36, left: 9 };
+    /**
+     * Hitbox of 260 x 110 px: the body without the dorsal fin.
+     */
+    offset = { top: 150, right: 30, bottom: 55, left: 25 };
     /**
      * Direct damage per attack type. A poisoned bubble also adds a poison stack (damage over time, see reactTo).
      */
     damageTaken = { slap: 10, bubble: 5, poison: 5 };
     damage = 10;
     /**
-     * "hidden" before the boss fight, then "intro", "floating" (guarding or chasing),
-     * "attack" (lunge) and "returning" (back to its place, first phase only).
+     * "hidden" before the boss fight, then "intro", "floating" (guarding its place),
+     * "attack" (lunge) and "returning" (back to its place after a lunge).
      */
     state = "hidden";
     lastAttack = 0;
     lungeDirection = { x: -1, y: 0 };
     poisonStacks = 0;
     lastPoisonTick = 0;
+    lastPoisonDamage = 0;
     currentImage = 0;
     currentMovement;
     /**
@@ -89,16 +93,17 @@ class Endboss extends MovableObject {
      */
     static ATTACK_RANGE = 520;
     /**
-     * Minimum time in ms between two lunges.
+     * Minimum time in ms between two lunges, normally and while enraged.
      */
     static ATTACK_COOLDOWN_MS = 2500;
+    static RAGE_ATTACK_COOLDOWN_MS = 1200;
     /**
      * Speed in px per game tick while lunging and while swimming back to its place.
      */
-    static ATTACK_SPEED = 12;
-    static RETURN_SPEED = 3;
+    static ATTACK_SPEED = 6;
+    static RETURN_SPEED = 2;
     /**
-     * At or below this energy the boss leaves its place and chases the character (second phase).
+     * At or below this energy the boss is enraged and lunges more often (RAGE_ATTACK_COOLDOWN_MS).
      */
     static RAGE_ENERGY = 50;
     /**
@@ -122,7 +127,6 @@ class Endboss extends MovableObject {
         this.home = { x: levelLength - this.width - Endboss.SPAWN_GAP, y: (480 - this.height) / 2 };
         this.x = this.home.x;
         this.y = this.home.y;
-        this.speed = 1.5;
         this.loadAllImages();
         this.setCurrentMovement(this.imagesIntro);
         this.animated();
@@ -163,7 +167,7 @@ class Endboss extends MovableObject {
     }
 
     /**
-     * @returns {boolean} True in the second phase (energy at or below RAGE_ENERGY).
+     * @returns {boolean} True while enraged (energy at or below RAGE_ENERGY).
      */
     isEnraged() {
         return this.energy <= Endboss.RAGE_ENERGY;
@@ -175,14 +179,6 @@ class Endboss extends MovableObject {
      */
     draw(ctx) {
         if (this.hasAppeared()) super.draw(ctx);
-    }
-
-    /**
-     * Debug hitbox, only after the boss has appeared.
-     * @param {CanvasRenderingContext2D} ctx - Canvas context.
-     */
-    drawFrame(ctx) {
-        if (this.hasAppeared()) super.drawFrame(ctx);
     }
 
     /**
@@ -214,12 +210,10 @@ class Endboss extends MovableObject {
     }
 
     /**
-     * After a lunge in the first phase the boss swims back to its place, otherwise it floats.
-     * The attack cooldown starts now.
+     * After a lunge the boss swims back to its place, after the intro it floats. The attack cooldown starts now.
      */
     endAction() {
-        let returnHome = this.state === "attack" && !this.isEnraged();
-        this.state = returnHome ? "returning" : "floating";
+        this.state = this.state === "attack" ? "returning" : "floating";
         this.lastAttack = Date.now();
     }
 
@@ -241,28 +235,19 @@ class Endboss extends MovableObject {
         if (this.poisonStacks === 0) return;
         if (Date.now() - this.lastPoisonTick < Endboss.POISON_TICK_MS / this.poisonStacks) return;
         this.lastPoisonTick = Date.now();
+        this.lastPoisonDamage = this.lastPoisonTick;
         this.loseEnergy(1);
     }
 
     /**
-     * Moves the boss each game tick: first phase guards its place, second phase chases;
-     * after death it floats up.
+     * Moves the boss each game tick: it guards its place and lunges at the character; after death it floats up.
      */
     move() {
         if (this.isDead()) return this.floatUp();
         this.applyPoison();
         if (this.state === "attack") this.lunge();
         else if (this.state === "returning") this.returnHome();
-        else if (this.state === "floating") this.guardOrChase();
-    }
-
-    /**
-     * First phase: stays at its place and only turns to the character; second phase: chases it.
-     * Both lunge when the character is in range.
-     */
-    guardOrChase() {
-        if (this.isEnraged()) this.chase();
-        else this.attackIfReady(this.faceCharacter());
+        else if (this.state === "floating") this.attackIfReady(this.faceCharacter());
     }
 
     /**
@@ -284,14 +269,10 @@ class Endboss extends MovableObject {
     }
 
     /**
-     * Second phase: swims slowly towards the character and lunges when it is close enough.
+     * @returns {number} Minimum time in ms between two lunges; shorter while enraged.
      */
-    chase() {
-        let target = this.faceCharacter();
-        if (target.distance > this.speed) {
-            this.moveBy(target.dx / target.distance * this.speed, target.dy / target.distance * this.speed);
-        }
-        this.attackIfReady(target);
+    attackCooldown() {
+        return this.isEnraged() ? Endboss.RAGE_ATTACK_COOLDOWN_MS : Endboss.ATTACK_COOLDOWN_MS;
     }
 
     /**
@@ -300,7 +281,7 @@ class Endboss extends MovableObject {
      */
     attackIfReady(target) {
         if (target.distance === 0 || target.distance >= Endboss.ATTACK_RANGE) return;
-        if (Date.now() - this.lastAttack < Endboss.ATTACK_COOLDOWN_MS) return;
+        if (Date.now() - this.lastAttack < this.attackCooldown()) return;
         this.lungeDirection = { x: target.dx / target.distance, y: target.dy / target.distance };
         this.state = "attack";
     }
@@ -313,25 +294,23 @@ class Endboss extends MovableObject {
     }
 
     /**
-     * First phase: swims back to its place after a lunge. In the second phase it stops returning and chases.
+     * Swims back to its place after a lunge.
      */
     returnHome() {
         let dx = this.home.x - this.x;
         let dy = this.home.y - this.y;
         let distance = Math.hypot(dx, dy);
-        if (this.isEnraged() || distance <= Endboss.RETURN_SPEED) return this.arriveHome();
+        if (distance <= Endboss.RETURN_SPEED) return this.arriveHome();
         this.otherDirection = dx > 0;
         this.moveBy(dx / distance * Endboss.RETURN_SPEED, dy / distance * Endboss.RETURN_SPEED);
     }
 
     /**
-     * Ends the way back: snaps to the place (first phase only) and floats again.
+     * Ends the way back: snaps to the place and floats again.
      */
     arriveHome() {
-        if (!this.isEnraged()) {
-            this.x = this.home.x;
-            this.y = this.home.y;
-        }
+        this.x = this.home.x;
+        this.y = this.home.y;
         this.state = "floating";
     }
 

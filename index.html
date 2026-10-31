@@ -23,6 +23,32 @@
         <div id="startScreen" class="screen start-screen">
             <h2 class="game-title">Sharkie</h2>
             <button class="img-btn start-btn" onclick="startGame()" aria-label="Start"></button>
+            <button class="text-btn" onclick="showInstructions()">Instruction</button>
+            <a class="text-btn legal-link" href="Impressum/impressum.html" target="_blank" rel="noopener">Impressum</a>
+        </div>
+
+        <div id="instructionScreen" class="screen instruction-screen d-none">
+            <div class="instruction-panel">
+                <h2 class="instruction-title">Anleitung</h2>
+                <div class="key-row">
+                    <div class="arrow-keys">
+                        <span class="key-cap key-up">&#9650;</span>
+                        <span class="key-cap key-left">&#9664;</span>
+                        <span class="key-cap key-down">&#9660;</span>
+                        <span class="key-cap key-right">&#9654;</span>
+                    </div>
+                    <span class="key-label">Sharkie steuern</span>
+                </div>
+                <div class="key-row">
+                    <div class="key-group"><span class="key-cap key-space">Leertaste</span></div>
+                    <span class="key-label">Flossenschlag</span>
+                </div>
+                <div class="key-row">
+                    <div class="key-group"><span class="key-cap">A</span></div>
+                    <span class="key-label">Blase schießen</span>
+                </div>
+            </div>
+            <button class="text-btn" onclick="goHome()">Home</button>
         </div>
 
         <div id="endScreen" class="screen end-screen d-none">

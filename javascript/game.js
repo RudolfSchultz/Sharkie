@@ -23,6 +23,13 @@ function init() {
 }
 
 /**
+ * Shows the instruction screen. It is only reachable from the start screen and left with its Home button.
+ */
+function showInstructions() {
+    showScreen("instructionScreen");
+}
+
+/**
  * Starts a fresh game without reloading the page (start button and "Try again").
  * A running game is stopped first, so no old interval keeps running.
  */

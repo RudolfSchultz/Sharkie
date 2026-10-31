@@ -84,7 +84,7 @@ class Character extends MovableObject {
     /**
      * Distance in px in front of the character that a fin slap reaches.
      */
-    static SLAP_RANGE = 50;
+    static SLAP_RANGE = 70;
     /**
      * Animation frame in which the fin slap hits.
      */

@@ -35,15 +35,6 @@ class World {
         this.draw();
         this.runGameLogic();
         this.checkCollisions();
-        this.logPositionEvery(10000);
-    }
-
-    /**
-     * Debug helper: logs the character position at a fixed interval. Remove before hand-in.
-     * @param {number} ms - Time between two log lines in ms.
-     */
-    logPositionEvery(ms) {
-        GameIntervals.start(() => console.log(`Character x: ${Math.round(this.character.x)}, y: ${Math.round(this.character.y)}`), ms);
     }
 
     /**
@@ -109,7 +100,6 @@ class World {
             movableObject.x = movableObject.x * -1;
             this.ctx.restore();
         }
-        movableObject.drawFrame(this.ctx);   
     }
 
     /**
