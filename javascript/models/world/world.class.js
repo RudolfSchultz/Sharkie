@@ -126,6 +126,7 @@ class World {
         if (this.bossFight || this.character.x < arenaTriggerX) return;
         this.bossFight = true;
         this.level.boss.appear();
+        GameAudio.play("bossIntro");
     }
 
     /**
@@ -213,6 +214,7 @@ class World {
         if (this.character.isDead()) return;
         let collected = this.level.coins.filter(coin => this.character.isColliding(coin));
         this.character.coins += collected.length;
+        collected.forEach(() => GameAudio.playOverlapping("coin"));
         this.level.coins = this.level.coins.filter(coin => !collected.includes(coin));
     }
 

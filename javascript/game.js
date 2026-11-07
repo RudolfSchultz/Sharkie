@@ -20,13 +20,47 @@ const keyMap = {
 function init() {
     canvas = document.getElementById("canvas");
     showScreen("startScreen");
+    startIntroOnFirstInput();
 }
 
 /**
- * Shows the instruction screen. It is only reachable from the start screen and left with its Home button.
+ * Browsers block sound before the first click or key press, so the intro music starts with the first input
+ * while the start screen is still visible.
+ */
+function startIntroOnFirstInput() {
+    const playIntro = () => {
+        if (!document.getElementById("startScreen").classList.contains("d-none")) GameAudio.play("intro");
+        window.removeEventListener("pointerdown", playIntro);
+        window.removeEventListener("keydown", playIntro);
+    };
+    window.addEventListener("pointerdown", playIntro);
+    window.addEventListener("keydown", playIntro);
+}
+
+/**
+ * Opens the instruction dialog over the canvas. It is only reachable from the start screen,
+ * which is made inert while the dialog is open (no clicks, no focus).
  */
 function showInstructions() {
-    showScreen("instructionScreen");
+    document.getElementById("startScreen").inert = true;
+    document.getElementById("instructionDialog").show();
+}
+
+/**
+ * Closes the instruction dialog (X button, click beside the panel, Escape key).
+ */
+function closeInstructions() {
+    document.getElementById("instructionDialog").close();
+    document.getElementById("startScreen").inert = false;
+}
+
+/**
+ * Closes the instruction dialog on a click beside the panel. The dialog covers the whole canvas and the
+ * panel sits in its middle, so only a click outside the panel has the dialog itself as target.
+ * @param {MouseEvent} event - The click event of the dialog.
+ */
+function closeOnBackdrop(event) {
+    if (event.target === event.currentTarget) closeInstructions();
 }
 
 /**
@@ -38,6 +72,8 @@ function startGame() {
     keyboard = new Keyboard();
     document.activeElement.blur();
     showScreen(null);
+    GameAudio.stopAll();
+    GameAudio.play("background");
     world = new World(canvas, keyboard, showEndScreen);
 }
 
@@ -48,6 +84,8 @@ function startGame() {
 function showEndScreen(won) {
     document.getElementById("endScreen").classList.toggle("win", won);
     showScreen("endScreen");
+    GameAudio.stopAll();
+    GameAudio.play(won ? "winner" : "loose");
 }
 
 /**
@@ -57,6 +95,8 @@ function goHome() {
     if (world) world.stop();
     world = null;
     showScreen("startScreen");
+    GameAudio.stopAll();
+    GameAudio.play("intro");
 }
 
 /**
@@ -72,6 +112,7 @@ function showScreen(id) {
  * @param {KeyboardEvent} event - The triggered keyboard event.
  */
 window.onkeydown = function (event) {
+    if (event.code === "Escape") closeInstructions();
     setKeyState(event, true);
 };
 

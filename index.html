@@ -22,14 +22,17 @@
 
         <div id="startScreen" class="screen start-screen">
             <h2 class="game-title">Sharkie</h2>
-            <button class="img-btn start-btn" onclick="startGame()" aria-label="Start"></button>
-            <button class="text-btn" onclick="showInstructions()">Instruction</button>
+            <div class="start-menu">
+                <button class="img-btn start-btn" onclick="startGame()" aria-label="Start"></button>
+                <button class="text-btn" onclick="showInstructions()">Anleitung</button>
+            </div>
             <a class="text-btn legal-link" href="Impressum/impressum.html" target="_blank" rel="noopener">Impressum</a>
         </div>
 
-        <div id="instructionScreen" class="screen instruction-screen d-none">
+        <dialog id="instructionDialog" class="instruction-dialog" onclick="closeOnBackdrop(event)" aria-labelledby="instructionTitle">
             <div class="instruction-panel">
-                <h2 class="instruction-title">Anleitung</h2>
+                <button class="close-x" onclick="closeInstructions()" aria-label="Schließen">&times;</button>
+                <h2 id="instructionTitle" class="instruction-title">Anleitung</h2>
                 <div class="key-row">
                     <div class="arrow-keys">
                         <span class="key-cap key-up">&#9650;</span>
@@ -48,8 +51,7 @@
                     <span class="key-label">Blase schießen</span>
                 </div>
             </div>
-            <button class="text-btn" onclick="goHome()">Home</button>
-        </div>
+        </dialog>
 
         <div id="endScreen" class="screen end-screen d-none">
             <img class="end-title" src="img/6.Botones/Tittles/Game Over/Recurso 9.png" alt="Game over">
@@ -65,6 +67,7 @@
 <script src="/javascript/models/base/keyboard.class.js"></script>
 <script src="/javascript/models/base/geometry.class.js"></script>
 <script src="/javascript/models/base/game-intervals.class.js"></script>
+<script src="/javascript/models/base/game-audio.class.js"></script>
 <script src="/javascript/models/base/movable-object.class.js"></script>
 <script src="/javascript/models/hud/animated-bar.class.js"></script>
 <script src="/javascript/models/hud/hud-element.class.js"></script>

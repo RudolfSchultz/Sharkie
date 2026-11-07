@@ -151,6 +151,15 @@ class Character extends MovableObject {
             this.setCurrentMovement(this.imagesSwimming);
         }
         else this.chooseIdleAnimation();
+        this.syncSnoring();
+    }
+
+    /**
+     * Plays the snoring sound exactly while the long idle animation is shown.
+     */
+    syncSnoring() {
+        if (!this.isDead() && this.currentMovement === this.imagesLongIdle) GameAudio.play("snoring");
+        else GameAudio.stop("snoring");
     }
 
     /**
@@ -162,6 +171,7 @@ class Character extends MovableObject {
         if (this.isHurt()) return;
         this.lastHitType = enemy.hurtType;
         this.hit(enemy.damage);
+        GameAudio.playOverlapping("getDmg");
         this.knockX = (this.centerX() < enemy.centerX() ? -1 : 1) * Character.KNOCKBACK_SPEED;
     }
 
