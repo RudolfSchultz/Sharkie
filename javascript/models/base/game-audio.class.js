@@ -23,6 +23,39 @@ class GameAudio {
     static cache = {};
 
     /**
+     * Key under which the mute state is stored in the localStorage.
+     */
+    static STORAGE_KEY = "sharkieMuted";
+
+    /**
+     * True while all sounds are switched off; restored from the localStorage.
+     */
+    static muted = GameAudio.loadMuted();
+
+    /**
+     * @returns {boolean} The stored mute state; false when nothing is stored or the storage is not available.
+     */
+    static loadMuted() {
+        try {
+            return localStorage.getItem(GameAudio.STORAGE_KEY) === "true";
+        } catch {
+            return false;
+        }
+    }
+
+    /**
+     * Switches all sounds on or off and stores the choice. Muting stops everything that is playing.
+     * @param {boolean} muted - True to mute.
+     */
+    static setMuted(muted) {
+        GameAudio.muted = muted;
+        try {
+            localStorage.setItem(GameAudio.STORAGE_KEY, String(muted));
+        } catch { }
+        if (muted) GameAudio.stopAll();
+    }
+
+    /**
      * @param {string} name - Key of GameAudio.sounds.
      * @returns {HTMLAudioElement} The audio element of the sound (created on first use).
      */
@@ -48,6 +81,7 @@ class GameAudio {
      * @param {string} name - Key of GameAudio.sounds.
      */
     static play(name) {
+        if (GameAudio.muted) return;
         let audio = GameAudio.get(name);
         if (!audio.paused) return;
         audio.currentTime = 0;
@@ -60,6 +94,7 @@ class GameAudio {
      * @param {string} name - Key of GameAudio.sounds.
      */
     static playOverlapping(name) {
+        if (GameAudio.muted) return;
         GameAudio.create(GameAudio.sounds[name]).play().catch(() => { });
     }
 

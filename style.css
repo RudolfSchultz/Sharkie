@@ -103,6 +103,20 @@ button {
     text-decoration: none;
 }
 
+.mute-btn {
+    position: absolute;
+    right: 20px;
+    bottom: 20px;
+    padding: 6px 10px;
+    line-height: 0;
+}
+
+.mute-icon {
+    width: 32px;
+    height: 32px;
+    filter: invert(1);
+}
+
 .instruction-dialog {
     position: absolute;
     inset: 0;

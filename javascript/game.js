@@ -20,7 +20,26 @@ const keyMap = {
 function init() {
     canvas = document.getElementById("canvas");
     showScreen("startScreen");
+    updateMuteButton();
     startIntroOnFirstInput();
+}
+
+/**
+ * Switches all sounds on or off (button on the start screen). Switching on starts the intro music.
+ */
+function toggleMute() {
+    GameAudio.setMuted(!GameAudio.muted);
+    updateMuteButton();
+    GameAudio.play("intro");
+}
+
+/**
+ * Shows the current sound state on the mute button.
+ */
+function updateMuteButton() {
+    let icon = document.getElementById("muteIcon");
+    icon.src = GameAudio.muted ? "img/6.Botones/mute.png" : "img/6.Botones/volume.png";
+    icon.alt = GameAudio.muted ? "Ton aus" : "Ton an";
 }
 
 /**
