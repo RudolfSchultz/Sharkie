@@ -67,6 +67,11 @@ class Endboss extends MovableObject {
      * Direct damage per attack type. A poisoned bubble also adds a poison stack (damage over time, see reactTo).
      */
     damageTaken = { slap: 10, bubble: 5, poison: 5 };
+    /**
+     * Sound names (GameAudio.sounds) played when an attack hurts or defeats the boss.
+     */
+    hurtSound = "bossDmg";
+    deathSound = "bossDead";
     damage = 10;
     /**
      * "hidden" before the boss fight, then "intro", "floating" (guarding its place),
@@ -237,6 +242,7 @@ class Endboss extends MovableObject {
         this.lastPoisonTick = Date.now();
         this.lastPoisonDamage = this.lastPoisonTick;
         this.loseEnergy(1);
+        if (this.isDead()) GameAudio.playOverlapping(this.deathSound);
     }
 
     /**
@@ -284,6 +290,7 @@ class Endboss extends MovableObject {
         if (Date.now() - this.lastAttack < this.attackCooldown()) return;
         this.lungeDirection = { x: target.dx / target.distance, y: target.dy / target.distance };
         this.state = "attack";
+        GameAudio.playOverlapping("bossBite");
     }
 
     /**

@@ -26,6 +26,10 @@ class JellyFish extends MovableObject {
     offset = { top: 10, right: 8, bottom: 25, left: 8 };
     damageTaken = { bubble: 100, poison: 100 };
     hurtType = "shock";
+    /**
+     * Sound name (GameAudio.sounds) played when the jellyfish is caught by a bubble.
+     */
+    deathSound = "catchJellyfish";
     currentImage = 0;
     currentMovement;
 

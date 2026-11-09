@@ -15,6 +15,15 @@ class GameAudio {
         loose: { src: "audio/loose.mp3", volume: 0.5, loop: true },
         coin: { src: "audio/coin.mp3", volume: 0.6, loop: false },
         getDmg: { src: "audio/get-dmg.mp3", volume: 0.7, loop: false },
+        electricShock: { src: "audio/electric-shock.mp3", volume: 0.7, loop: false },
+        finSlap: { src: "audio/fin-slap.mp3", volume: 0.6, loop: false },
+        bubbleShot: { src: "audio/bubble-shot.mp3", volume: 0.5, loop: false },
+        poisonBubble: { src: "audio/poison-bubble.mp3", volume: 0.5, loop: false },
+        catchJellyfish: { src: "audio/catch-jellyfish.mp3", volume: 0.6, loop: false },
+        pufferfishDead: { src: "audio/pufferfish-dead.mp3", volume: 0.6, loop: false },
+        bossBite: { src: "audio/boss-bite.mp3", volume: 0.7, loop: false },
+        bossDmg: { src: "audio/boss-dmg.mp3", volume: 0.6, loop: false },
+        bossDead: { src: "audio/boss-dead.mp3", volume: 0.8, loop: false },
     };
 
     /**
@@ -91,10 +100,11 @@ class GameAudio {
     /**
      * Plays a short effect once on a fresh audio element, so the same effect can overlap itself
      * (e.g. several coins in a row). It is not cached, so it cannot be stopped afterwards.
+     * Unknown or empty names are ignored.
      * @param {string} name - Key of GameAudio.sounds.
      */
     static playOverlapping(name) {
-        if (GameAudio.muted) return;
+        if (GameAudio.muted || !GameAudio.sounds[name]) return;
         GameAudio.create(GameAudio.sounds[name]).play().catch(() => { });
     }
 

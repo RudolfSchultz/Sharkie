@@ -258,13 +258,15 @@ class World {
     }
 
     /**
-     * Applies the damage an attack type does to this enemy (nothing if it is immune) and lets the enemy react to it.
+     * Applies the damage an attack type does to this enemy (nothing if it is immune), plays its hurt or death sound
+     * and lets the enemy react to it.
      * @param {MovableObject} enemy - The enemy that was hit.
      * @param {string} type - Attack type ("slap", "bubble" or "poison").
      */
     damageEnemy(enemy, type) {
         let damage = enemy.damageTaken[type];
         if (damage) enemy.hit(damage);
+        if (damage) GameAudio.playOverlapping(enemy.isDead() ? enemy.deathSound : enemy.hurtSound);
         if (enemy.reactTo) enemy.reactTo(type);
     }
 

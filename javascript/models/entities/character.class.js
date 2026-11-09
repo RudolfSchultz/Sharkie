@@ -171,7 +171,7 @@ class Character extends MovableObject {
         if (this.isHurt()) return;
         this.lastHitType = enemy.hurtType;
         this.hit(enemy.damage);
-        GameAudio.playOverlapping("getDmg");
+        GameAudio.playOverlapping(enemy.hurtType === "shock" ? "electricShock" : "getDmg");
         this.knockX = (this.centerX() < enemy.centerX() ? -1 : 1) * Character.KNOCKBACK_SPEED;
     }
 
@@ -241,6 +241,7 @@ class Character extends MovableObject {
     runAttack() {
         if (!this.currentAttack) {
             this.currentAttack = this.world.keyboard.SPACE ? "slap" : "bubble";
+            if (this.currentAttack === "slap") GameAudio.playOverlapping("finSlap");
             this.currentMovement = null;
         }
         this.idleSince = null;
@@ -278,6 +279,7 @@ class Character extends MovableObject {
     shootBubble() {
         let poisoned = this.poison > 0;
         if (poisoned) this.poison--;
+        GameAudio.playOverlapping(poisoned ? "poisonBubble" : "bubbleShot");
         let direction = this.otherDirection ? -1 : 1;
         let x = direction === 1 ? this.hitboxRight() : this.hitboxLeft() - Bubble.SIZE;
         this.world.bubbles.push(new Bubble(x, this.y + this.height / 2, direction, poisoned));

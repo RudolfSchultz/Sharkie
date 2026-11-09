@@ -94,6 +94,10 @@ class PufferFish extends MovableObject {
 
     offset = { top: 5, right: 5, bottom: 23, left: 0 };
     damageTaken = { slap: 100, bubble: 0, poison: 100 };
+    /**
+     * Sound name (GameAudio.sounds) played when the pufferfish is defeated.
+     */
+    deathSound = "pufferfishDead";
     inflated = false;
     /**
      * How the fish dies: "floating" (poisoned bubble, floats up) or "slapped" (knocked away, sinks); null while alive.
