@@ -12,10 +12,10 @@ class PlayerHud extends HudElement {
      * Poison bottle poses 1, 3 and 5 played as ping-pong (1, 3, 5, 3) without duplicate frames.
      */
     imagesPoison = [
-        "../img/4. Marcadores/Posión/Animada/1.png",
-        "../img/4. Marcadores/Posión/Animada/3.png",
-        "../img/4. Marcadores/Posión/Animada/5.png",
-        "../img/4. Marcadores/Posión/Animada/3.png"
+        "../assets/img/4. Marcadores/Posión/Animada/1.png",
+        "../assets/img/4. Marcadores/Posión/Animada/3.png",
+        "../assets/img/4. Marcadores/Posión/Animada/5.png",
+        "../assets/img/4. Marcadores/Posión/Animada/3.png"
     ]
 
     /**
@@ -44,7 +44,7 @@ class PlayerHud extends HudElement {
             return img;
         });
         this.coinImage = new Image();
-        this.coinImage.src = "../img/4. Marcadores/1. Coins/1.png";
+        this.coinImage.src = "../assets/img/4. Marcadores/1. Coins/1.png";
     }
 
     /**

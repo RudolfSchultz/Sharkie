@@ -6,7 +6,7 @@ class JellyFish extends MovableObject {
     /**
      * Folder of the jellyfish images.
      */
-    static PATH = "../img/2.Enemy/2 Jelly fish/";
+    static PATH = "../assets/img/2.Enemy/2 Jelly fish/";
     /**
      * Color variants: image folder, file name prefix, death frame prefix (folder/file) and damage.
      */

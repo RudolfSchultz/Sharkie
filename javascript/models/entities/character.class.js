@@ -3,42 +3,42 @@
  */
 class Character extends MovableObject {
 
-    imagesIdle = MovableObject.framePaths("../img/1.Sharkie/1.IDLE/", 18);
+    imagesIdle = MovableObject.framePaths("../assets/img/1.Sharkie/1.IDLE/", 18);
 
     imagesLongIdle = [
-        "../img/1.Sharkie/2.Long_IDLE/i1.png",
-        "../img/1.Sharkie/2.Long_IDLE/I2.png",
-        "../img/1.Sharkie/2.Long_IDLE/I3.png",
-        "../img/1.Sharkie/2.Long_IDLE/I4.png",
-        "../img/1.Sharkie/2.Long_IDLE/I5.png",
-        "../img/1.Sharkie/2.Long_IDLE/I6.png",
-        "../img/1.Sharkie/2.Long_IDLE/I7.png",
-        "../img/1.Sharkie/2.Long_IDLE/I8.png",
-        "../img/1.Sharkie/2.Long_IDLE/I9.png",
-        "../img/1.Sharkie/2.Long_IDLE/I10.png",
-        "../img/1.Sharkie/2.Long_IDLE/I11.png",
-        "../img/1.Sharkie/2.Long_IDLE/I12.png",
-        "../img/1.Sharkie/2.Long_IDLE/I13.png",
-        "../img/1.Sharkie/2.Long_IDLE/I14.png"
+        "../assets/img/1.Sharkie/2.Long_IDLE/i1.png",
+        "../assets/img/1.Sharkie/2.Long_IDLE/I2.png",
+        "../assets/img/1.Sharkie/2.Long_IDLE/I3.png",
+        "../assets/img/1.Sharkie/2.Long_IDLE/I4.png",
+        "../assets/img/1.Sharkie/2.Long_IDLE/I5.png",
+        "../assets/img/1.Sharkie/2.Long_IDLE/I6.png",
+        "../assets/img/1.Sharkie/2.Long_IDLE/I7.png",
+        "../assets/img/1.Sharkie/2.Long_IDLE/I8.png",
+        "../assets/img/1.Sharkie/2.Long_IDLE/I9.png",
+        "../assets/img/1.Sharkie/2.Long_IDLE/I10.png",
+        "../assets/img/1.Sharkie/2.Long_IDLE/I11.png",
+        "../assets/img/1.Sharkie/2.Long_IDLE/I12.png",
+        "../assets/img/1.Sharkie/2.Long_IDLE/I13.png",
+        "../assets/img/1.Sharkie/2.Long_IDLE/I14.png"
     ]
     longIdleLoopFrom = 10;
     longIdleLoopFrameMs = 300;
 
-    imagesSwimming = MovableObject.framePaths("../img/1.Sharkie/3.Swim/", 6);
+    imagesSwimming = MovableObject.framePaths("../assets/img/1.Sharkie/3.Swim/", 6);
 
-    imagesAttackSlap = MovableObject.framePaths("../img/1.Sharkie/4.Attack/Fin slap/", 8);
+    imagesAttackSlap = MovableObject.framePaths("../assets/img/1.Sharkie/4.Attack/Fin slap/", 8);
 
-    imagesHurtPoisoned = MovableObject.framePaths("../img/1.Sharkie/5.Hurt/1.Poisoned/", 5);
+    imagesHurtPoisoned = MovableObject.framePaths("../assets/img/1.Sharkie/5.Hurt/1.Poisoned/", 5);
 
-    imagesHurtShocked = MovableObject.framePaths("../img/1.Sharkie/5.Hurt/2.Electric_shock/", 3);
+    imagesHurtShocked = MovableObject.framePaths("../assets/img/1.Sharkie/5.Hurt/2.Electric_shock/", 3);
 
-    imagesDeadByPoison = MovableObject.framePaths("../img/1.Sharkie/6.dead/1.Poisoned/", 12);
+    imagesDeadByPoison = MovableObject.framePaths("../assets/img/1.Sharkie/6.dead/1.Poisoned/", 12);
     deadByPoisonLoopFrom = this.imagesDeadByPoison.length - 1;
 
-    imagesDeadByShock = MovableObject.framePaths("../img/1.Sharkie/6.dead/2.Electro_shock/", 10);
+    imagesDeadByShock = MovableObject.framePaths("../assets/img/1.Sharkie/6.dead/2.Electro_shock/", 10);
     deadByShockLoopFrom = this.imagesDeadByShock.length - 1;
 
-    imagesAttackBubble = MovableObject.framePaths("../img/1.Sharkie/4.Attack/Bubble trap/op1 (with bubble formation)/", 8);
+    imagesAttackBubble = MovableObject.framePaths("../assets/img/1.Sharkie/4.Attack/Bubble trap/op1 (with bubble formation)/", 8);
 
     offset = { top: 33, right: 10, bottom: 10, left: 10 };
     /**
@@ -109,7 +109,7 @@ class Character extends MovableObject {
      * Creates the character in idle state and starts its animation.
      */
     constructor() {
-        super().loadImage("../img/1.Sharkie/1.IDLE/1.png");
+        super().loadImage("../assets/img/1.Sharkie/1.IDLE/1.png");
         this.loadAllImages();
         this.setCurrentMovement(this.imagesIdle);
         this.animated();

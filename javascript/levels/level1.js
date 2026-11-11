@@ -7,8 +7,8 @@ const LEVEL1_LENGTH = 10000;
  * Background tiles of level 1, repeated until the level length is covered.
  */
 const level1BackgroundImages = [
-    "../img/3. Background/Dark/1.png",
-    "../img/3. Background/Dark/2.png",
+    "../assets/img/3. Background/Dark/1.png",
+    "../assets/img/3. Background/Dark/2.png",
 ];
 
 /**

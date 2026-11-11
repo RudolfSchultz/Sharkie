@@ -5,8 +5,8 @@
 class Bubble extends MovableObject {
     static SIZE = 40;
     static SPEED = 8;
-    static IMAGE = "../img/1.Sharkie/4.Attack/Bubble trap/Bubble.png";
-    static IMAGE_POISONED = "../img/1.Sharkie/4.Attack/Bubble trap/Poisoned Bubble (for whale).png";
+    static IMAGE = "../assets/img/1.Sharkie/4.Attack/Bubble trap/Bubble.png";
+    static IMAGE_POISONED = "../assets/img/1.Sharkie/4.Attack/Bubble trap/Poisoned Bubble (for whale).png";
 
     popped = false;
 

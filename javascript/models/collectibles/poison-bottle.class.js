@@ -2,7 +2,7 @@
  * Collectible poison bottle with a looping wobble animation. Fills up the poison for poisoned bubbles.
  */
 class PoisonBottle extends MovableObject {
-    imagesWobble = [1, 2, 3, 4, 5, 6, 7, 8].map(i => `../img/4. Marcadores/Posión/Animada/${i}.png`);
+    imagesWobble = [1, 2, 3, 4, 5, 6, 7, 8].map(i => `../assets/img/4. Marcadores/Posión/Animada/${i}.png`);
 
     width = 44;
     height = 60;

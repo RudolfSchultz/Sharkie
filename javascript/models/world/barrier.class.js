@@ -3,7 +3,7 @@
  * Its hitbox is made of one or more polygons that follow the shape of the image.
  */
 class Barrier extends MovableObject {
-    static PATH = "../img/3. Background/Barrier/";
+    static PATH = "../assets/img/3. Background/Barrier/";
     /**
      * Per variant: size in the game (at scale 1) and the hitbox polygons.
      * Polygon points are [x, y] in game px, measured from the top left corner of the drawn image

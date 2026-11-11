@@ -38,7 +38,7 @@ function toggleMute() {
  */
 function updateMuteButton() {
     let icon = document.getElementById("muteIcon");
-    icon.src = GameAudio.muted ? "img/6.Botones/mute.png" : "img/6.Botones/volume.png";
+    icon.src = GameAudio.muted ? "assets/img/6.Botones/mute.png" : "assets/img/6.Botones/volume.png";
     icon.alt = GameAudio.muted ? "Ton aus" : "Ton an";
 }
 
