@@ -25,12 +25,31 @@ function init() {
 }
 
 /**
- * Switches all sounds on or off (button on the start screen). Switching on starts the intro music.
+ * Switches all sounds on or off (button in the bottom right corner, visible on every screen).
+ * The focus is removed again, so the space key in the game does not press the button.
  */
 function toggleMute() {
     GameAudio.setMuted(!GameAudio.muted);
     updateMuteButton();
-    GameAudio.play("intro");
+    document.activeElement.blur();
+    playScreenMusic();
+}
+
+/**
+ * Starts the music that belongs to the current screen: intro on the start screen,
+ * background music while playing, nothing on the end screen.
+ */
+function playScreenMusic() {
+    if (isScreenVisible("startScreen")) GameAudio.play("intro");
+    else if (!isScreenVisible("endScreen")) GameAudio.play("background");
+}
+
+/**
+ * @param {string} id - Id of an overlay screen.
+ * @returns {boolean} True when the screen is currently shown.
+ */
+function isScreenVisible(id) {
+    return !document.getElementById(id).classList.contains("d-none");
 }
 
 /**

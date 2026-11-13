@@ -1,8 +1,9 @@
 <!DOCTYPE html>
-<html lang="de">
+<html lang="de" translate="no">
 
 <head>
     <meta charset="UTF-8">
+    <meta name="google" content="notranslate">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
     <link rel="icon" type="image/png" sizes="32x32" href="assets/img/favicon/favicon-32.png">
@@ -26,9 +27,7 @@
                 <button class="img-btn start-btn" onclick="startGame()" aria-label="Start"></button>
                 <button class="text-btn" onclick="showInstructions()">Anleitung</button>
             </div>
-            <a class="text-btn legal-link" href="Impressum/impressum.html" target="_blank" rel="noopener">Impressum</a>
-            <button class="text-btn mute-btn" onclick="toggleMute()"><img id="muteIcon" class="mute-icon" src="assets/img/6.Botones/volume.png" alt="Ton"></button>
-        </div>
+            <a class="text-btn legal-link" href="Impressum/impressum.html" target="_blank" rel="noopener">Impressum</a>        </div>
 
         <dialog id="instructionDialog" class="instruction-dialog" onclick="closeOnBackdrop(event)" aria-labelledby="instructionTitle">
             <div class="instruction-panel">
@@ -61,6 +60,8 @@
                 <button class="text-btn" onclick="goHome()">Home</button>
             </div>
         </div>
+
+        <button class="mute-btn" onclick="toggleMute()"><img id="muteIcon" class="mute-icon" src="assets/img/6.Botones/volume.png" alt="Ton"></button>
     </div>
 </body>
 
