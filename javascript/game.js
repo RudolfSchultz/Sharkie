@@ -19,6 +19,8 @@ const keyMap = {
  */
 function init() {
     canvas = document.getElementById("canvas");
+    fitGame();
+    bindTouchButtons();
     showScreen("startScreen");
     updateMuteButton();
     startIntroOnFirstInput();
@@ -138,11 +140,12 @@ function goHome() {
 }
 
 /**
- * Shows one overlay screen and hides all others.
+ * Shows one overlay screen and hides all others; the touch buttons are only shown while playing.
  * @param {string|null} id - Id of the screen to show, or null to hide all (while playing).
  */
 function showScreen(id) {
     document.querySelectorAll(".screen").forEach(screen => screen.classList.toggle("d-none", screen.id !== id));
+    showTouchControls(id === null);
 }
 
 /**

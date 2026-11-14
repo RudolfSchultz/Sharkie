@@ -14,6 +14,8 @@ body {
     justify-content: center;
     align-items: center;
     height: 100vh;
+    height: 100dvh;
+    overflow: hidden;
     background: #001a33 url("assets/img/3. Background/Background.jpg") center / cover no-repeat;
 }
 
@@ -24,6 +26,7 @@ h1 {
 }
 
 canvas {
+    display: block;
     background-color: #000000;
 }
 
