@@ -1,6 +1,7 @@
 # Tooling (Claude Code, graphify knowledge graph)
 .claude/
 graphify-out/
+javascript/demo/
 
 # Editor / IDE
 .vscode/

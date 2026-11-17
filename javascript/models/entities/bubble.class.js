@@ -1,6 +1,6 @@
 /**
  * Projectile shot by the character. A bubble flies straight ahead until it hits an enemy or leaves the level.
- * It is poisoned when the character had poison left; only poisoned bubbles hurt the Endboss.
+ * It is poisoned when the character had poison left.
  */
 class Bubble extends MovableObject {
     static SIZE = 40;

@@ -3,7 +3,7 @@
  */
 class Level {
     /**
-     * Width of one background tile in px. The images are 720 px wide; 1 px overlap avoids gaps.
+     * Width of one background tile in px (the images are 720 px wide, tiles overlap by 1 px).
      */
     static TILE_WIDTH = 719;
 

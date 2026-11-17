@@ -21,14 +21,39 @@ function init() {
     canvas = document.getElementById("canvas");
     fitGame();
     bindTouchButtons();
+    blockGameContextMenu();
     showScreen("startScreen");
     updateMuteButton();
+    hideUnsupportedFullscreen();
     startIntroOnFirstInput();
+    preloadGameImages();
 }
 
 /**
- * Switches all sounds on or off (button in the bottom right corner, visible on every screen).
- * The focus is removed again, so the space key in the game does not press the button.
+ * Objects created only to load their images while the start screen is shown; kept so the loading is not cancelled.
+ */
+let preloadedObjects = [];
+
+/**
+ * Loads all game images while the start screen is shown, so the first frame after "Start" is not black
+ * on a slow server. Character, level and HUD load their images in their constructors; the animation
+ * intervals they start are stopped right away, before their first tick.
+ */
+function preloadGameImages() {
+    let character = new Character();
+    preloadedObjects = [character, createLevel1(), new PlayerHud(character, canvas.width)];
+    GameIntervals.stopAll();
+}
+
+/**
+ * Hides the fullscreen button where the browser cannot show the page in fullscreen (e.g. iPhone Safari).
+ */
+function hideUnsupportedFullscreen() {
+    if (!document.fullscreenEnabled) document.querySelector(".fullscreen-btn").classList.add("d-none");
+}
+
+/**
+ * Switches all sounds on or off (mute button) and starts the music of the current screen.
  */
 function toggleMute() {
     GameAudio.setMuted(!GameAudio.muted);
@@ -64,8 +89,28 @@ function updateMuteButton() {
 }
 
 /**
- * Browsers block sound before the first click or key press, so the intro music starts with the first input
- * while the start screen is still visible.
+ * Switches the page between fullscreen and the normal size (button next to the mute button).
+ */
+function toggleFullscreen() {
+    if (!document.fullscreenEnabled) return;
+    if (document.fullscreenElement) document.exitFullscreen();
+    else document.documentElement.requestFullscreen().catch(() => { });
+}
+
+/**
+ * Shows the matching icon on the fullscreen button; also runs when fullscreen is left with Esc.
+ */
+function updateFullscreenButton() {
+    let icon = document.getElementById("fullscreenIcon");
+    let full = !!document.fullscreenElement;
+    icon.src = full ? "assets/img/6.Botones/minimize.png" : "assets/img/6.Botones/fullscreen.png";
+    icon.alt = full ? "Vollbild beenden" : "Vollbild";
+}
+
+document.addEventListener("fullscreenchange", updateFullscreenButton);
+
+/**
+ * Starts the intro music with the first click or key press while the start screen is shown.
  */
 function startIntroOnFirstInput() {
     const playIntro = () => {
@@ -78,8 +123,7 @@ function startIntroOnFirstInput() {
 }
 
 /**
- * Opens the instruction dialog over the canvas. It is only reachable from the start screen,
- * which is made inert while the dialog is open (no clicks, no focus).
+ * Opens the instruction dialog over the canvas; the start screen is inert while it is open.
  */
 function showInstructions() {
     document.getElementById("startScreen").inert = true;
@@ -95,8 +139,7 @@ function closeInstructions() {
 }
 
 /**
- * Closes the instruction dialog on a click beside the panel. The dialog covers the whole canvas and the
- * panel sits in its middle, so only a click outside the panel has the dialog itself as target.
+ * Closes the instruction dialog on a click beside the panel (the click target is the dialog itself).
  * @param {MouseEvent} event - The click event of the dialog.
  */
 function closeOnBackdrop(event) {
@@ -105,7 +148,7 @@ function closeOnBackdrop(event) {
 
 /**
  * Starts a fresh game without reloading the page (start button and "Try again").
- * A running game is stopped first, so no old interval keeps running.
+ * A running game is stopped first.
  */
 function startGame() {
     if (world) world.stop();
@@ -167,7 +210,7 @@ window.onkeyup = function (event) {
 
 /**
  * Updates the keyboard object based on which key was pressed or released.
- * Game keys do not scroll the page or press a focused button.
+ * The default browser action of mapped keys is prevented.
  * @param {KeyboardEvent} event - The triggered keyboard event.
  * @param {boolean} state - True on keydown, false on keyup.
  */

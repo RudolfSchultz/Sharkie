@@ -38,8 +38,7 @@ class World {
     }
 
     /**
-     * Stops the whole game: all intervals and the draw loop. Call this before showing
-     * the end screen or before creating a new World for a restart.
+     * Stops the whole game: all intervals and the draw loop.
      */
     stop() {
         this.stopped = true;
@@ -164,8 +163,7 @@ class World {
     }
 
     /**
-     * Moves the character. If the step ends inside a barrier, only the blocked axis is undone,
-     * so the character can still slide along a barrier (e.g. swim up while pressing against it).
+     * Moves the character; if the step ends inside a barrier, only the blocked axis is undone.
      */
     moveCharacter() {
         let from = { x: this.character.x, y: this.character.y };
@@ -234,10 +232,12 @@ class World {
 
     /**
      * Moves all bubbles, lets them hit enemies and removes the ones that popped or left the level.
+     * Bubbles pop on barriers.
      */
     moveBubbles() {
         this.bubbles.forEach(bubble => {
             bubble.move();
+            if (this.level.barriers.some(barrier => barrier.collidesWith(bubble))) return bubble.popped = true;
             let enemy = this.level.enemies.find(other => other.isActive() && bubble.isColliding(other));
             if (!enemy) return;
             this.damageEnemy(enemy, bubble.type);
@@ -285,8 +285,7 @@ class World {
     }
 
     /**
-     * Gives character and enemies a reference to the world so they can access
-     * canvas dimensions and other world data without passing each value manually.
+     * Gives character and enemies a reference to the world.
      */
     setWorld() {
         this.character.world = this;
@@ -299,7 +298,7 @@ class World {
     checkCollisions() {
         GameIntervals.start(() => {
             this.level.enemies.forEach(enemy => {
-                if (!this.character.isDead() && enemy.isActive() && this.character.isColliding(enemy)) {
+                if (!this.character.isDead() && enemy.hurtsCharacter(this.character) && this.character.isColliding(enemy)) {
                     this.character.takeHitFrom(enemy);
                 }
             });

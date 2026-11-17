@@ -1,6 +1,5 @@
 /**
- * Central place for all game sounds. Other classes only call GameAudio.play / stop with a sound name,
- * so loading, looping and volume are defined here once.
+ * Central place for all game sounds, played and stopped by name. Mute state is stored in the localStorage.
  */
 class GameAudio {
     /**
@@ -85,8 +84,7 @@ class GameAudio {
     }
 
     /**
-     * Starts a sound from the beginning; does nothing while it is already playing.
-     * The browser may refuse sound before the first click or key press, this is ignored on purpose.
+     * Starts a sound from the beginning; does nothing while it is already playing or while muted.
      * @param {string} name - Key of GameAudio.sounds.
      */
     static play(name) {
@@ -98,9 +96,8 @@ class GameAudio {
     }
 
     /**
-     * Plays a short effect once on a fresh audio element, so the same effect can overlap itself
-     * (e.g. several coins in a row). It is not cached, so it cannot be stopped afterwards.
-     * Unknown or empty names are ignored.
+     * Plays a short effect once on a new audio element, so the same effect can overlap itself.
+     * It cannot be stopped afterwards. Does nothing while muted; unknown or empty names are ignored.
      * @param {string} name - Key of GameAudio.sounds.
      */
     static playOverlapping(name) {
@@ -120,7 +117,7 @@ class GameAudio {
     }
 
     /**
-     * Stops every sound (restart, back to home, end screen).
+     * Stops every sound that has been started with play.
      */
     static stopAll() {
         Object.keys(GameAudio.cache).forEach(name => GameAudio.stop(name));

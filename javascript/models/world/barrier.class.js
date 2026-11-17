@@ -6,8 +6,7 @@ class Barrier extends MovableObject {
     static PATH = "../assets/img/3. Background/Barrier/";
     /**
      * Per variant: size in the game (at scale 1) and the hitbox polygons.
-     * Polygon points are [x, y] in game px, measured from the top left corner of the drawn image
-     * (the blue outline in the game shows exactly these polygons).
+     * Polygon points are [x, y] in game px, measured from the top left corner of the drawn image.
      * Variant 1 consists of two separate pieces: one hanging from above, one on the floor.
      */
     static VARIANTS = [

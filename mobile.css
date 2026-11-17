@@ -56,6 +56,19 @@
     touch-action: none;
 }
 
+.touch-arrow {
+    width: 60%;
+    height: 60%;
+    filter: invert(1);
+    pointer-events: none;
+    transform: translateY(-11%);
+}
+
+.touch-left .touch-arrow { transform: rotate(-90deg) translate(-11%, -11%); }
+.touch-right .touch-arrow { transform: rotate(90deg) translate(11%, -11%); }
+.touch-up .touch-arrow { transform: rotate(0deg) translate(0, 11%); }
+.touch-down .touch-arrow { transform: rotate(180deg) translate(0, -11%); }
+
 .touch-action {
     width: var(--action-btn);
     height: var(--action-btn);
@@ -89,9 +102,31 @@
 
     .mute-btn {
         top: 16px;
-        left: 16px;
+        left: 66px;
         right: auto;
         bottom: auto;
+    }
+
+    .fullscreen-btn {
+        left: 16px;
+    }
+
+    .game-container,
+    .game-container *,
+    .touch-controls * {
+        -webkit-user-select: none;
+        user-select: none;
+        -webkit-touch-callout: none;
+        -webkit-tap-highlight-color: transparent;
+    }
+
+    .game-container img,
+    canvas {
+        -webkit-user-drag: none;
+    }
+
+    .mute-btn {
+        touch-action: manipulation;
     }
 }
 

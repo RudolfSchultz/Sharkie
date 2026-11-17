@@ -107,6 +107,14 @@ class MovableObject {
     }
 
     /**
+     * @param {MovableObject} character - The character that touches this object.
+     * @returns {boolean} True when touching this object hurts the character right now; subclasses can override it.
+     */
+    hurtsCharacter(character) {
+        return this.isActive();
+    }
+
+    /**
      * Builds the paths of numbered animation frames (1.png, 2.png, ...) in one folder.
      * @param {string} folder - Folder path ending with "/".
      * @param {number} count - Number of frames.

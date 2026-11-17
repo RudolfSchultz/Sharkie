@@ -54,10 +54,17 @@ class Character extends MovableObject {
      */
     knockX = 0;
     /**
-     * Start speed of the knockback after a hit and the share of it that is kept per game tick.
+     * Start speed of the knockback after a hit in px per game tick.
      */
     static KNOCKBACK_SPEED = 10;
+    /**
+     * Share of the knockback speed that is kept per game tick.
+     */
     static KNOCKBACK_DECAY = 0.85;
+    /**
+     * Time in ms after damage in which the character takes no further damage.
+     */
+    static DAMAGE_COOLDOWN_MS = 3000;
     currentImage = 0;
     currentMovement;
     world;
@@ -139,7 +146,7 @@ class Character extends MovableObject {
 
     /**
      * Picks the animation from death, attack, hurt, pressed keys and idle time.
-     * An attack wins over the hurt animation, so the character can still fight back right after a hit.
+     * An attack wins over the hurt animation.
      */
     whichMovement() {
         this.finishAttack();
@@ -164,11 +171,11 @@ class Character extends MovableObject {
 
     /**
      * Takes the damage of an enemy contact, remembers how it hurt (poison or electric shock)
-     * and gets pushed away from the enemy. While hurt (1 s after a hit) further contacts do nothing.
+     * and gets pushed away from the enemy. For DAMAGE_COOLDOWN_MS after a hit further contacts do nothing.
      * @param {MovableObject} enemy - The enemy the character touched.
      */
     takeHitFrom(enemy) {
-        if (this.isHurt()) return;
+        if (Date.now() - this.lastHit < Character.DAMAGE_COOLDOWN_MS) return;
         this.lastHitType = enemy.hurtType;
         this.hit(enemy.damage);
         GameAudio.playOverlapping(enemy.hurtType === "shock" ? "electricShock" : "getDmg");
@@ -325,9 +332,7 @@ class Character extends MovableObject {
     }
 
     /**
-     * Waits for the death animation, then floats up to the top edge and bobs gently.
-     * The surface is reached when the top of the hitbox touches the top canvas edge;
-     * from above the character also sinks down slowly to that point.
+     * Waits for the death animation, then floats to the surface (top of the hitbox at the top canvas edge) and bobs gently.
      */
     floatUp() {
         if (this.currentMovement !== this.imagesDeadByPoison || !this.isLooping()) return;

@@ -11,8 +11,6 @@ const GAME_HEIGHT = 480;
 /**
  * Scales the whole game container (canvas and overlays) to fit the window below the heading and between
  * the side zones of the touch buttons (body padding), keeping the 3:2 ratio and never above 100 % (720 x 480).
- * clientWidth/clientHeight are used instead of innerWidth/innerHeight,
- * because mobile browsers report a wider innerWidth while the page is still zoomed out.
  */
 function fitGame() {
     let body = getComputedStyle(document.body);
@@ -33,7 +31,7 @@ function headingHeight() {
 }
 
 /**
- * Connects every touch button to the key it stands for; the game cannot tell touch and keyboard apart.
+ * Connects every touch button to the key in its data-key attribute.
  */
 function bindTouchButtons() {
     document.querySelectorAll("[data-key]").forEach(button => {
@@ -44,8 +42,7 @@ function bindTouchButtons() {
 }
 
 /**
- * Sets the key of a touch button in the current keyboard object. The global keyboard is read here on every touch,
- * because each new game creates a new one.
+ * Sets the key of a touch button in the current keyboard object.
  * @param {TouchEvent} event - The touch event.
  * @param {HTMLElement} button - The touched button with its key in data-key.
  * @param {boolean} state - True while the finger is on the button.
@@ -57,11 +54,19 @@ function pressTouchKey(event, button, state) {
 }
 
 /**
- * Shows the touch buttons only while a game is running (they are only visible on touch devices at all).
+ * Shows the touch buttons only while a game is running (on touch devices).
  * @param {boolean} playing - True while no overlay screen is shown.
  */
 function showTouchControls(playing) {
     document.getElementById("touchControls").classList.toggle("d-none", !playing);
+}
+
+/**
+ * Blocks the context menu (long press) on the game area of touch devices; other pages are not affected.
+ */
+function blockGameContextMenu() {
+    if (!matchMedia("(hover: none) and (pointer: coarse)").matches) return;
+    document.querySelector(".game-container").addEventListener("contextmenu", event => event.preventDefault());
 }
 
 window.addEventListener("resize", fitGame);

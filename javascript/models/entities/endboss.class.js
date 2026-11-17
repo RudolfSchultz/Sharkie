@@ -1,48 +1,16 @@
 /**
  * Final enemy, placed at the end of the level. It stays hidden until the character reaches the boss arena,
  * then plays its intro, guards its place and lunges at the character from time to time (more often when enraged).
- * Only poisoned bubbles hurt it.
+ * It takes damage from the fin slap, bubbles and poison.
  */
 class Endboss extends MovableObject {
 
 
-    imagesIntro = [
-        "../assets/img/2.Enemy/3 Final Enemy/1.Introduce/1.png",
-        "../assets/img/2.Enemy/3 Final Enemy/1.Introduce/2.png",
-        "../assets/img/2.Enemy/3 Final Enemy/1.Introduce/3.png",
-        "../assets/img/2.Enemy/3 Final Enemy/1.Introduce/4.png",
-        "../assets/img/2.Enemy/3 Final Enemy/1.Introduce/5.png",
-        "../assets/img/2.Enemy/3 Final Enemy/1.Introduce/6.png",
-        "../assets/img/2.Enemy/3 Final Enemy/1.Introduce/7.png",
-        "../assets/img/2.Enemy/3 Final Enemy/1.Introduce/8.png",
-        "../assets/img/2.Enemy/3 Final Enemy/1.Introduce/9.png",
-        "../assets/img/2.Enemy/3 Final Enemy/1.Introduce/10.png"
-    ]
+    imagesIntro = MovableObject.framePaths("../assets/img/2.Enemy/3 Final Enemy/1.Introduce/", 10);
 
-    imagesFloating = [
-        "../assets/img/2.Enemy/3 Final Enemy/2.floating/1.png",
-        "../assets/img/2.Enemy/3 Final Enemy/2.floating/2.png",
-        "../assets/img/2.Enemy/3 Final Enemy/2.floating/3.png",
-        "../assets/img/2.Enemy/3 Final Enemy/2.floating/4.png",
-        "../assets/img/2.Enemy/3 Final Enemy/2.floating/5.png",
-        "../assets/img/2.Enemy/3 Final Enemy/2.floating/6.png",
-        "../assets/img/2.Enemy/3 Final Enemy/2.floating/7.png",
-        "../assets/img/2.Enemy/3 Final Enemy/2.floating/8.png",
-        "../assets/img/2.Enemy/3 Final Enemy/2.floating/9.png",
-        "../assets/img/2.Enemy/3 Final Enemy/2.floating/10.png",
-        "../assets/img/2.Enemy/3 Final Enemy/2.floating/11.png",
-        "../assets/img/2.Enemy/3 Final Enemy/2.floating/12.png",
-        "../assets/img/2.Enemy/3 Final Enemy/2.floating/13.png"
-    ]
+    imagesFloating = MovableObject.framePaths("../assets/img/2.Enemy/3 Final Enemy/2.floating/", 13);
 
-    imagesAttack = [
-        "../assets/img/2.Enemy/3 Final Enemy/Attack/1.png",
-        "../assets/img/2.Enemy/3 Final Enemy/Attack/2.png",
-        "../assets/img/2.Enemy/3 Final Enemy/Attack/3.png",
-        "../assets/img/2.Enemy/3 Final Enemy/Attack/4.png",
-        "../assets/img/2.Enemy/3 Final Enemy/Attack/5.png",
-        "../assets/img/2.Enemy/3 Final Enemy/Attack/6.png"
-    ]
+    imagesAttack = MovableObject.framePaths("../assets/img/2.Enemy/3 Final Enemy/Attack/", 6);
 
     imagesDead = [
         "../assets/img/2.Enemy/3 Final Enemy/Dead/Mesa de trabajo 2.png",
@@ -53,16 +21,11 @@ class Endboss extends MovableObject {
         "../assets/img/2.Enemy/3 Final Enemy/Dead/Mesa de trabajo 2 copia 10.png"
     ]
 
-    imagesHurt = [
-        "../assets/img/2.Enemy/3 Final Enemy/Hurt/1.png",
-        "../assets/img/2.Enemy/3 Final Enemy/Hurt/2.png",
-        "../assets/img/2.Enemy/3 Final Enemy/Hurt/3.png",
-        "../assets/img/2.Enemy/3 Final Enemy/Hurt/4.png"
-    ]
+    imagesHurt = MovableObject.framePaths("../assets/img/2.Enemy/3 Final Enemy/Hurt/", 4);
     /**
-     * Hitbox of 260 x 110 px: the body without the dorsal fin.
+     * Hitbox of 260 x 110 px: the body without the dorsal fin. Left and right are equal.
      */
-    offset = { top: 150, right: 30, bottom: 55, left: 25 };
+    offset = { top: 150, right: 27.5, bottom: 55, left: 27.5 };
     /**
      * Direct damage per attack type. A poisoned bubble also adds a poison stack (damage over time, see reactTo).
      */
@@ -75,11 +38,13 @@ class Endboss extends MovableObject {
     damage = 10;
     /**
      * "hidden" before the boss fight, then "intro", "floating" (guarding its place),
-     * "attack" (lunge) and "returning" (back to its place after a lunge).
+     * "charge" (swimming towards the character), "attack" (bite on the last part of the way)
+     * and "returning" (back to its place).
      */
     state = "hidden";
     lastAttack = 0;
     lungeDirection = { x: -1, y: 0 };
+    lungeStart = { x: 0, y: 0 };
     poisonStacks = 0;
     lastPoisonTick = 0;
     lastPoisonDamage = 0;
@@ -94,9 +59,15 @@ class Endboss extends MovableObject {
      */
     static SPAWN_GAP = 30;
     /**
-     * Distance in px (center to center) from which the boss starts a lunge; covers the whole arena from its place.
+     * Length in px of the whole lunge from the boss's place (swimming, then biting) and maximum distance
+     * to the character (center to center) at which a lunge starts.
      */
     static ATTACK_RANGE = 520;
+    /**
+     * Length in px of the last part of the lunge in which the bite animation is shown.
+     * The swimming part is ATTACK_RANGE - BITE_DISTANCE; the boss does not swim if BITE_DISTANCE is at least ATTACK_RANGE.
+     */
+    static BITE_DISTANCE = 340;
     /**
      * Minimum time in ms between two lunges, normally and while enraged.
      */
@@ -155,6 +126,8 @@ class Endboss extends MovableObject {
         if (this.state !== "hidden") return;
         this.state = "intro";
         this.lastAttack = Date.now();
+        this.setCurrentMovement(this.imagesIntro, this.imagesIntro.length - 1);
+        this.img = this.imageCache[this.imagesIntro[0]];
     }
 
     /**
@@ -194,19 +167,19 @@ class Endboss extends MovableObject {
     }
 
     /**
-     * Picks the animation: death, then intro or attack (never interrupted), then hurt, otherwise floating.
-     * The dead boss keeps its last frame.
+     * Picks the animation: death, intro, attack, hurt, otherwise floating.
+     * Death and attack play once and keep their last frame.
      */
     whichMovement() {
         if (this.isDead()) this.setCurrentMovement(this.imagesDead, this.imagesDead.length - 1);
         else if (this.state === "intro") this.playOnce(this.imagesIntro);
-        else if (this.state === "attack") this.playOnce(this.imagesAttack);
+        else if (this.state === "attack") this.setCurrentMovement(this.imagesAttack, this.imagesAttack.length - 1);
         else if (this.isHurt()) this.setCurrentMovement(this.imagesHurt);
         else this.setCurrentMovement(this.imagesFloating);
     }
 
     /**
-     * Plays intro or attack once, then continues with the next state.
+     * Plays the intro once, then the boss starts floating.
      * @param {string[]} images - Frames of the animation.
      */
     playOnce(images) {
@@ -218,7 +191,7 @@ class Endboss extends MovableObject {
      * After a lunge the boss swims back to its place, after the intro it floats. The attack cooldown starts now.
      */
     endAction() {
-        this.state = this.state === "attack" ? "returning" : "floating";
+        this.state = this.state === "intro" ? "floating" : "returning";
         this.lastAttack = Date.now();
     }
 
@@ -230,6 +203,27 @@ class Endboss extends MovableObject {
         if (type !== "poison" || this.isDead()) return;
         if (this.poisonStacks === 0) this.lastPoisonTick = Date.now();
         this.poisonStacks = Math.min(Endboss.MAX_POISON_STACKS, this.poisonStacks + 1);
+    }
+
+    /**
+     * The boss only hurts the character through the front half of its hitbox (mouth), not through the rear half (tail fin).
+     * @param {MovableObject} character - The character that touches the boss.
+     * @returns {boolean} True when the boss is active and the character reaches into the front half of its hitbox.
+     */
+    hurtsCharacter(character) {
+        return this.isActive() && this.overlapsFront(character);
+    }
+
+    /**
+     * The front is the left half of the hitbox, or the right half when otherDirection is set.
+     * @param {MovableObject} mo - Object to test, its hitbox is used.
+     * @returns {boolean} True when the hitbox of the object overlaps the front half of the boss hitbox.
+     */
+    overlapsFront(mo) {
+        let left = this.otherDirection ? this.centerX() : this.hitboxLeft();
+        let right = this.otherDirection ? this.hitboxRight() : this.centerX();
+        return mo.hitboxRight() > left && mo.hitboxLeft() < right
+            && mo.hitboxBottom() > this.hitboxTop() && mo.hitboxTop() < this.hitboxBottom();
     }
 
     /**
@@ -251,7 +245,7 @@ class Endboss extends MovableObject {
     move() {
         if (this.isDead()) return this.floatUp();
         this.applyPoison();
-        if (this.state === "attack") this.lunge();
+        if (this.isLunging()) this.lunge();
         else if (this.state === "returning") this.returnHome();
         else if (this.state === "floating") this.attackIfReady(this.faceCharacter());
     }
@@ -289,15 +283,54 @@ class Endboss extends MovableObject {
         if (target.distance === 0 || target.distance >= Endboss.ATTACK_RANGE) return;
         if (Date.now() - this.lastAttack < this.attackCooldown()) return;
         this.lungeDirection = { x: target.dx / target.distance, y: target.dy / target.distance };
+        this.lungeStart = { x: this.x, y: this.y };
+        if (Endboss.ATTACK_RANGE > this.attackDistance()) this.state = "charge";
+        else this.startBite();
+    }
+
+    /**
+     * Switches from swimming to biting: plays the attack animation and the bite sound.
+     */
+    startBite() {
         this.state = "attack";
+        this.setCurrentMovement(this.imagesAttack, this.imagesAttack.length - 1);
+        this.img = this.imageCache[this.imagesAttack[0]];
         GameAudio.playOverlapping("bossBite");
     }
 
     /**
-     * Shoots towards the point where the character was when the attack started.
+     * @returns {boolean} True while the boss swims towards the character or bites.
+     */
+    isLunging() {
+        return this.state === "charge" || this.state === "attack";
+    }
+
+    /**
+     * @returns {number} Length in px of the biting part at the end of the lunge (BITE_DISTANCE).
+     */
+    attackDistance() {
+        return Endboss.BITE_DISTANCE;
+    }
+
+    /**
+     * Moves one step along the lunge direction without sliding along edges or barriers.
+     * Swimming turns into biting after ATTACK_RANGE - attackDistance px or when the boss is blocked.
+     * The bite ends after ATTACK_RANGE px, or when the boss is blocked and the bite animation has played once.
      */
     lunge() {
-        this.moveBy(this.lungeDirection.x * Endboss.ATTACK_SPEED, this.lungeDirection.y * Endboss.ATTACK_SPEED);
+        let before = { x: this.x, y: this.y };
+        this.moveBy(this.lungeDirection.x * Endboss.ATTACK_SPEED, this.lungeDirection.y * Endboss.ATTACK_SPEED, false);
+        let stuck = Math.hypot(this.x - before.x, this.y - before.y) < Endboss.ATTACK_SPEED - 0.01;
+        let distance = this.lungeDistance();
+        if (this.state === "charge" && (stuck || distance >= Endboss.ATTACK_RANGE - this.attackDistance())) this.startBite();
+        else if (this.state === "attack" && (distance >= Endboss.ATTACK_RANGE || (stuck && this.isLooping()))) this.endAction();
+    }
+
+    /**
+     * @returns {number} Straight distance in px between the boss and the point where the lunge started (its place).
+     */
+    lungeDistance() {
+        return Math.hypot(this.x - this.lungeStart.x, this.y - this.lungeStart.y);
     }
 
     /**
@@ -322,21 +355,47 @@ class Endboss extends MovableObject {
     }
 
     /**
-     * Moves by a step and keeps the boss inside the arena.
+     * Moves by a step inside the arena; a step into a barrier is not made.
+     * With slide the single axes are tried when the whole step is blocked.
      * @param {number} dx - Step in x.
      * @param {number} dy - Step in y.
+     * @param {boolean} [slide=true] - True to try the single axes when the whole step is blocked.
      */
-    moveBy(dx, dy) {
-        this.x += dx;
-        this.y += dy;
-        this.stayInArena();
+    moveBy(dx, dy, slide = true) {
+        let from = { x: this.x, y: this.y };
+        let steps = slide ? [[dx, dy], [0, dy], [dx, 0]] : [[dx, dy]];
+        let moved = steps.some(([stepX, stepY]) => this.tryStep(from, stepX, stepY));
+        if (moved) return;
+        this.x = from.x;
+        this.y = from.y;
     }
 
     /**
-     * Keeps the boss inside the arena (from the arena start to the level end) and inside the canvas height.
+     * Tries one step from a start position.
+     * @param {{x: number, y: number}} from - Position before the step.
+     * @param {number} dx - Step in x.
+     * @param {number} dy - Step in y.
+     * @returns {boolean} True when the new position does not overlap a barrier.
+     */
+    tryStep(from, dx, dy) {
+        this.x = from.x + dx;
+        this.y = from.y + dy;
+        this.stayInArena();
+        return !this.touchesBarrier();
+    }
+
+    /**
+     * @returns {boolean} True when the hitbox of the boss overlaps a barrier.
+     */
+    touchesBarrier() {
+        return this.world.level.barriers.some(barrier => barrier.collidesWith(this));
+    }
+
+    /**
+     * Keeps the boss image between the left camera edge and the level end, and the hitbox inside the canvas height.
      */
     stayInArena() {
-        let minX = this.world.leftBoundary() - this.offset.left;
+        let minX = this.world.leftBoundary();
         let maxX = this.world.level.levelEndX - this.width;
         let maxY = this.world.canvas.height - this.height + this.offset.bottom;
         this.x = Math.min(Math.max(this.x, minX), maxX);

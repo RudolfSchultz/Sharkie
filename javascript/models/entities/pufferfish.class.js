@@ -1,6 +1,5 @@
 /**
- * Enemy that swims back and forth between two points. The color variant is chosen once at random;
- * it is one object that holds all image lists of that color, so every state uses the right color directly.
+ * Enemy that swims back and forth between two points. The color variant is chosen once at random.
  * A bubble does not kill it but inflates it: transition animation once, then the bubble swim loop.
  * A fin slap kills it and knocks it away to the ground; a poisoned bubble kills it and it floats up.
  */
@@ -185,6 +184,13 @@ class PufferFish extends MovableObject {
      */
     variantOf(swim, transition, bubbleSwim, floating, slapped) {
         return { swim, transition, bubbleSwim, floating, slapped, inflate: [...transition, ...bubbleSwim] };
+    }
+
+    /**
+     * @returns {boolean} True while the fish is not inflated: a fish that was hit by a bubble is harmless.
+     */
+    hurtsCharacter() {
+        return this.isActive() && !this.inflated;
     }
 
     /**

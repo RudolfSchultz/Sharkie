@@ -1,5 +1,5 @@
 /**
- * Total length of level 1 in px. Change it here to make the level longer or shorter.
+ * Total length of level 1 in px.
  */
 const LEVEL1_LENGTH = 10000;
 
@@ -12,7 +12,7 @@ const level1BackgroundImages = [
 ];
 
 /**
- * Builds level 1 fresh, so every start has the same fixed positions.
+ * Builds level 1 with fixed positions.
  * Layout (5 zones): 1 start 0–1800, 2 jellyfish gates 1800–4000, 3 rock tunnel 4000–6400,
  * 4 deep sea 6400–8800, 5 boss arena 8800–10000.
  * @returns {Level} A new level with enemies, coins, poison bottles and barriers.
@@ -117,5 +117,25 @@ function createLevel1Barriers() {
         new Barrier(5900, 273, 2, 1.5),
         new Barrier(7100, 110, 3, 2),
         new Barrier(8450, 342, 2),
+        createBossShelter(LEVEL1_LENGTH),
     ];
+}
+
+/**
+ * Gap in px between the left edge of the boss arena and the shelter wall, and its height as share of the canvas height.
+ */
+const BOSS_SHELTER_GAP = 150;
+const BOSS_SHELTER_HEIGHT_SHARE = 0.15;
+
+/**
+ * Low rock wall in the bottom left of the boss arena. The gap between arena edge and wall is wide enough
+ * for Sharkie but too narrow for the boss.
+ * @param {number} levelLength - Level length in px; the arena is the last screen width of the level.
+ * @returns {Barrier} The shelter wall (variant 2), standing on the sea floor.
+ */
+function createBossShelter(levelLength) {
+    let arenaStart = levelLength - 720;
+    let height = 480 * BOSS_SHELTER_HEIGHT_SHARE;
+    let scale = height / Barrier.VARIANTS[1].height;
+    return new Barrier(arenaStart + BOSS_SHELTER_GAP, 480 - height, 2, scale);
 }
