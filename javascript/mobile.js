@@ -10,13 +10,15 @@ const GAME_HEIGHT = 480;
 
 /**
  * Scales the whole game container (canvas and overlays) to fit the window below the heading and between
- * the side zones of the touch buttons (body padding), keeping the 3:2 ratio and never above 100 % (720 x 480).
+ * the side zones of the touch buttons (body padding), keeping the 3:2 ratio. Text, buttons and images scale with it,
+ * so the layout looks the same at every size. Outside fullscreen the game is never shown above 100 % (720 x 480).
  */
 function fitGame() {
     let body = getComputedStyle(document.body);
     let width = document.documentElement.clientWidth - parseFloat(body.paddingLeft) - parseFloat(body.paddingRight);
     let height = document.documentElement.clientHeight - headingHeight();
-    let scale = Math.min(width / GAME_WIDTH, height / GAME_HEIGHT, 1);
+    let maxScale = document.fullscreenElement ? Infinity : 1;
+    let scale = Math.min(width / GAME_WIDTH, height / GAME_HEIGHT, maxScale);
     document.querySelector(".game-container").style.zoom = scale;
 }
 
@@ -70,3 +72,4 @@ function blockGameContextMenu() {
 }
 
 window.addEventListener("resize", fitGame);
+document.addEventListener("fullscreenchange", fitGame);
