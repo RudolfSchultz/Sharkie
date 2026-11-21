@@ -1,6 +1,11 @@
 let canvas;
 let world;
 let keyboard = new Keyboard();
+document.addEventListener("fullscreenchange", updateFullscreenButton);
+/**
+ * Objects created only to load their images while the start screen is shown; kept so the loading is not cancelled.
+ */
+let preloadedObjects = [];
 
 /**
  * Maps KeyboardEvent.code values to the property names of the Keyboard object.
@@ -29,10 +34,6 @@ function init() {
     preloadGameImages();
 }
 
-/**
- * Objects created only to load their images while the start screen is shown; kept so the loading is not cancelled.
- */
-let preloadedObjects = [];
 
 /**
  * Loads all game images while the start screen is shown, so the first frame after "Start" is not black
@@ -106,8 +107,6 @@ function updateFullscreenButton() {
     icon.src = full ? "assets/img/6.Botones/minimize.png" : "assets/img/6.Botones/fullscreen.png";
     icon.alt = full ? "Vollbild beenden" : "Vollbild";
 }
-
-document.addEventListener("fullscreenchange", updateFullscreenButton);
 
 /**
  * Starts the intro music with the first click or key press while the start screen is shown.
@@ -192,6 +191,19 @@ function showScreen(id) {
 }
 
 /**
+ * Updates the keyboard object based on which key was pressed or released.
+ * The default browser action of mapped keys is prevented.
+ * @param {KeyboardEvent} event - The triggered keyboard event.
+ * @param {boolean} state - True on keydown, false on keyup.
+ */
+function setKeyState(event, state) {
+    const prop = keyMap[event.code];
+    if (!prop) return;
+    event.preventDefault();
+    keyboard[prop] = state;
+}
+
+/**
  * Marks the mapped key as pressed when a keydown event fires.
  * @param {KeyboardEvent} event - The triggered keyboard event.
  */
@@ -208,15 +220,3 @@ window.onkeyup = function (event) {
     setKeyState(event, false);
 };
 
-/**
- * Updates the keyboard object based on which key was pressed or released.
- * The default browser action of mapped keys is prevented.
- * @param {KeyboardEvent} event - The triggered keyboard event.
- * @param {boolean} state - True on keydown, false on keyup.
- */
-function setKeyState(event, state) {
-    const prop = keyMap[event.code];
-    if (!prop) return;
-    event.preventDefault();
-    keyboard[prop] = state;
-}
