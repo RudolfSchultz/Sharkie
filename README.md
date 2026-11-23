@@ -148,16 +148,16 @@ classDiagram
 
 ```text
 Sharkie/
-├── index.html              # Einstieg: Canvas, Start-/Endscreen, Touch-Controls
+├── index.html              # Einstieg: Canvas, Screens, Info-Dialog, Touch-Controls
 ├── style.css               # Layout, Screens, Responsive & Mobile
-├── Impressum/              # Impressum-Seite
 ├── assets/
 │   ├── audio/              # Musik & Soundeffekte
 │   ├── font/               # Luckiest Guy
 │   └── img/                # Sprites, Hintergründe, Buttons
 └── javascript/
     ├── game.js             # Init, Screens, Tastatur, Mute, Vollbild
-    ├── mobile.js           # Touch-Steuerung
+    ├── mobile/             # mobile.js: Skalierung & Touch-Steuerung
+    ├── templates/          # templates.js: Inhalte des Info-Dialogs (Anleitung, Impressum)
     ├── levels/level1.js    # Leveldefinition
     └── models/
         ├── base/           # MovableObject, Keyboard, Geometry, Audio, Intervals

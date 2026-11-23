@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="google" content="notranslate">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
     <link rel="stylesheet" href="style.css">
     <link rel="icon" type="image/png" sizes="32x32" href="assets/img/favicon/favicon-32.png">
     <link rel="icon" type="image/png" sizes="192x192" href="assets/img/favicon/favicon-192.png">
@@ -27,29 +27,13 @@
                 <button class="img-btn start-btn" onclick="startGame()" aria-label="Start"></button>
                 <button class="text-btn" onclick="showInstructions()">Anleitung</button>
             </div>
-            <a class="text-btn legal-link" href="Impressum/impressum.html" target="_blank" rel="noopener">Impressum</a>        </div>
+            <button class="text-btn legal-link" onclick="showImprint()">Impressum</button>
+        </div>
 
-        <dialog id="instructionDialog" class="instruction-dialog" onclick="closeOnBackdrop(event)" aria-labelledby="instructionTitle">
-            <div class="instruction-panel">
-                <button class="close-x" onclick="closeInstructions()" aria-label="Schließen">&times;</button>
-                <h2 id="instructionTitle" class="instruction-title">Anleitung</h2>
-                <div class="key-row">
-                    <div class="arrow-keys">
-                        <span class="key-cap key-up">&#9650;</span>
-                        <span class="key-cap key-left">&#9664;</span>
-                        <span class="key-cap key-down">&#9660;</span>
-                        <span class="key-cap key-right">&#9654;</span>
-                    </div>
-                    <span class="key-label">Sharkie steuern</span>
-                </div>
-                <div class="key-row">
-                    <div class="key-group"><span class="key-cap key-space">Leertaste</span></div>
-                    <span class="key-label">Flossenschlag</span>
-                </div>
-                <div class="key-row">
-                    <div class="key-group"><span class="key-cap">A</span></div>
-                    <span class="key-label">Blase schießen</span>
-                </div>
+        <dialog id="infoDialog" class="info-dialog" onclick="closeOnBackdrop(event)" aria-labelledby="dialogTitle">
+            <div class="info-panel">
+                <button class="close-x" onclick="closeDialog()" aria-label="Schließen">&times;</button>
+                <div id="dialogContent" class="dialog-content"></div>
             </div>
         </dialog>
 
@@ -107,7 +91,8 @@
 <script src="/javascript/models/world/level.class.js"></script>
 <script src="/javascript/levels/level1.js"></script>
 <script src="/javascript/models/world/world.class.js"></script>
+<script src="/javascript/templates/templates.js"></script>
 <script src="/javascript/game.js"></script>
-<script src="/javascript/mobile.js"></script>
+<script src="/javascript/mobile/mobile.js"></script>
 
 </html>

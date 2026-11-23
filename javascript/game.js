@@ -122,27 +122,46 @@ function startIntroOnFirstInput() {
 }
 
 /**
- * Opens the instruction dialog over the canvas; the start screen is inert while it is open.
+ * Opens the shared info dialog with the instructions.
  */
 function showInstructions() {
-    document.getElementById("startScreen").inert = true;
-    document.getElementById("instructionDialog").show();
+    openDialog(instructionsTemplate());
 }
 
 /**
- * Closes the instruction dialog (X button, click beside the panel, Escape key).
+ * Opens the shared info dialog with the imprint.
  */
-function closeInstructions() {
-    document.getElementById("instructionDialog").close();
+function showImprint() {
+    openDialog(imprintTemplate());
+}
+
+/**
+ * Renders the given content into the single info dialog and opens it over the canvas.
+ * The start screen is inert while the dialog is open; the content starts scrolled to the top.
+ * @param {string} html - Dialog content (title and body) from a template function.
+ */
+function openDialog(html) {
+    const content = document.getElementById("dialogContent");
+    content.innerHTML = html;
+    content.querySelector(".dialog-body").scrollTop = 0;
+    document.getElementById("startScreen").inert = true;
+    document.getElementById("infoDialog").show();
+}
+
+/**
+ * Closes the info dialog (X button, click beside the panel, Escape key).
+ */
+function closeDialog() {
+    document.getElementById("infoDialog").close();
     document.getElementById("startScreen").inert = false;
 }
 
 /**
- * Closes the instruction dialog on a click beside the panel (the click target is the dialog itself).
+ * Closes the info dialog on a click beside the panel (the click target is the dialog itself).
  * @param {MouseEvent} event - The click event of the dialog.
  */
 function closeOnBackdrop(event) {
-    if (event.target === event.currentTarget) closeInstructions();
+    if (event.target === event.currentTarget) closeDialog();
 }
 
 /**
@@ -208,7 +227,7 @@ function setKeyState(event, state) {
  * @param {KeyboardEvent} event - The triggered keyboard event.
  */
 window.onkeydown = function (event) {
-    if (event.code === "Escape") closeInstructions();
+    if (event.code === "Escape") closeDialog();
     setKeyState(event, true);
 };
 

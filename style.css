@@ -156,7 +156,7 @@ html:fullscreen h1 {
     pointer-events: none;
 }
 
-.instruction-dialog {
+.info-dialog {
     position: absolute;
     inset: 0;
     width: 100%;
@@ -164,38 +164,76 @@ html:fullscreen h1 {
     max-width: none;
     max-height: none;
     margin: 0;
-    padding: 0;
+    padding: 16px 16px 70px;
     border: none;
     box-sizing: border-box;
     background-color: rgba(0, 10, 30, 0.45);
     font-family: "Luckiest Guy", sans-serif;
     cursor: default;
     user-select: none;
+    overscroll-behavior: contain;
 }
 
-.instruction-dialog[open] {
+.info-dialog[open] {
     display: flex;
     align-items: center;
     justify-content: center;
 }
 
-.instruction-panel {
+html:has(.info-dialog[open]),
+body:has(.info-dialog[open]) {
+    overflow: hidden;
+    overscroll-behavior: none;
+}
+
+.info-panel {
     position: relative;
     width: 600px;
-    max-width: calc(100% - 32px);
+    max-width: 100%;
+    max-height: 100%;
+    display: flex;
+    box-sizing: border-box;
+    padding: 18px 16px 24px 40px;
+    background-color: rgba(25, 10, 50, 0.85);
+    border-radius: 48px;
+}
+
+.dialog-content {
     display: flex;
     flex-direction: column;
     gap: 14px;
-    padding: 18px 40px 24px;
-    box-sizing: border-box;
-    background-color: rgba(25, 10, 50, 0.85);
-    border-radius: 48px;
+    width: 100%;
+    min-height: 0;
+}
+
+.dialog-body {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+    min-height: 0;
+    padding-right: 24px;
+    overflow-y: auto;
+    overscroll-behavior: contain;
+    -webkit-overflow-scrolling: touch;
+    touch-action: pan-y;
+    scrollbar-width: thin;
+    scrollbar-color: #7fffdd transparent;
+}
+
+.dialog-body::-webkit-scrollbar {
+    width: 8px;
+}
+
+.dialog-body::-webkit-scrollbar-thumb {
+    background-color: #7fffdd;
+    border-radius: 4px;
 }
 
 .close-x {
     position: absolute;
     top: 16px;
     right: 24px;
+    z-index: 1;
     width: 36px;
     height: 36px;
     padding: 0;
@@ -213,12 +251,39 @@ html:fullscreen h1 {
     background-color: #c2187d;
 }
 
-.instruction-title {
+.dialog-title {
+    flex-shrink: 0;
     margin: 0;
+    padding: 0 40px;
     font-size: 40px;
     font-weight: normal;
     text-align: center;
     color: #ffffff;
+}
+
+.legal {
+    display: block;
+    font-family: Arial, sans-serif;
+    font-size: 16px;
+    line-height: 1.5;
+    color: #ffffff;
+    user-select: text;
+}
+
+.legal h3 {
+    margin: 20px 0 4px;
+    font-family: "Luckiest Guy", sans-serif;
+    font-size: 22px;
+    font-weight: normal;
+    color: #7fffdd;
+}
+
+.legal h3:first-child {
+    margin-top: 0;
+}
+
+.legal p {
+    margin: 0;
 }
 
 .key-row {
@@ -292,8 +357,8 @@ html:fullscreen h1 {
 .end-screen.win {
     justify-content: flex-start;
     align-items: center;
-    padding: 47% 0 0;
-    background: url("assets/img/6.Botones/Tittles/You win/Mesa de trabajo 1.png") center / cover no-repeat, #2a8fd0;
+    padding: 338px 0 0;
+    background: url("assets/img/6.Botones/Tittles/You win/Mesa de trabajo 1.png") center / auto 100% no-repeat, #2a8fd0;
 }
 
 .end-title {
@@ -427,7 +492,31 @@ html:fullscreen h1 {
 }
 
 @media (hover: none) and (pointer: coarse) {
+    /* The page must never scroll or be dragged on touch devices (iOS ignores overflow: hidden alone). */
+    html {
+        overflow: hidden;
+        overscroll-behavior: none;
+    }
+
+    /* No double-tap zoom, magnifier or text selection anywhere; elements with their own touch-action
+       (touch buttons, canvas, scrollable dialog body) keep it, because a class beats the universal selector. */
+    * {
+        touch-action: manipulation;
+        -webkit-user-select: none;
+        user-select: none;
+        -webkit-touch-callout: none;
+        -webkit-tap-highlight-color: transparent;
+    }
+
+    .legal {
+        -webkit-user-select: none;
+        user-select: none;
+    }
+
     body {
+        position: fixed;
+        inset: 0;
+        overscroll-behavior: none;
         box-sizing: border-box;
         padding-left: calc(env(safe-area-inset-left) + var(--side-zone));
         padding-right: calc(env(safe-area-inset-right) + var(--side-zone));
@@ -448,6 +537,10 @@ html:fullscreen h1 {
         left: 16px;
     }
 
+    .info-dialog {
+        padding: 70px 16px 16px;
+    }
+
     .game-container,
     .game-container *,
     .touch-controls * {
@@ -462,8 +555,33 @@ html:fullscreen h1 {
         -webkit-user-drag: none;
     }
 
+    canvas,
+    .start-screen,
+    .end-screen {
+        touch-action: none;
+    }
+
     .mute-btn {
         touch-action: manipulation;
+    }
+}
+
+/* Smartphones (landscape height up to 500px): no side zones, the game uses the full width and the
+   touch buttons lie on the game area (edges from --game-left/right/bottom, set in fitGame). */
+@media (hover: none) and (pointer: coarse) and (max-height: 500px) {
+    body {
+        padding-left: env(safe-area-inset-left);
+        padding-right: env(safe-area-inset-right);
+    }
+
+    .touch-pad {
+        left: calc(var(--game-left, 0px) + var(--touch-gap));
+        bottom: calc(var(--game-bottom, 0px) + var(--touch-gap));
+    }
+
+    .touch-actions {
+        right: calc(var(--game-right, 0px) + var(--touch-gap));
+        bottom: calc(var(--game-bottom, 0px) + var(--touch-gap));
     }
 }
 

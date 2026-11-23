@@ -130,11 +130,11 @@ const BOSS_SHELTER_HEIGHT_SHARE = 0.15;
 /**
  * Low rock wall in the bottom left of the boss arena. The gap between arena edge and wall is wide enough
  * for Sharkie but too narrow for the boss.
- * @param {number} levelLength - Level length in px; the arena is the last screen width of the level.
+ * @param {number} levelLength - Level length in px; the arena is the last screen width (canvas width) of the level.
  * @returns {Barrier} The shelter wall (variant 2), standing on the sea floor.
  */
 function createBossShelter(levelLength) {
-    let arenaStart = levelLength - 720;
+    let arenaStart = levelLength - canvas.width;
     let height = 480 * BOSS_SHELTER_HEIGHT_SHARE;
     let scale = height / Barrier.VARIANTS[1].height;
     return new Barrier(arenaStart + BOSS_SHELTER_GAP, 480 - height, 2, scale);
