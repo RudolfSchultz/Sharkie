@@ -18,6 +18,7 @@ body {
     justify-content: center;
     align-items: center;
     height: 100vh;
+    height: 100dvh;
     overflow: hidden;
     background: url("assets/img/3. Background/Background.jpg") center / cover no-repeat;
 }
@@ -434,10 +435,21 @@ body:has(.info-dialog[open]) {
     gap: 4px;
 }
 
-.touch-up { grid-area: 1 / 2; }
-.touch-left { grid-area: 2 / 1; }
-.touch-right { grid-area: 2 / 3; }
-.touch-down { grid-area: 3 / 2; }
+.touch-up {
+    grid-area: 1 / 2;
+}
+
+.touch-left {
+    grid-area: 2 / 1;
+}
+
+.touch-right {
+    grid-area: 2 / 3;
+}
+
+.touch-down {
+    grid-area: 3 / 2;
+}
 
 .touch-actions {
     right: calc(env(safe-area-inset-right) + var(--touch-gap));
@@ -469,10 +481,21 @@ body:has(.info-dialog[open]) {
     transform: translateY(-11%);
 }
 
-.touch-left .touch-arrow { transform: rotate(-90deg) translate(-11%, -11%); }
-.touch-right .touch-arrow { transform: rotate(90deg) translate(11%, -11%); }
-.touch-up .touch-arrow { transform: rotate(0deg) translate(0, 11%); }
-.touch-down .touch-arrow { transform: rotate(180deg) translate(0, -11%); }
+.touch-left .touch-arrow {
+    transform: rotate(-90deg) translate(-11%, -11%);
+}
+
+.touch-right .touch-arrow {
+    transform: rotate(90deg) translate(11%, -11%);
+}
+
+.touch-up .touch-arrow {
+    transform: rotate(0deg) translate(0, 11%);
+}
+
+.touch-down .touch-arrow {
+    transform: rotate(180deg) translate(0, -11%);
+}
 
 .touch-action {
     width: var(--action-btn);
@@ -495,6 +518,7 @@ body:has(.info-dialog[open]) {
 }
 
 @media (hover: none) and (pointer: coarse) {
+
     /* The page must never scroll or be dragged on touch devices (iOS ignores overflow: hidden alone). */
     html {
         overflow: hidden;
@@ -626,6 +650,14 @@ body:has(.info-dialog[open]) {
 }
 
 @keyframes rotate-phone {
-    0%, 30% { transform: rotate(0deg); }
-    60%, 100% { transform: rotate(-90deg); }
+
+    0%,
+    30% {
+        transform: rotate(0deg);
+    }
+
+    60%,
+    100% {
+        transform: rotate(-90deg);
+    }
 }

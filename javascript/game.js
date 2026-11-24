@@ -1,7 +1,6 @@
 let canvas;
 let world;
 let keyboard = new Keyboard();
-document.addEventListener("fullscreenchange", updateFullscreenButton);
 /**
  * Objects created only to load their images while the start screen is shown; kept so the loading is not cancelled.
  */
@@ -25,6 +24,8 @@ const keyMap = {
 function init() {
     canvas = document.getElementById("canvas");
     fitGame();
+    bindKeyboard();
+    document.addEventListener("fullscreenchange", updateFullscreenButton);
     bindTouchButtons();
     blockGameContextMenu();
     showScreen("startScreen");
@@ -33,7 +34,6 @@ function init() {
     startIntroOnFirstInput();
     preloadGameImages();
 }
-
 
 /**
  * Loads all game images while the start screen is shown, so the first frame after "Start" is not black
@@ -223,19 +223,26 @@ function setKeyState(event, state) {
 }
 
 /**
- * Marks the mapped key as pressed when a keydown event fires.
+ * Connects the keyboard events to the keyboard object (keydown and keyup).
+ */
+function bindKeyboard() {
+    window.onkeydown = handleKeyDown;
+    window.onkeyup = handleKeyUp;
+}
+
+/**
+ * Marks the mapped key as pressed when a keydown event fires; Escape closes the info dialog.
  * @param {KeyboardEvent} event - The triggered keyboard event.
  */
-window.onkeydown = function (event) {
+function handleKeyDown(event) {
     if (event.code === "Escape") closeDialog();
     setKeyState(event, true);
-};
+}
 
 /**
  * Marks the mapped key as released when a keyup event fires.
  * @param {KeyboardEvent} event - The triggered keyboard event.
  */
-window.onkeyup = function (event) {
+function handleKeyUp(event) {
     setKeyState(event, false);
-};
-
+}

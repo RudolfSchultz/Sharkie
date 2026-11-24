@@ -5,7 +5,6 @@
  */
 class Endboss extends MovableObject {
 
-
     imagesIntro = MovableObject.framePaths("../assets/img/2.Enemy/3 Final Enemy/1.Introduce/", 10);
 
     imagesFloating = MovableObject.framePaths("../assets/img/2.Enemy/3 Final Enemy/2.floating/", 13);

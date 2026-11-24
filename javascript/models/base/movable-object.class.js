@@ -194,8 +194,6 @@ class MovableObject {
         if (dx !== 0) this.otherDirection = dx > 0;
     }
 
-
-
     /**
      * Snaps to the target point and turns around to the other one.
      * @param {{x: number, y: number}} target - The point that was reached.
@@ -237,7 +235,6 @@ class MovableObject {
     isLooping() {
         return this.currentImage >= this.currentMovement.length;
     }
-
 
     /**
      * Picks a random entry.
@@ -296,7 +293,6 @@ class MovableObject {
         );
     }
 
-
     /**
      * Hook for subclasses: chooses the current animation. No-op by default.
      */
@@ -305,6 +301,5 @@ class MovableObject {
      * Hook for subclasses: moves the object each game tick. No-op by default.
      */
     move() { }  
-
 
 }

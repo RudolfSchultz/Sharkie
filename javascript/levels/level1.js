@@ -12,6 +12,27 @@ const level1BackgroundImages = [
 ];
 
 /**
+ * Coin groups as [x, y] points, from left to right.
+ */
+const level1CoinPositions = [
+    [300, 260], [350, 230], [400, 215], [450, 230], [500, 260],
+    [1050, 290], [1110, 270], [1170, 260], [1230, 270],
+    [2150, 230], [2200, 230], [2250, 230],
+    [2980, 150], [3040, 130], [3100, 150],
+    [4100, 270], [4200, 270], [4300, 270], [4400, 270], [4500, 270], [4600, 270], [4700, 270],
+    [5250, 120], [5250, 180], [5250, 240],
+    [5980, 220], [6080, 195], [6180, 195], [6280, 220],
+    [7080, 40], [7150, 30], [7220, 30], [7290, 40],
+    [8600, 240], [8650, 240], [8700, 240],
+];
+
+/**
+ * Gap in px between the left edge of the boss arena and the shelter wall, and its height as share of the canvas height.
+ */
+const BOSS_SHELTER_GAP = 150;
+const BOSS_SHELTER_HEIGHT_SHARE = 0.15;
+
+/**
  * Builds level 1 with fixed positions.
  * Layout (5 zones): 1 start 0–1800, 2 jellyfish gates 1800–4000, 3 rock tunnel 4000–6400,
  * 4 deep sea 6400–8800, 5 boss arena 8800–10000.
@@ -70,21 +91,6 @@ function createLevel1HardEnemies() {
 }
 
 /**
- * Coin groups as [x, y] points, from left to right.
- */
-const level1CoinPositions = [
-    [300, 260], [350, 230], [400, 215], [450, 230], [500, 260],
-    [1050, 290], [1110, 270], [1170, 260], [1230, 270],
-    [2150, 230], [2200, 230], [2250, 230],
-    [2980, 150], [3040, 130], [3100, 150],
-    [4100, 270], [4200, 270], [4300, 270], [4400, 270], [4500, 270], [4600, 270], [4700, 270],
-    [5250, 120], [5250, 180], [5250, 240],
-    [5980, 220], [6080, 195], [6180, 195], [6280, 220],
-    [7080, 40], [7150, 30], [7220, 30], [7290, 40],
-    [8600, 240], [8650, 240], [8700, 240],
-];
-
-/**
  * @returns {Coin[]} The coins of level 1.
  */
 function createLevel1Coins() {
@@ -120,12 +126,6 @@ function createLevel1Barriers() {
         createBossShelter(LEVEL1_LENGTH),
     ];
 }
-
-/**
- * Gap in px between the left edge of the boss arena and the shelter wall, and its height as share of the canvas height.
- */
-const BOSS_SHELTER_GAP = 150;
-const BOSS_SHELTER_HEIGHT_SHARE = 0.15;
 
 /**
  * Low rock wall in the bottom left of the boss arena. The gap between arena edge and wall is wide enough

@@ -17,6 +17,11 @@ const MAX_PHONE_GAME_WIDTH = 1080;
 const PHONE_QUERY = matchMedia("(hover: none) and (pointer: coarse) and (max-height: 500px)");
 
 /**
+ * Touch device (smartphone, tablet): there is no keyboard, so the actions are named after the touch buttons.
+ */
+const TOUCH_QUERY = matchMedia("(hover: none) and (pointer: coarse)");
+
+/**
  * Scales the whole game container (canvas and overlays) to fit the window below the heading and between
  * the side zones of the touch buttons (body padding). Text, buttons and images scale with it,
  * so the layout looks the same at every size. Outside fullscreen the game is never shown above 100 % (height 480).
@@ -115,7 +120,7 @@ function showTouchControls(playing) {
  * Blocks the context menu (long press) on the game area of touch devices; other pages are not affected.
  */
 function blockGameContextMenu() {
-    if (!matchMedia("(hover: none) and (pointer: coarse)").matches) return;
+    if (!TOUCH_QUERY.matches) return;
     document.querySelector(".game-container").addEventListener("contextmenu", event => event.preventDefault());
 }
 

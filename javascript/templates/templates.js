@@ -4,9 +4,10 @@
  */
 
 /**
- * @returns {string} Content of the instruction dialog: key bindings.
+ * @returns {string} Content of the instruction dialog: key bindings, with the button names on touch devices.
  */
 function instructionsTemplate() {
+    const touch = TOUCH_QUERY.matches;
     return /*html*/ `
         <h2 id="dialogTitle" class="dialog-title">Anleitung</h2>
         <div class="dialog-body">
@@ -20,11 +21,11 @@ function instructionsTemplate() {
                 <span class="key-label">Sharkie steuern</span>
             </div>
             <div class="key-row">
-                <div class="key-group"><span class="key-cap key-space">Leertaste</span></div>
+                <div class="key-group"><span class="key-cap key-space">${touch ? "Slap" : "Leertaste"}</span></div>
                 <span class="key-label">Flossenschlag</span>
             </div>
             <div class="key-row">
-                <div class="key-group"><span class="key-cap">A</span></div>
+                <div class="key-group"><span class="key-cap${touch ? " key-space" : ""}">${touch ? "Bubble" : "A"}</span></div>
                 <span class="key-label">Blase schießen</span>
             </div>
         </div>

@@ -110,8 +110,6 @@ class Character extends MovableObject {
      */
     static CAMERA_SMOOTHING = 0.2;
 
-
-
     /**
      * Creates the character in idle state and starts its animation.
      */
