@@ -6,6 +6,10 @@
     font-display: swap;
 }
 
+html {
+    background-color: #001a33;
+}
+
 body {
     margin: 0;
     padding: 0;
@@ -14,9 +18,8 @@ body {
     justify-content: center;
     align-items: center;
     height: 100vh;
-    height: 100dvh;
     overflow: hidden;
-    background: #001a33 url("assets/img/3. Background/Background.jpg") center / cover no-repeat;
+    background: url("assets/img/3. Background/Background.jpg") center / cover no-repeat;
 }
 
 h1 {
